@@ -1,6 +1,8 @@
-//import './Home.css'
+import './Navbar.css'
+import { useState } from "react";
 import { Link } from "react-router-dom";
 export default function Navbar() {
+  const [isAuth, setIsAuth] = useState(true);
   return (
     <section id="hero-navbar">
       <div className="main-navbar-area">
@@ -31,72 +33,10 @@ export default function Navbar() {
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <Link to="/" className="nav-link active toggle">
-                      Home<i className="bx bxs-chevron-down"></i>
+                      Home
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link to="/" className="nav-link toggle">
-                      Pages<i className="bx bxs-chevron-down"></i>
-                    </Link>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link to="/team" className="nav-link">
-                          Team
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="/testimonials" className="nav-link">
-                          Testimonials
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="/booking" className="nav-link">
-                          Booking
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="/cart" className="nav-link">
-                          Cart
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="/faq" className="nav-link">
-                          FAQ
-                        </Link>
-                      </li>
-                      
-                      <li className="nav-item">
-                        <Link to="coming-soon.html" className="nav-link">
-                          Coming Soon
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="/login" className="nav-link">
-                          Login
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="/register" className="nav-link">
-                          Register
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="/privacy-policy" className="nav-link">
-                          Privacy Policy
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="/terms-of-service" className="nav-link">
-                          Terms of Service
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="/forgot-password" className="nav-link">
-                          Forgot Password
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
+
                   <li className="nav-item">
                     <Link to="#" className="nav-link toggle">
                       Destinations<i className="bx bxs-chevron-down"></i>
@@ -132,27 +72,34 @@ export default function Navbar() {
                     </ul>
                   </li>
                   <li className="nav-item">
+                    <Link to="#" className="nav-link">
+                      Blog
+                    </Link>
+                  </li>
+                 
+                  <li className="nav-item">
                     <Link to="/about-us" className="nav-link">
                       About
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link to="#" className="nav-link">
-                      Blog
-                    </Link>
-                 </li>
-                  <li className="nav-item">
-                    <Link to="/contact" className="nav-link">
-                      Contact
-                    </Link>
-                  </li>
+                  
+                <li className="nav-item" >
+
+                <div className="cart">
+                  <Link to="/sign-in" className="nav-link toggle">
+                    Sign-in <i className="fas fa-sign-in-alt " ></i>
+                  </Link>
+                </div>
+                </li>
                 </ul>
+                {isAuth?null:
                 <div className="cart">
                   <Link to="cart.html" className="cart-btn">
                     <i className="bx bx-cart"></i>
                     <span className="badge">0</span>
                   </Link>
                 </div>
+                }
               </div>
             </nav>
           </div>
