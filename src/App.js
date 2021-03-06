@@ -1,16 +1,16 @@
-import Homepage from './MainApp/Homepage_folder/Homepage'
-import Navbar from './MainApp/Navbar_folder/Navbar'
-import Footer from './MainApp/Footer_folder/Footer'
+
+import Home from './components/HomeScreen/Home'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from './components/Navbar/Navbar'
 function App() {
   return (
     <div className="App">
-
-<Navbar/>
-
-<Homepage/>
-   
-
-   <Footer/>
+<Router>
+  <Navbar/>
+  <Switch>
+    <Route path="/" component={Home} />
+  </Switch>
+</Router>
     </div>
   );
 }
