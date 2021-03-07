@@ -27,7 +27,7 @@ export default function NotFound() {
 <div class="row">
  <div class="col-12">
 <h2>
-About Jaunt
+About travelBrandwick
 </h2>
 <h6>
 Top Tour Operators and Travel Agency. We offering in total 793 tours and holidays through-out the world. Combined we have received 1532 customer reviews.
