@@ -12,8 +12,8 @@ export default function Destination() {
 <div class="page-title-content">
 <h1>Destinations</h1>
 <ul>
-<li class="item"><a href="index.html">Home</a></li>
-<li class="item"><a href="destinations.html"><i class='bx bx-chevrons-right'></i>Destinations</a></li>
+<li class="item"><Link href="/index">Home</Link></li>
+<li class="item"><Link href="/destinations"><i class='bx bx-chevrons-right'></i>Destinations</Link></li>
 </ul>
 </div>
 </div>
@@ -37,7 +37,7 @@ export default function Destination() {
 <div class="content">
 <span class="location"><i class='bx bx-map'></i>95 Fleet St, London</span>
 <h3>
-<a href="destination-details.html">Venice The Dream Place</a>
+<Link href="/destination-details">Venice The Dream Place</Link>
 </h3>
 <div class="review">
 <i class='bx bx-smile'></i>
@@ -64,7 +64,7 @@ Two short getaway breaks in the Greece together and one mini caravan holiday.
 <div class="content">
 <span class="location"><i class='bx bx-map'></i>Versailles, France</span>
 <h3>
-<a href="destination-details.html">Palace of Versailles</a>
+<Link href="/destination-details">Palace of Versailles</Link>
 </h3>
 <div class="review">
 <i class='bx bx-smile'></i>
@@ -91,7 +91,7 @@ A simple hunting lodging and later a small château with a moat occupied the sit
 <div class="content">
 <span class="location"><i class='bx bx-map'></i>Inca Trail, Peru</span>
 <h3>
-<a href="destination-details.html">Inca Trail Machu Picchu</a>
+<Link href="/destination-details">Inca Trail Machu Picchu</Link>
 </h3>
 <div class="review">
 <i class='bx bx-smile'></i>
@@ -121,30 +121,30 @@ The gorgeous play of light did justice to the mystique of the ancient ruins that
 <div class="col-lg-4 col-md-6">
 <div class="item-single mb-30">
 <i class='bx bx-calendar'></i>
-<h3><a href="#">Reservation</a></h3>
+<h3><Link href="#">Reservation</Link></h3>
 <p>As compared with earlier times where a reservation personnel has to update its inventory every time.</p>
 <div class="cta-btn">
-<a href="#" class="btn-primary">Read More</a>
+<Link href="#" class="btn-primary">Read More</Link>
 </div>
 </div>
 </div>
 <div class="col-lg-4 col-md-6">
 <div class="item-single mb-30">
 <i class='bx bxs-plane-take-off'></i>
-<h3><a href="#">Tour Pack</a></h3>
+<h3><Link href="#">Tour Pack</Link></h3>
 <p>You can dream, create, design, and build the most wonder ful place in the world. But it requires people.</p>
 <div class="cta-btn">
-<a href="#" class="btn-primary">Read More</a>
+<Link href="#" class="btn-primary">Read More</Link>
 </div>
 </div>
 </div>
 <div class="col-lg-4 col-md-6 m-auto">
 <div class="item-single mb-30">
 <i class='bx bx-money'></i>
-<h3><a href="#">Payment</a></h3>
+<h3><Link href="#">Payment</Link></h3>
 <p>As compared with earlier times where a reservation personnel has to update its inventory every time.</p>
 <div class="cta-btn">
-<a href="#" class="btn-primary">Read More</a>
+<Link href="#" class="btn-primary">Read More</Link>
 </div>
 </div>
 </div>
@@ -181,7 +181,7 @@ The gorgeous play of light did justice to the mystique of the ancient ruins that
 <div class="content">
 <span class="location"><i class='bx bx-map'></i>Hvar, Croatia</span>
 <h3>
-<a href="destination-details.html">Piazza Castello</a>
+<Link href="/destination-details">Piazza Castello</Link>
 </h3>
 <div class="review">
 <i class='bx bx-smile'></i>
@@ -209,7 +209,7 @@ A wonderful little cottage right on the seashore - perfect for exploring.
 <div class="content">
 <span class="location"><i class='bx bx-map'></i>Santorini, Oia, Greece</span>
 <h3>
-<a href="destination-details.html">Santorini, Oia, Greece</a>
+<Link href="/destination-details">Santorini, Oia, Greece</Link>
 </h3>
 <div class="review">
 <i class='bx bx-smile'></i>
@@ -237,7 +237,7 @@ A wonderful little cottage right on the seashore - perfect for exploring.
 <div class="content">
 <span class="location"><i class='bx bx-map'></i>Rialto Bridge, Italy</span>
 <h3>
-<a href="destination-details.html">Rialto Bridge</a>
+<Link href="/destination-details">Rialto Bridge</Link>
 </h3>
 <div class="review">
 <i class='bx bx-smile'></i>
@@ -265,7 +265,7 @@ A wonderful little cottage right on the seashore - perfect for exploring.
 <div class="content">
 <span class="location"><i class='bx bx-map'></i>Santorini, Oia, Greece</span>
 <h3>
-<a href="destination-details.html">Santorini, Oia, Greece</a>
+<Link href="/destination-details">Santorini, Oia, Greece</Link>
 </h3>
 <div class="review">
 <i class='bx bx-smile'></i>
@@ -293,7 +293,7 @@ A wonderful little cottage right on the seashore - perfect for exploring.
 <div class="content">
 <span class="location"><i class='bx bx-map'></i>Oia, Greece</span>
 <h3>
-<a href="destination-details.html">Greek Cottage, Greece</a>
+<Link href="/destination-details">Greek Cottage, Greece</Link>
 </h3>
 <div class="review">
 <i class='bx bx-smile'></i>
@@ -321,7 +321,7 @@ A wonderful little cottage right on the seashore - perfect for exploring.
 <div class="content">
 <span class="location"><i class='bx bx-map'></i>Venice, Italy</span>
 <h3>
-<a href="destination-details.html">Metropolitan City</a>
+<Link href="/destination-details">Metropolitan City</Link>
 </h3>
 <div class="review">
 <i class='bx bx-smile'></i>
@@ -346,9 +346,9 @@ A wonderful little cottage right on the seashore - perfect for exploring.
 <div class="col-lg-12 col-md-12">
  <div class="pagination text-center">
 <span class="page-numbers current" aria-current="page">1</span>
-<a href="#" class="page-numbers">2</a>
-<a href="#" class="page-numbers">3</a>
-<a href="#" class="page-numbers">Next</a>
+<Link href="#" class="page-numbers">2</Link>
+<Link href="#" class="page-numbers">3</Link>
+<Link href="#" class="page-numbers">Next</Link>
 </div>
 </div>
 </div>

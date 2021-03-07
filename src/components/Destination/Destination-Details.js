@@ -10,8 +10,8 @@ export default function DestinationDetails() {
 <div class="page-title-content">
 <h1>Our Destinations</h1>
 <ul>
-<li class="item"><a href="index.html">Home</a></li>
-<li class="item"><a href="destination-details.html"><i class='bx bx-chevrons-right'></i>Destinations Details</a></li>
+<li class="item"><Link href="index.html">Home</Link></li>
+<li class="item"><Link href="destination-details.html"><i class='bx bx-chevrons-right'></i>Destinations Details</Link></li>
 </ul>
 </div>
 </div>
@@ -185,7 +185,7 @@ Post comment
 </div>
 </div>
 <div class="col-lg-4 col-md-12">
-<aside class="widget-area">
+<Linkside class="widget-area">
 <div class="widget widget-search mb-30">
 <form class="search-form search-top">
 <input type="search" class="form-control" placeholder="Search..." />
@@ -198,57 +198,57 @@ Post comment
 <div class="video-image">
 <img src="assets/img/video-bg3.jpg" alt="video" />
 </div>
-<a href="https://www.youtube.com/watch?v=QSwvg9Rv2EI" class="youtube-popup video-btn">
+<Link href="https://www.youtube.com/watch?v=QSwvg9Rv2EI" class="youtube-popup video-btn">
 <i class='bx bx-right-arrow'></i>
-</a>
+</Link>
  </div>
 <div class="widget widget-article mb-30">
 <h3 class="sub-title">Popular Places</h3>
-<article class="article-item">
+<Linkrticle class="article-item">
 <div class="image">
 <img src="assets/img/destination6.jpg" alt="Demo Image" />
 </div>
 <div class="content">
 <span class="location"><i class='bx bx-map'></i>95 Fleet, London</span>
 <h3>
-<a href="destination-details.html">Venice The Dream Place.</a>
+<Link href="destination-details.html">Venice The Dream Place.</Link>
 </h3>
 <ul class="list">
 <li><i class='bx bx-time'></i>3 Days</li>
 <li>$1500</li>
 </ul>
 </div>
-</article>
-<article class="article-item">
+</Linkrticle>
+<Linkrticle class="article-item">
 <div class="image">
 <img src="assets/img/destination7.jpg" alt="Demo Image" />
 </div>
 <div class="content">
 <span class="location"><i class='bx bx-map'></i>Venice, Italy</span>
 <h3>
-<a href="destination-details.html">Inca Trail Machu Picchu.</a>
+<Link href="destination-details.html">Inca Trail Machu Picchu.</Link>
 </h3>
 <ul class="list">
 <li><i class='bx bx-time'></i>5 Days</li>
 <li>$1200</li>
 </ul>
 </div>
-</article>
-<article class="article-item">
+</Linkrticle>
+<Linkrticle class="article-item">
 <div class="image">
 <img src="assets/img/destination8.jpg" alt="Demo Image" />
 </div>
 <div class="content">
 <span class="location"><i class='bx bx-map'></i>Oia, Greece</span>
 <h3>
-<a href="destination-details.html">The Palace of Versailles.</a>
+<Link href="destination-details.html">The Palace of Versailles.</Link>
 </h3>
 <ul class="list">
 <li><i class='bx bx-time'></i>7 Days</li>
 <li>$2000</li>
 </ul>
 </div>
-</article>
+</Linkrticle>
 </div>
 <div class="widget widget-gallery mb-30">
 <h3 class="sub-title">Instagram Post</h3>
@@ -279,7 +279,7 @@ Post comment
 </li>
 </ul>
 </div>
-</aside>
+</Linkside>
 </div>
 </div>
 </div>

@@ -37,7 +37,7 @@ export default function LoginForm() {
         </div>
         <div className='col-lg-6 col-sm-6 col-6'>
           <div className='link'>
-            <a href='forget-password.html'>Forget password?</a>
+            <Link href='/forget-password'>Forget password?</Link>
           </div>
         </div>
       </div>

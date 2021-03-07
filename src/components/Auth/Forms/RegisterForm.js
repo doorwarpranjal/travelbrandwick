@@ -45,8 +45,8 @@ export default function RegisterForm() {
             <input type='checkbox' id='agreement' />
             <label htmlFor='agreement'>
               I agreed travelBrandwick{' '}
-              <a href='terms-of-service.html'>Terms of Services</a> and{' '}
-              <a href='privacy-policy.html'>Privacy Policy</a>
+              <Link href='terms-of-service.html'>Terms of Services</Link> and{' '}
+              <Link href='privacy-policy.html'>Privacy Policy</Link>
             </label>
           </div>
         </div>
