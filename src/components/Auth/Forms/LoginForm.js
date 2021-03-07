@@ -36,9 +36,11 @@ export default function LoginForm() {
           </div>
         </div>
         <div className='col-lg-6 col-sm-6 col-6'>
-          <div className='link'>
-            <Link href='/forget-password'>Forget password?</Link>
+            <Link to='/forget-password'>
+          <div className='link primary-color'>
+              Forget password?
           </div>
+              </Link>
         </div>
       </div>
       <button type='submit' className='btn-primary'>
