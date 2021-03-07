@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import NotFound from "./components/NotFound/Not-found";
 import Contact from "./components/Contact-us/contact-us";
+import Destination from "./components/Destination/Destination";
+import DestinationDetails from "./components/Destination/Destination-Details";
 import LoginScreen from "./components/Auth/LoginScreen"
 import RegisterScreen from "./components/Auth/RegisterScreen"
 import ForgotPasswordScreen from "./components/Auth/ForgotPasswordScreen"
@@ -20,6 +22,8 @@ function App() {
           <Route path="/register" exact component={RegisterScreen} />
           <Route path="/forgot-password" exact component={ForgotPasswordScreen} />
           <Route path="/contact" component={Contact} />
+          <Route path="/destinations" component={Destination} />
+          <Route path="/destination-details" component={DestinationDetails} />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>
