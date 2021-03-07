@@ -50,7 +50,11 @@ code {
 h1{
   font-size: 40px;
 }
-
+.primary-color{
+  font-size: 15px;
+  font-weight: 600;
+  color: #332c55;
+}
 
 ::-webkit-scrollbar
 {

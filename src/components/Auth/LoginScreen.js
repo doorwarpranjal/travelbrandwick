@@ -31,6 +31,7 @@ export default function LoginScreen() {
           <div className='main-form ptb-100'>
             <LoginForm />
           </div>
+        
         </div>
       </div>
     </div>

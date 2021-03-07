@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 export default function LoginForm() {
   return (
     <form id='#authForm'>
@@ -43,6 +44,11 @@ export default function LoginForm() {
       <button type='submit' className='btn-primary'>
         Login
       </button>
+      <div className='main-form'>
+          Don't have a Account <Link to="/register" className='primary-color'>
+            Sign-up
+          </Link>
+          </div>
     </form>
   )
 }
