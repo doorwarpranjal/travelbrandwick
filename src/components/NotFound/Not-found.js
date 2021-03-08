@@ -5,7 +5,7 @@ export default function NotFound(){
 
     return (
       
-        <section class="error-area ptb-100" style={{position:'relative',marginTop:'-100px'}}>
+        <section class="error-area ptb-100" style={{position:'relative'}}>
           <div class="container">
             <div class="error-content">
               <img src="assets/img/404.png" alt="image" />
