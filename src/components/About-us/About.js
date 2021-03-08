@@ -30,7 +30,7 @@ export default function NotFound() {
               <div className='about-content'>
                 <div className='row'>
                   <div className='col-12'>
-                    <h2>About Jaunt</h2>
+                    <h2>About travel Brandwick</h2>
                     <h6>
                       Top Tour Operators and Travel Agency. We offering in total
                       793 tours and holidays through-out the world. Combined we
