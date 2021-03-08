@@ -1,5 +1,5 @@
 import RegisterForm from './Forms/RegisterForm'
-
+import {Link} from 'react-router-dom'
 export default function RegisterScreen() {
   return (
     <div>
@@ -28,6 +28,7 @@ export default function RegisterScreen() {
         <div className='container'>
           <div className='main-form ptb-100'>
             <RegisterForm />
+        
           </div>
         </div>
       </div>
