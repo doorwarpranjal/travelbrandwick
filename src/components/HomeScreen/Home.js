@@ -220,9 +220,9 @@ export default function Home() {
             <div className="row align-items-center">
                 <div className="col-lg-6">
                     <div className="about-content mb-30">
-                        <h3>
+                        <h2>
                             About Us
-                        </h3>
+                        </h2>
                         <h6>
                             Top Tour Operators and Travel Agency. We offering in total 793 tours and holidays throughout
                             the world. Combined we have received 1532 customer reviews and an average rating of 5 out of
@@ -822,9 +822,8 @@ export default function Home() {
               world with new eyes.
             </p>
           </div>
-          <div className="row">
-            <div className="col-lg-4 col-md-6">
-              <div className="item-single mb-30">
+          <div className='owl-carousel'>
+          <div className="item-single mb-30">
                 <div className="image">
                   <img src="assets/img/tour/tour6.jpg" alt="Demo Image" />
                 </div>
@@ -885,8 +884,6 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
               <div className="item-single mb-30">
                 <div className="image">
                   <img src="assets/img/tour/tour7.jpg" alt="Demo Image" />
@@ -948,8 +945,6 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-4 col-md-6 m-auto">
               <div className="item-single mb-30">
                 <div className="image">
                   <img src="assets/img/tour/tour8.jpg" alt="Demo Image" />
@@ -1011,8 +1006,10 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-            </div>
+        
+
           </div>
+          
         </div>
       </section>
 
