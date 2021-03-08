@@ -11,12 +11,12 @@
 
 h1, h2, h3, h4, h5, h6{font-family: 'Montserrat', sans-serif; font-weight:normal; margin-top: 0px; margin-bottom: 0px; text-transform: uppercase; letter-spacing: 1px;}
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: inherit; }
-h1 { font-family: 'Montserrat', sans-serif; font-size: 64px; font-style: normal; font-weight: 700; color: #332c55;}
-h2 { font-family: 'Montserrat', sans-serif; font-size: 56px; font-style: normal; font-weight: 600; color: #332c55;}
+h1 { font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 700; color: #332c55;}
+h2 { font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 600; color: #332c55;}
 h3 { font-family: 'Montserrat', sans-serif;  font-style: normal; font-weight: 600; color: #332c55;}
-h4 { font-family: 'Montserrat', sans-serif; font-size: 40px; font-style: normal; font-weight: 600; color: #332c55;}
-h5 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-style: normal; font-weight: 600; color: #332c55;}
-h6 { font-family: 'Montserrat', sans-serif; font-size: 24px; font-style: normal; font-weight: 600; color: #332c55;}
+h4 { font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 600; color: #332c55;}
+h5 { font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 600; color: #332c55;}
+h6 { font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 600; color: #332c55;}
 
 a {
   color: #505050;
@@ -50,11 +50,7 @@ code {
 h1{
   font-size: 40px;
 }
-.primary-color{
-  font-size: 15px;
-  font-weight: 600;
-  color: #332c55;
-}
+
 
 ::-webkit-scrollbar
 {

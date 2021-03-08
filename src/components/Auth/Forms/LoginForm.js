@@ -1,4 +1,3 @@
-import {Link} from 'react-router-dom'
 export default function LoginForm() {
   return (
     <form id='#authForm'>
@@ -36,21 +35,14 @@ export default function LoginForm() {
           </div>
         </div>
         <div className='col-lg-6 col-sm-6 col-6'>
-            <Link to='/forget-password'>
-          <div className='link primary-color'>
-              Forget password?
+          <div className='link'>
+            <a href='forget-password.html'>Forget password?</a>
           </div>
-              </Link>
         </div>
       </div>
       <button type='submit' className='btn-primary'>
         Login
       </button>
-      <div className='main-form'>
-          Don't have a Account <Link to="/register" className='primary-color'>
-            Sign-up
-          </Link>
-          </div>
     </form>
   )
 }

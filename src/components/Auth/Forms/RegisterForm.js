@@ -1,4 +1,3 @@
-import {Link} from 'react-router-dom'
 export default function RegisterForm() {
   return (
     <form id='#authForm'>
@@ -44,9 +43,9 @@ export default function RegisterForm() {
           <div className='checkbox'>
             <input type='checkbox' id='agreement' />
             <label htmlFor='agreement'>
-              I agreed travelBrandwick{' '}
-              <Link to='terms-of-service.html'>Terms of Services</Link> and{' '}
-              <Link to='privacy-policy.html'>Privacy Policy</Link>
+              I agreed Jaunt{' '}
+              <a href='terms-of-service.html'>Terms of Services</a> and{' '}
+              <a href='privacy-policy.html'>Privacy Policy</a>
             </label>
           </div>
         </div>
@@ -54,11 +53,6 @@ export default function RegisterForm() {
       <button type='submit' className='btn-primary'>
         Register
       </button>
-      <div className='main-form'>
-          Already have a Account <Link to="/sign-in" className='primary-color'>
-            Sign-In
-          </Link>
-          </div>
     </form>
   )
 }

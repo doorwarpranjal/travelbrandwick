@@ -8,6 +8,8 @@ import Contact from "./components/Contact-us/contact-us";
 import Destination from "./components/Destination/Destination";
 import DestinationDetails from "./components/Destination/Destination-Details";
 import LoginScreen from "./components/Auth/LoginScreen"
+import Tours from "./components/Tours/Tours"
+import TripOffers from "./components/Tours/TripOffers"
 import RegisterScreen from "./components/Auth/RegisterScreen"
 import ForgotPasswordScreen from "./components/Auth/ForgotPasswordScreen"
 function App() {

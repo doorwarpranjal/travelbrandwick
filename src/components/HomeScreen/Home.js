@@ -220,9 +220,9 @@ export default function Home() {
             <div className="row align-items-center">
                 <div className="col-lg-6">
                     <div className="about-content mb-30">
-                        <h2>
+                        <h3>
                             About Us
-                        </h2>
+                        </h3>
                         <h6>
                             Top Tour Operators and Travel Agency. We offering in total 793 tours and holidays throughout
                             the world. Combined we have received 1532 customer reviews and an average rating of 5 out of
@@ -840,7 +840,7 @@ export default function Home() {
                     </div>
                     <div className="title">
                       <h3>
-                        <Link to="#">Hill & Beach Tour</Link>
+                        <Link to="#">Top Destination in Himachal</Link>
                       </h3>
                     </div>
                     <ul className="list">
@@ -859,7 +859,7 @@ export default function Home() {
                     <i className="bx bx-map"></i>Hvar, Croatia
                   </span>
                   <h3>
-                    <Link to="/tours">Hill & Beach Tour</Link>
+                    <Link to="/tours">Top Destination in Himachal</Link>
                   </h3>
                   <div className="review mb-15">
                     <i className="bx bxs-star"></i>
@@ -903,7 +903,7 @@ export default function Home() {
                     </div>
                     <div className="title">
                       <h3>
-                        <Link to="#">Couples & Holiday Tours</Link>
+                        <Link to="#">Top Honeymoon Destinations</Link>
                       </h3>
                     </div>
                     <ul className="list">
@@ -922,7 +922,7 @@ export default function Home() {
                     <i className="bx bx-map"></i>Gulf, Thailand
                   </span>
                   <h3>
-                    <Link to="/tours">Couples & Holiday Tours</Link>
+                    <Link to="/tours">Top Honeymoon Destinations</Link>
                   </h3>
                   <div className="review mb-15">
                     <i className="bx bxs-star"></i>
@@ -966,7 +966,7 @@ export default function Home() {
                     </div>
                     <div className="title">
                       <h3>
-                        <Link to="#">Asia Tour</Link>
+                        <Link to="#">Treks and Camping</Link>
                       </h3>
                     </div>
                     <ul className="list">
@@ -985,7 +985,7 @@ export default function Home() {
                     <i className="bx bx-map"></i>Egypt, Asia
                   </span>
                   <h3>
-                    <Link to="/tours">Asia Tour</Link>
+                    <Link to="/tours">Trek and Camping</Link>
                   </h3>
                   <div className="review mb-15">
                     <i className="bx bxs-star"></i>
