@@ -6,7 +6,7 @@ import { useRecoilState } from "recoil";
 import showToast from '../../Toast/showToast';
 import Toast from '../../Toast/Toast';
 import {CircularProgress} from '@material-ui/core'
-export default function LoginForm() {
+export default function LoginForm(props) {
   const [ myUser , setmyUser ] = useRecoilState(userState)
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
@@ -34,6 +34,7 @@ else{
 }
   }
  // console.log(localStorage.getItem('user-data'))
+ //console.log(props)
 const submitHandler=async(e)=>{
   e.preventDefault()
   if(validation()){
@@ -57,7 +58,7 @@ const submitHandler=async(e)=>{
     setToastText('Successfully Logged in')
     setTimeout(() => {
       
-      window.location.replace('/')
+     
     }, 1000);
   }
   else{
@@ -110,11 +111,11 @@ const submitHandler=async(e)=>{
           </div>
         </div>
         <div className='col-lg-6 col-sm-6 col-6'>
-            <Link href='/forgot-password'>
           <div className='link'>
+            <Link to='/forgot-password'>
               Forget password?
-          </div>
             </Link>
+          </div>
         </div>
       </div>
       <button type='submit'  className='btn-primary'>

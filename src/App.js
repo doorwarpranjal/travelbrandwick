@@ -12,6 +12,7 @@ import Tours from "./components/Tours/Tours"
 import TripOffers from "./components/Tours/TripOffers"
 import RegisterScreen from "./components/Auth/RegisterScreen"
 import ForgotPasswordScreen from "./components/Auth/ForgotPasswordScreen"
+import NewPasswordScreen from "./components/Auth/NewPasswordScreen"
 function App() {
   return (
     <div className="App">
@@ -23,9 +24,13 @@ function App() {
           <Route path="/sign-in" exact component={LoginScreen} />
           <Route path="/register" exact component={RegisterScreen} />
           <Route path="/forgot-password" component={ForgotPasswordScreen} />
+          <Route path="/new-password/:id" exact component={NewPasswordScreen} />
+         
           <Route path="/contact" component={Contact} />
           <Route path="/destinations" component={Destination} />
           <Route path="/destination-details" component={DestinationDetails} />
+          <Route path="/tour" component={Tours} />
+          <Route path="/special-offers" component={TripOffers} />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>

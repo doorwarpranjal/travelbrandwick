@@ -36,3 +36,21 @@ export const Forgot =async(userData)=>{
     }) ;
     return res
 }
+export const verifyOTP=async(userData)=>{
+    const res = await axios.post(`${base_url}/verify-otp`,userData).then(response=>{
+        return response ;
+    }).catch(err=>{
+       // console.log(err.response)
+        return err
+    }) ;
+    return res
+}
+export const newPassword=async(userData)=>{
+    const res = await axios.post(`${base_url}/reset-password`,userData).then(response=>{
+        return response ;
+    }).catch(err=>{
+       // console.log(err.response)
+        return err
+    }) ;
+    return res
+}
