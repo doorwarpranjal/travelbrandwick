@@ -110,9 +110,11 @@ const submitHandler=async(e)=>{
           </div>
         </div>
         <div className='col-lg-6 col-sm-6 col-6'>
+            <Link href='/forgot-password'>
           <div className='link'>
-            <Link href='/forget-password'>Forget password?</Link>
+              Forget password?
           </div>
+            </Link>
         </div>
       </div>
       <button type='submit'  className='btn-primary'>

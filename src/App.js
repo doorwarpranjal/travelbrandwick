@@ -22,7 +22,7 @@ function App() {
           <Route path="/about-us" exact component={About} />
           <Route path="/sign-in" exact component={LoginScreen} />
           <Route path="/register" exact component={RegisterScreen} />
-          <Route path="/forgot-password" exact component={ForgotPasswordScreen} />
+          <Route path="/forgot-password" component={ForgotPasswordScreen} />
           <Route path="/contact" component={Contact} />
           <Route path="/destinations" component={Destination} />
           <Route path="/destination-details" component={DestinationDetails} />
