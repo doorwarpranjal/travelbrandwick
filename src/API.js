@@ -27,3 +27,12 @@ export const Signup =async(userData)=>{
     return res
 }
 
+export const Forgot =async(userData)=>{
+    const res = await axios.post(`${base_url}/forgot`,userData).then(response=>{
+        return response ;
+    }).catch(err=>{
+       // console.log(err.response)
+        return err
+    }) ;
+    return res
+}
