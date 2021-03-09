@@ -1,8 +1,20 @@
 import './Navbar.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 export default function Navbar() {
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
+  const localData = JSON.parse(localStorage.getItem('recoil-persist'))
+
+  //console.log(localData.Travel_user)
+  useEffect(()=>{
+
+    if(localData.Travel_user){
+      setIsAuth(true)
+    }
+    else{
+      setIsAuth(false)
+    }
+  },[0])
   return (
     <section id="hero-navbar">
       <div className="main-navbar-area">
@@ -83,6 +95,21 @@ export default function Navbar() {
                     </Link>
                   </li>
                   
+                {isAuth?
+                <>
+                <div className="cart">
+                <Link to="/cart" className="cart-btn">
+                  <i className="bx bx-cart"></i>
+                  <span className="badge">0</span>
+                </Link>
+              </div>
+                <li className="nav-item" >
+                <Link to="#" className="nav-link">
+                  Logout
+                </Link>
+              </li>
+              </>
+                :
                 <li className="nav-item" >
 
                 <div className="cart">
@@ -91,15 +118,8 @@ export default function Navbar() {
                   </Link>
                 </div>
                 </li>
-                </ul>
-                {isAuth?null:
-                <div className="cart">
-                  <Link to="cart.html" className="cart-btn">
-                    <i className="bx bx-cart"></i>
-                    <span className="badge">0</span>
-                  </Link>
-                </div>
-                }
+              }  </ul>
+              
               </div>
             </nav>
           </div>

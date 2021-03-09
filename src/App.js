@@ -14,6 +14,8 @@ import RegisterScreen from "./components/Auth/RegisterScreen"
 import ForgotPasswordScreen from "./components/Auth/ForgotPasswordScreen"
 import NewPasswordScreen from "./components/Auth/NewPasswordScreen"
 function App() {
+ 
+  console.log()
   return (
     <div className="App">
       <Router>
@@ -25,7 +27,6 @@ function App() {
           <Route path="/register" exact component={RegisterScreen} />
           <Route path="/forgot-password" component={ForgotPasswordScreen} />
           <Route path="/new-password/:id" exact component={NewPasswordScreen} />
-         
           <Route path="/contact" component={Contact} />
           <Route path="/destinations" component={Destination} />
           <Route path="/destination-details" component={DestinationDetails} />

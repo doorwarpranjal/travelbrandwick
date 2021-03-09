@@ -57,7 +57,7 @@ const submitHandler=async(e)=>{
     setToastColor('green')
     setToastText('Successfully Logged in')
     setTimeout(() => {
-      
+      window.location.replace('/')
      
     }, 1000);
   }

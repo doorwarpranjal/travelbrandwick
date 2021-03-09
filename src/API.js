@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const base_url = 'https://travel-web-user.herokuapp.com'
 
-const localData = JSON.parse(localStorage.getItem('user-data'))
+const localData = JSON.parse(localStorage.getItem('recoil-persist'))
 
 
 
