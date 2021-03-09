@@ -3,17 +3,29 @@ import { Link } from 'react-router-dom'
 import {Login} from '../../../API'
 import {userState} from '../../../Atom'
 import { useRecoilState } from "recoil";
+import showToast from '../../Toast/showToast';
+import Toast from '../../Toast/Toast';
+import {CircularProgress} from '@material-ui/core'
 export default function LoginForm() {
   const [ myUser , setmyUser ] = useRecoilState(userState)
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
+  const [toastColor,setToastColor]=useState("green")
+  const [toastText,setToastText]=useState("")
+  const [loading,setLoading]=useState(false)
   function validation(){
 if(!email){
   console.log('no email')
+  setToastColor('red')
+  setToastText('Email Not Found')
+  showToast()
   return false
 }
 else if(!password){
   console.log('no email')
+  setToastColor('red')
+  setToastText('Password not found')
+  showToast()
   return false
 
 }
@@ -25,23 +37,35 @@ else{
 const submitHandler=async(e)=>{
   e.preventDefault()
   if(validation()){
-
+    setLoading(true)
     let data={
       password:password,
       email:email
     }
     let res=await Login(data)
     if(res.status===200){
-     // localStorage.setItem('user-data',res.data)
-     setmyUser({
+    setLoading(false)
+    
+    // localStorage.setItem('user-data',res.data)
+    setmyUser({
       email : data.email ,
       name : res.data.name , 
       userToken : res.data.token
-     })
+    })
+    showToast()
+    setToastColor('green')
+    setToastText('Successfully Logged in')
+    setTimeout(() => {
+      
       window.location.replace('/')
-    }
-    else{
-console.log(res.response.data.error)
+    }, 1000);
+  }
+  else{
+      setLoading(false)
+      setToastColor('red')
+      setToastText('Check Your email Or Password')
+      showToast()
+//console.log(res.response.data.error)
     }
     
   }
@@ -49,6 +73,7 @@ console.log(res.response.data.error)
   return (
     
     <form id='#authForm' onSubmit={submitHandler}>
+      <Toast color={toastColor} text={toastText}/>
       <div className='content'>
         <h3>Welcome Back</h3>
         <p>Login please if you already have an account</p>
@@ -61,7 +86,7 @@ console.log(res.response.data.error)
           type='text'
           className='form-control'
           placeholder='Email Address'
-          required
+        
           onChange={(e)=>setEmail(e.target.value)}
         />
       </div>
@@ -73,7 +98,7 @@ console.log(res.response.data.error)
           type='password'
           className='form-control'
           placeholder='Password'
-          required
+        //  required
           onChange={(e)=>setPassword(e.target.value)}
           />
       </div>
@@ -91,7 +116,7 @@ console.log(res.response.data.error)
         </div>
       </div>
       <button type='submit'  className='btn-primary'>
-        Login
+  {loading?<CircularProgress/> : "Login" }     
       </button>
    
           Don't have a Account <Link to='/register'>
