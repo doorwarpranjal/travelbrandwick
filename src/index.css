@@ -52,32 +52,7 @@ h1{
 }
 
 
-::-webkit-scrollbar
-{
-	width: 6px;
-	background-color: #F5F5F5;
-}
 
-::-webkit-scrollbar-thumb
-{
-	background-color: #545454;
-}
-
-
-@media only screen and (max-width: 800px) {
-
-  ::-webkit-scrollbar{
-    display: none;
-  }
-
-}
-.cta-btn:hover{
-  background: #728B6B;
-  color: #ffffff !important;
-}
-
-/* ---------------------afshan edit---------------------- */
-/* 
   Toast
 */
 .toast{
@@ -97,12 +72,6 @@ h1{
   box-shadow:0 0 6px 0.2px #728B6B;
 }
 
-.toast.red{
-  border: 1px solid #dc3545;
-  /* box-shadow:0 0 6px 0.2px #dc3545; */
-  box-shadow:none;
-  color:#dc3545
-}
 
 .toast.show{
   visibility:visible ;
