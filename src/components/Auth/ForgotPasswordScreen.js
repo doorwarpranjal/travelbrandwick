@@ -1,3 +1,4 @@
+import { Link } from '@material-ui/core'
 import ResetForm from './Forms/ResetForm'
 
 export default function ForgotPasswordScreen() {
@@ -9,13 +10,13 @@ export default function ForgotPasswordScreen() {
             <h1>Forgot Password</h1>
             <ul>
               <li className='item'>
-                <a href='index.html'>Home</a>
+                <Link href='/'>Home</Link>
               </li>
               <li className='item'>
-                <a href='forgot-password.html'>
+                <Link href='/forgot-password/'>
                   <i className='bx bx-chevrons-right' />
                   Forgot Password
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
