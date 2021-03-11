@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const base_url = 'https://travel-web-user.herokuapp.com'
-
+const admin_url='https://travel-web-admin.herokuapp.com'
 const localData = JSON.parse(localStorage.getItem('recoil-persist'))
 
 
@@ -47,6 +47,15 @@ export const verifyOTP=async(userData)=>{
 }
 export const newPassword=async(userData)=>{
     const res = await axios.post(`${base_url}/reset-password`,userData).then(response=>{
+        return response ;
+    }).catch(err=>{
+       // console.log(err.response)
+        return err
+    }) ;
+    return res
+}
+export const getAllCategories=async()=>{
+    const res = await axios.get(`${admin_url}/getAllCategories`).then(response=>{
         return response ;
     }).catch(err=>{
        // console.log(err.response)

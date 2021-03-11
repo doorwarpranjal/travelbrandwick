@@ -84,7 +84,7 @@ export default function Navbar() {
                     </ul>
                   </li>
                   <li className="nav-item">
-                    <Link to="#" className="nav-link">
+                    <Link to="/blog" className="nav-link">
                       Blog
                     </Link>
                   </li>
