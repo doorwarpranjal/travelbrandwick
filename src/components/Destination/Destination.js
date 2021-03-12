@@ -18,7 +18,7 @@ export default function Destination() {
 </div>
 </div>
 <div className="bg-image">
-<img src="assets/img/page-title-area/destinations.jpg" alt="Demo Image"/>
+<img src="assets/img/page-title-area/destinations.jpg" alt="demo"/>
 </div>
 </div>
 
@@ -32,7 +32,7 @@ export default function Destination() {
 <div className="col-lg-4 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/destination7.jpg" alt="Demo Image"/>
+<img src="assets/img/destination7.jpg" alt="demo"/>
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>95 Fleet St, London</span>
@@ -59,7 +59,7 @@ Two short getaway breaks in the Greece together and one mini caravan holiday.
 <div className="col-lg-4 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/destination8.jpg" alt="Demo Image"/>
+<img src="assets/img/destination8.jpg" alt="demo"/>
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Versailles, France</span>
@@ -86,7 +86,7 @@ A simple hunting lodging and later a small château with a moat occupied the sit
 <div className="col-lg-4 col-md-6 m-auto">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/destination9.jpg" alt="Demo Image"/>
+<img src="assets/img/destination9.jpg" alt="demo"/>
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Inca Trail, Peru</span>
@@ -176,7 +176,7 @@ The gorgeous play of light did justice to the mystique of the ancient ruins that
 <div className="col-lg-4 col-md-6 filtr-item" data-category="1" data-sort="value">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/destination1.jpg" alt="Demo Image"/>
+<img src="assets/img/destination1.jpg" alt="demo"/>
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Hvar, Croatia</span>
@@ -204,7 +204,7 @@ A wonderful little cottage right on the seashore - perfect for exploring.
 <div className="col-lg-4 col-md-6 filtr-item" data-category="2, 1" data-sort="value">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/destination2.jpg" alt="Demo Image"/>
+<img src="assets/img/destination2.jpg" alt="demo"/>
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Santorini, Oia, Greece</span>
@@ -232,7 +232,7 @@ A wonderful little cottage right on the seashore - perfect for exploring.
 <div className="col-lg-4 col-md-6 filtr-item" data-category="2" data-sort="value">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/destination3.jpg" alt="Demo Image"/>
+<img src="assets/img/destination3.jpg" alt="demo"/>
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Rialto Bridge, Italy</span>
@@ -260,7 +260,7 @@ A wonderful little cottage right on the seashore - perfect for exploring.
 <div className="col-lg-4 col-md-6 filtr-item" data-category="2, 3" data-sort="value">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/destination4.jpg" alt="Demo Image"/>
+<img src="assets/img/destination4.jpg" alt="demo"/>
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Santorini, Oia, Greece</span>
@@ -288,7 +288,7 @@ A wonderful little cottage right on the seashore - perfect for exploring.
 <div className="col-lg-4 col-md-6 filtr-item" data-category="1, 3" data-sort="value">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/destination5.jpg" alt="Demo Image"/>
+<img src="assets/img/destination5.jpg" alt="demo"/>
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Oia, Greece</span>
@@ -316,7 +316,7 @@ A wonderful little cottage right on the seashore - perfect for exploring.
 <div className="col-lg-4 col-md-6 filtr-item" data-category="3, 1" data-sort="value">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/destination6.jpg" alt="Demo Image"/>
+<img src="assets/img/destination6.jpg" alt="demo"/>
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Venice, Italy</span>

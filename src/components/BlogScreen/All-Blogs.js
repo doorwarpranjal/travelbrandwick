@@ -20,7 +20,7 @@ export default function Blog() {
 </div>
 </div>
 <div className="bg-image">
-<img src="assets/img/page-title-area/blog-style1.jpg" alt="Demo Image"/>
+<img src="assets/img/page-title-area/blog-style1.jpg" alt="demo"/>
 </div>
 </div>
 
@@ -34,7 +34,7 @@ export default function Blog() {
 <div className="col-lg-6">
 <div className="item-single item-big mb-30">
 <div className="image">
-<img src="assets/img/blog/blog-lg1.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog-lg1.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -50,7 +50,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author1.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author1.jpg" alt="demo"/>
 <span>By - Envy Jeqlin</span>
 </div>
 </li>
@@ -66,7 +66,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-6 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/blog/blog1.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog1.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -79,7 +79,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author2.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author2.jpg" alt="demo"/>
 <span>By - David Stiffen</span>
 </div>
 </li>
@@ -90,7 +90,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-6 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/blog/blog2.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog2.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -103,7 +103,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
- <img src="assets/img/blog/author3.jpg" alt="Demo Image"/>
+ <img src="assets/img/blog/author3.jpg" alt="demo"/>
 <span>By - David Milan</span>
 </div>
 </li>
@@ -114,7 +114,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-6 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/blog/blog3.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog3.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -127,7 +127,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author4.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author4.jpg" alt="demo"/>
 <span>By - Christina</span>
 </div>
 </li>
@@ -138,7 +138,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-6 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/blog/blog4.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog4.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -151,7 +151,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author5.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author5.jpg" alt="demo"/>
 <span>By - Emma Watson</span>
 </div>
 </li>
@@ -164,7 +164,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-6">
 <div className="item-single item-big mb-30">
 <div className="image">
-<img src="assets/img/blog/blog-lg2.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog-lg2.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -180,7 +180,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author1.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author1.jpg" alt="demo"/>
 <span>By - Envy Jeqlin</span>
 </div>
 </li>
@@ -196,7 +196,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-6 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/blog/blog5.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog5.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -209,7 +209,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author2.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author2.jpg" alt="demo"/>
 <span>By - David Stiffen</span>
 </div>
 </li>
@@ -220,7 +220,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-6 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/blog/blog6.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog6.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -233,7 +233,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author3.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author3.jpg" alt="demo"/>
 <span>By - David Milan</span>
  </div>
 </li>
@@ -244,7 +244,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-6 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/blog/blog7.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog7.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -257,7 +257,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author4.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author4.jpg" alt="demo"/>
 <span>By - Christina</span>
 </div>
 </li>
@@ -268,7 +268,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-6 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/blog/blog8.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog8.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -281,7 +281,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author5.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author5.jpg" alt="demo"/>
 <span>By - Emma Watson</span>
 </div>
 </li>
@@ -294,7 +294,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-3 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/blog/blog9.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog9.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -307,7 +307,7 @@ I have personally participated in many of the programs mentioned on this site. O
  <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author2.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author2.jpg" alt="demo"/>
 <span>By - David Stiffen</span>
 </div>
 </li>
@@ -318,7 +318,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-3 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/blog/blog10.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog10.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -331,7 +331,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author3.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author3.jpg" alt="demo"/>
 <span>By - David Milan</span>
 </div>
 </li>
@@ -342,7 +342,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-3 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/blog/blog11.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog11.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -355,7 +355,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author4.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author4.jpg" alt="demo"/>
 <span>By - Christina</span>
 </div>
 </li>
@@ -366,7 +366,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <div className="col-lg-3 col-md-6">
 <div className="item-single mb-30">
 <div className="image">
-<img src="assets/img/blog/blog12.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog12.jpg" alt="demo" />
 </div>
 <div className="content">
 <ul className="info-list">
@@ -379,7 +379,7 @@ I have personally participated in many of the programs mentioned on this site. O
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author5.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author5.jpg" alt="demo"/>
 <span>By - Emily</span>
 </div>
 </li>

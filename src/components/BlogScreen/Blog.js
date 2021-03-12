@@ -13,7 +13,7 @@ export default function Blog() {
 </div>
 </div>
 <div className="bg-image">
-<img src="assets/img/page-title-area/blog-details.jpg" alt="Demo Image"/>
+<img src="assets/img/page-title-area/blog-details.jpg" alt="demo"/>
 </div>
 </div>
 
@@ -45,7 +45,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <div className="row align-items-center">
 <div className="col-md-4 col-sm-12">
 <div className="image mb-30">
-<img src="assets/img/blog/blog4.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog4.jpg" alt="demo" />
 </div>
 </div>
 <div className="col-md-8 col-sm-12">
@@ -71,12 +71,12 @@ vel facilisis consectetur elit.
 <div className="row align-items-center">
 <div className="col-md-6 col-sm-12">
 <div className="image mb-30">
-<img src="assets/img/blog/blog5.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog5.jpg" alt="demo" />
 </div>
 </div>
 <div className="col-md-6 col-sm-12">
 <div className="image mb-30">
-<img src="assets/img/blog/blog6.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog6.jpg" alt="demo" />
 </div>
 </div>
 </div>
@@ -194,7 +194,7 @@ Post comment
 <h3 className="sub-title">Popular Blog</h3>
 <article className="article-item">
 <div className="image">
-<img src="assets/img/blog/blog1.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog1.jpg" alt="demo" />
 </div>
 <div className="content">
 <h3>
@@ -203,7 +203,7 @@ Post comment
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author1.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author1.jpg" alt="demo"/>
 <span>By - Envy Jeqlin</span>
 </div>
 </li>
@@ -212,7 +212,7 @@ Post comment
 </article>
 <article className="article-item">
 <div className="image">
-<img src="assets/img/blog/blog2.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog2.jpg" alt="demo" />
 </div>
 <div className="content">
 <h3>
@@ -221,7 +221,7 @@ Post comment
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author3.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author3.jpg" alt="demo"/>
 <span>By - David Milan</span>
 </div>
 </li>
@@ -230,7 +230,7 @@ Post comment
 </article>
 <article className="article-item">
 <div className="image">
-<img src="assets/img/blog/blog3.jpg" alt="Demo Image" />
+<img src="assets/img/blog/blog3.jpg" alt="demo" />
 </div>
 <div className="content">
 <h3>
@@ -239,7 +239,7 @@ Post comment
 <ul className="list">
 <li>
 <div className="author">
-<img src="assets/img/blog/author4.jpg" alt="Demo Image"/>
+<img src="assets/img/blog/author4.jpg" alt="demo"/>
 <span>By - Christina</span>
 </div>
 </li>
@@ -251,27 +251,27 @@ Post comment
 <h3 className="sub-title">Instagram Post</h3>
 <ul className="instagram-post">
 <li>
-<img src="assets/img/instagram1.jpg" alt="Demo Image"/>
+<img src="assets/img/instagram1.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram2.jpg" alt="Demo Image"/>
+<img src="assets/img/instagram2.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram3.jpg" alt="Demo Image"/>
+<img src="assets/img/instagram3.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram4.jpg" alt="Demo Image"/>
+<img src="assets/img/instagram4.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram5.jpg" alt="Demo Image"/>
+<img src="assets/img/instagram5.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram6.jpg" alt="Demo Image"/>
+<img src="assets/img/instagram6.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 </ul>

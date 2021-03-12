@@ -16,7 +16,7 @@ export default function DestinationDetails() {
 </div>
 </div>
 <div className="bg-image">
-<img src="assets/img/page-title-area/destination-details.jpg" alt="Demo Image"/>
+<img src="assets/img/page-title-area/destination-details.jpg" alt="demo"/>
 </div>
 </div>
 
@@ -32,12 +32,12 @@ export default function DestinationDetails() {
 <div className="row align-items-center">
 <div className="col-md-6 col-sm-12">
 <div className="image mb-30">
-<img src="assets/img/destination13.jpg" alt="Demo Image" />
+<img src="assets/img/destination13.jpg" alt="demo" />
 </div>
 </div>
 <div className="col-md-6 col-sm-12">
 <div className="image mb-30">
-<img src="assets/img/destination14.jpg" alt="Demo Image" />
+<img src="assets/img/destination14.jpg" alt="demo" />
 </div>
 </div>
 </div>
@@ -53,7 +53,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <div className="row align-items-center">
 <div className="col-md-4 col-sm-12">
 <div className="image mb-30">
-<img src="assets/img/destination5.jpg" alt="Demo Image" />
+<img src="assets/img/destination5.jpg" alt="demo" />
 </div>
 </div>
 <div className="col-md-8 col-sm-12">
@@ -206,7 +206,7 @@ Post comment
 <h3 className="sub-title">Popular Places</h3>
 <article className="article-item">
 <div className="image">
-<img src="assets/img/destination6.jpg" alt="Demo Image" />
+<img src="assets/img/destination6.jpg" alt="demo" />
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>95 Fleet, London</span>
@@ -221,7 +221,7 @@ Post comment
 </article>
 <article className="article-item">
 <div className="image">
-<img src="assets/img/destination7.jpg" alt="Demo Image" />
+<img src="assets/img/destination7.jpg" alt="demo" />
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Venice, Italy</span>
@@ -236,7 +236,7 @@ Post comment
 </article>
 <article className="article-item">
 <div className="image">
-<img src="assets/img/destination8.jpg" alt="Demo Image" />
+<img src="assets/img/destination8.jpg" alt="demo" />
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Oia, Greece</span>
@@ -254,27 +254,27 @@ Post comment
 <h3 className="sub-title">Instagram Post</h3>
 <ul className="instagram-post">
 <li>
-<img src="assets/img/instagram1.jpg" alt="Demo Image"/>
+<img src="assets/img/instagram1.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram2.jpg" alt="Demo Image"/>
+<img src="assets/img/instagram2.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram3.jpg" alt="Demo Image"/>
+<img src="assets/img/instagram3.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
- <img src="assets/img/instagram4.jpg" alt="Demo Image"/>
+ <img src="assets/img/instagram4.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram5.jpg" alt="Demo Image"/>
+<img src="assets/img/instagram5.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram6.jpg" alt="Demo Image"/>
+<img src="assets/img/instagram6.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 </ul>

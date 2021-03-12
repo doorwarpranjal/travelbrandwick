@@ -15,7 +15,7 @@ export default function NotFound() {
 </div>
 </div>
 <div className="bg-image">
-<img src="assets/img/page-title-area/contact.jpg" alt="Demo Image"/>
+<img src="assets/img/page-title-area/contact.jpg" alt="demo"/>
 </div>
 </div>
 

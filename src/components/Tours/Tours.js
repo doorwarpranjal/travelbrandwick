@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 export default function Tours() {
   return (
     <div>
@@ -7,19 +8,19 @@ export default function Tours() {
             <h1>Tours</h1>
             <ul>
               <li className='item'>
-                <a href='index.html'>Home</a>
+               <Link to='/'>Home</Link>
               </li>
               <li className='item'>
-                <a href='tours.html'>
+               <Link to='/tours'>
                   <i className='bx bx-chevrons-right' />
                   Tours
-                </a>
+               </Link>
               </li>
             </ul>
           </div>
         </div>
         <div className='bg-image'>
-          <img src='assets/img/page-title-area/tour.jpg' alt='Demo Image' />
+          <img src='assets/img/page-title-area/tour.jpg' alt="demo" />
         </div>
       </div>
       <section
@@ -39,7 +40,7 @@ export default function Tours() {
             <div className='col-lg-6 col-md-6'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour1.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour1.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <span className='location'>
@@ -47,7 +48,7 @@ export default function Tours() {
                     Oia, Greece
                   </span>
                   <h3>
-                    <a href='tours.html'>Greek Cottage Greece</a>
+                   <Link to='/tours'>Greek Cottage Greece</Link>
                   </h3>
                   <div className='review mb-15'>
                     <i className='bx bxs-star' />
@@ -79,7 +80,7 @@ export default function Tours() {
             <div className='col-lg-6 col-md-6'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour9.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour9.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <span className='location'>
@@ -87,7 +88,7 @@ export default function Tours() {
                     Thailand
                   </span>
                   <h3>
-                    <a href='tours.html'>Great Natural Sea</a>
+                   <Link to='/tours'>Great Natural Sea</Link>
                   </h3>
                   <div className='review mb-15'>
                     <i className='bx bxs-star' />
@@ -119,7 +120,7 @@ export default function Tours() {
             <div className='col-lg-4 col-md-6'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour2.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour2.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <div className='review'>
@@ -132,7 +133,7 @@ export default function Tours() {
                   </div>
                   <div className='title'>
                     <h3>
-                      <a href='tours.html'>Piazza Castello</a>
+                     <Link to='/tours'>Piazza Castello</Link>
                     </h3>
                   </div>
                   <ul className='list'>
@@ -151,7 +152,7 @@ export default function Tours() {
             <div className='col-lg-4 col-md-6'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour3.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour3.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <div className='review'>
@@ -164,7 +165,7 @@ export default function Tours() {
                   </div>
                   <div className='title'>
                     <h3>
-                      <a href='tours.html'>Santorini, Greece</a>
+                     <Link to='/tours'>Santorini, Greece</Link>
                     </h3>
                   </div>
                   <ul className='list'>
@@ -183,7 +184,7 @@ export default function Tours() {
             <div className='col-lg-4 col-md-6 m-auto'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour4.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour4.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <div className='review'>
@@ -196,7 +197,7 @@ export default function Tours() {
                   </div>
                   <div className='title'>
                     <h3>
-                      <a href='tours.html'>Metropolitan City</a>
+                     <Link to='/tours'>Metropolitan City</Link>
                     </h3>
                   </div>
                   <ul className='list'>
@@ -232,7 +233,7 @@ export default function Tours() {
             <div className='col-lg-4 col-md-6'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour5.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour5.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <div className='review'>
@@ -245,7 +246,7 @@ export default function Tours() {
                   </div>
                   <div className='title'>
                     <h3>
-                      <a href='tours.html'>Piazza Castello</a>
+                     <Link to='/tours'>Piazza Castello</Link>
                     </h3>
                   </div>
                   <ul className='list'>
@@ -264,7 +265,7 @@ export default function Tours() {
             <div className='col-lg-4 col-md-6'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour6.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour6.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <div className='review'>
@@ -277,7 +278,7 @@ export default function Tours() {
                   </div>
                   <div className='title'>
                     <h3>
-                      <a href='tours.html'>Santorini, Greece</a>
+                     <Link to='/tours'>Santorini, Greece</Link>
                     </h3>
                   </div>
                   <ul className='list'>
@@ -296,7 +297,7 @@ export default function Tours() {
             <div className='col-lg-4 col-md-6'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour7.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour7.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <div className='review'>
@@ -309,7 +310,7 @@ export default function Tours() {
                   </div>
                   <div className='title'>
                     <h3>
-                      <a href='tours.html'>Metropolitan City</a>
+                     <Link to='/tours'>Metropolitan City</Link>
                     </h3>
                   </div>
                   <ul className='list'>
@@ -328,7 +329,7 @@ export default function Tours() {
             <div className='col-lg-4 col-md-6'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour8.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour8.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <div className='review'>
@@ -341,7 +342,7 @@ export default function Tours() {
                   </div>
                   <div className='title'>
                     <h3>
-                      <a href='tours.html'>Piazza Castello</a>
+                     <Link to='/tours'>Piazza Castello</Link>
                     </h3>
                   </div>
                   <ul className='list'>
@@ -360,7 +361,7 @@ export default function Tours() {
             <div className='col-lg-4 col-md-6'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour10.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour10.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <div className='review'>
@@ -373,7 +374,7 @@ export default function Tours() {
                   </div>
                   <div className='title'>
                     <h3>
-                      <a href='tours.html'>Santorini, Greece</a>
+                     <Link to='/tours'>Santorini, Greece</Link>
                     </h3>
                   </div>
                   <ul className='list'>
@@ -392,7 +393,7 @@ export default function Tours() {
             <div className='col-lg-4 col-md-6'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour11.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour11.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <div className='review'>
@@ -405,7 +406,7 @@ export default function Tours() {
                   </div>
                   <div className='title'>
                     <h3>
-                      <a href='tours.html'>Metropolitan City</a>
+                     <Link to='/tours'>Metropolitan City</Link>
                     </h3>
                   </div>
                   <ul className='list'>
@@ -424,7 +425,7 @@ export default function Tours() {
             <div className='col-lg-4 col-md-6'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour12.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour12.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <div className='review'>
@@ -437,7 +438,7 @@ export default function Tours() {
                   </div>
                   <div className='title'>
                     <h3>
-                      <a href='tours.html'>Piazza Castello</a>
+                     <Link to='/tours'>Piazza Castello</Link>
                     </h3>
                   </div>
                   <ul className='list'>
@@ -456,7 +457,7 @@ export default function Tours() {
             <div className='col-lg-4 col-md-6'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour13.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour13.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <div className='review'>
@@ -469,7 +470,7 @@ export default function Tours() {
                   </div>
                   <div className='title'>
                     <h3>
-                      <a href='tours.html'>Santorini, Greece</a>
+                     <Link to='/tours'>Santorini, Greece</Link>
                     </h3>
                   </div>
                   <ul className='list'>
@@ -488,7 +489,7 @@ export default function Tours() {
             <div className='col-lg-4 col-md-6 m-auto'>
               <div className='item-single mb-30'>
                 <div className='image'>
-                  <img src='assets/img/tour/tour14.jpg' alt='Demo Image' />
+                  <img src='assets/img/tour/tour14.jpg' alt="demo" />
                 </div>
                 <div className='content'>
                   <div className='review'>
@@ -501,7 +502,7 @@ export default function Tours() {
                   </div>
                   <div className='title'>
                     <h3>
-                      <a href='tours.html'>Metropolitan City</a>
+                     <Link to='/tours'>Metropolitan City</Link>
                     </h3>
                   </div>
                   <ul className='list'>
@@ -522,15 +523,15 @@ export default function Tours() {
                 <span className='page-numbers current' aria-current='page'>
                   1
                 </span>
-                <a href='#' className='page-numbers'>
+               <Link to='#' className='page-numbers'>
                   2
-                </a>
-                <a href='#' className='page-numbers'>
+               </Link>
+               <Link to='#' className='page-numbers'>
                   3
-                </a>
-                <a href='#' className='page-numbers'>
+               </Link>
+               <Link to='#' className='page-numbers'>
                   Next
-                </a>
+               </Link>
               </div>
             </div>
           </div>
@@ -696,27 +697,27 @@ export default function Tours() {
             <img
               className='image image-1'
               src='assets/img/client1.jpg'
-              alt='Demo Image'
+              alt="demo"
             />
             <img
               className='image image-2'
               src='assets/img/client2.jpg'
-              alt='Demo Image'
+              alt="demo"
             />
             <img
               className='image image-3'
               src='assets/img/client3.jpg'
-              alt='Demo Image'
+              alt="demo"
             />
             <img
               className='image image-4'
               src='assets/img/client4.jpg'
-              alt='Demo Image'
+              alt="demo"
             />
             <img
               className='image image-5'
               src='assets/img/client5.jpg'
-              alt='Demo Image'
+              alt="demo"
             />
           </div>
         </div>

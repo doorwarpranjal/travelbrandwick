@@ -78,27 +78,27 @@ export default function Footer() {
                             <h5>Instagram Post</h5>
                             <ul className="instagram-post">
                                 <li>
-                                    <img src="assets/img/instagram1.jpg" alt="Demo Image"/>
+                                    <img src="assets/img/instagram1.jpg" alt="demo"/>
                                     <i className='bx bxl-instagram'></i>
                                 </li>
                                 <li>
-                                    <img src="assets/img/instagram2.jpg" alt="Demo Image"/>
+                                    <img src="assets/img/instagram2.jpg" alt="demo"/>
                                     <i className='bx bxl-instagram'></i>
                                 </li>
                                 <li>
-                                    <img src="assets/img/instagram3.jpg" alt="Demo Image"/>
+                                    <img src="assets/img/instagram3.jpg" alt="demo"/>
                                     <i className='bx bxl-instagram'></i>
                                 </li>
                                 <li>
-                                    <img src="assets/img/instagram4.jpg" alt="Demo Image"/>
+                                    <img src="assets/img/instagram4.jpg" alt="demo"/>
                                     <i className='bx bxl-instagram'></i>
                                 </li>
                                 <li>
-                                    <img src="assets/img/instagram5.jpg" alt="Demo Image"/>
+                                    <img src="assets/img/instagram5.jpg" alt="demo"/>
                                     <i className='bx bxl-instagram'></i>
                                 </li>
                                 <li>
-                                    <img src="assets/img/instagram6.jpg" alt="Demo Image"/>
+                                    <img src="assets/img/instagram6.jpg" alt="demo"/>
                                     <i className='bx bxl-instagram'></i>
                                 </li>
                             </ul>
