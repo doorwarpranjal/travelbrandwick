@@ -13,7 +13,7 @@ import TripOffers from "./components/Tours/TripOffers"
 import RegisterScreen from "./components/Auth/RegisterScreen"
 import ForgotPasswordScreen from "./components/Auth/ForgotPasswordScreen"
 import NewPasswordScreen from "./components/Auth/NewPasswordScreen"
-import Blog from "./components/BlogScreen/Blogs"
+import Blog from "./components/BlogScreen/All-Blogs"
 function App() {
  
   console.log()
