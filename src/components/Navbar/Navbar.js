@@ -5,11 +5,16 @@ export default function Navbar() {
   const [isAuth, setIsAuth] = useState(false);
   const localData = JSON.parse(localStorage.getItem('recoil-persist'))
 
+  const logoutHandler=()=>{
+    localStorage.removeItem('recoil-persist')
+    window.location.reload()
+  }
   //console.log(localData.Travel_user)
   useEffect(()=>{
 
-    if(localData.Travel_user){
-      setIsAuth(true)
+    if(localData!==null){
+      
+     setIsAuth(true)
     }
     else{
       setIsAuth(false)
@@ -104,7 +109,7 @@ export default function Navbar() {
                 </Link>
               </div>
                 <li className="nav-item" >
-                <Link to="#" className="nav-link">
+                <Link to="#" onClick={logoutHandler} className="nav-link">
                   Logout
                 </Link>
               </li>
