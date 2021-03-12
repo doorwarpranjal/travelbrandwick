@@ -3,37 +3,37 @@ import { Link } from "react-router-dom";
 export default function Blog() {
   return (
     <section id="heroBlog">
-<div class="page-title-area ptb-100">
-<div class="container">
-<div class="page-title-content">
+<div className="page-title-area ptb-100">
+<div className="container">
+<div className="page-title-content">
 <h1>Blog Details</h1>
 <ul>
-<li class="item"><Link to="index.html">Home</Link></li>
+<li className="item"><Link to="index.html">Home</Link></li>
 </ul>
 </div>
 </div>
-<div class="bg-image">
+<div className="bg-image">
 <img src="assets/img/page-title-area/blog-details.jpg" alt="Demo Image"/>
 </div>
 </div>
 
-<section class="blog-details-section pt-100 pb-70">
-<div class="container">
-<div class="section-title">
+<section className="blog-details-section pt-100 pb-70">
+<div className="container">
+<div className="section-title">
 <h2>Latest News & Blog</h2>
 <p>Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.</p>
 </div>
-<div class="row">
-<div class="col-lg-8 col-md-12">
-<div class="blog-details-desc mb-30">
-<div class="image mb-20">
+<div className="row">
+<div className="col-lg-8 col-md-12">
+<div className="blog-details-desc mb-30">
+<div className="image mb-20">
 <img src="assets/img/blog/blog-details1.jpg" alt="image" />
 </div>
-<ul class="info-list mb-20">
-<li><i class='bx bx-calendar'></i> October 5, 2020</li>
-<li><i class='bx bx-tag'></i>Tour, Tourism, Travel</li>
+<ul className="info-list mb-20">
+<li><i className='bx bx-calendar'></i> October 5, 2020</li>
+<li><i className='bx bx-tag'></i>Tour, Tourism, Travel</li>
 </ul>
-<div class="content mb-20">
+<div className="content mb-20">
 <h3>The real voyage does not consist in seeking new landscapes, but in having new eyes.</h3>
 <p>
 I have personally participated in many of the programs mentioned on this site. One of the programs is Save Our I have personally participated in many of the programs mentioned on this site. One of Save Our I have personally in many of the programs mentioned on this site.I have personally in many of the programs mentioned on this site. One of the programs is Save.
@@ -42,81 +42,81 @@ I have personally participated in many of the programs mentioned on this site. O
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
 </p>
 </div>
-<div class="row align-items-center">
-<div class="col-md-4 col-sm-12">
-<div class="image mb-30">
+<div className="row align-items-center">
+<div className="col-md-4 col-sm-12">
+<div className="image mb-30">
 <img src="assets/img/blog/blog4.jpg" alt="Demo Image" />
 </div>
 </div>
-<div class="col-md-8 col-sm-12">
-<p class="mb-30">
+<div className="col-md-8 col-sm-12">
+<p className="mb-30">
 I have personally participated in many of the programs mentioned on this site. One of the programs is Save Our I have personally participated in many of the programs mentioned on this site. One of Save Our I have personally in many of the programs mentioned on this site.
 </p>
 </div>
 </div>
-<blockquote class="blockquote">
+<blockquote className="blockquote">
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus
 vel facilisis .
 </p>
 </blockquote>
-<p class="mb-20">
+<p className="mb-20">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus
 vel facilisis consectetur elit.
 </p>
-<p class="mb-20">
+<p className="mb-20">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus
 vel facilisis consectetur elit.
 </p>
-<div class="row align-items-center">
-<div class="col-md-6 col-sm-12">
-<div class="image mb-30">
+<div className="row align-items-center">
+<div className="col-md-6 col-sm-12">
+<div className="image mb-30">
 <img src="assets/img/blog/blog5.jpg" alt="Demo Image" />
 </div>
 </div>
-<div class="col-md-6 col-sm-12">
-<div class="image mb-30">
+<div className="col-md-6 col-sm-12">
+<div className="image mb-30">
 <img src="assets/img/blog/blog6.jpg" alt="Demo Image" />
 </div>
 </div>
 </div>
-<p class="mb-20">
+<p className="mb-20">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus
 vel facilisis consectetur elit.
 </p>
 <hr/>
-<div class="comments-area mb-30">
-<h3 class="sub-title">Comments</h3>
-<ol class="comment-list">
-<li class="comment">
-<div class="comment-body">
-<div class="comment-author">
+<div className="comments-area mb-30">
+<h3 className="sub-title">Comments</h3>
+<ol className="comment-list">
+<li className="comment">
+<div className="comment-body">
+<div className="comment-author">
 <img src="assets/img/blog/author1.jpg" alt="image" />
 </div>
-<div class="comment-content">
-<div class="comment-metadata">
-<h4 class="name">Emily</h4>
+<div className="comment-content">
+<div className="comment-metadata">
+<h4 className="name">Emily</h4>
 </div>
 <p>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A laudantium distinctio ea reprehenderit est laborum!
 </p>
-<ul class="list">
-<li><i class='bx bx-heart'></i>Likes</li>
-<li><i class='bx bx-reply'></i>Reply</li>
+<ul className="list">
+<li><i className='bx bx-heart'></i>Likes</li>
+<li><i className='bx bx-reply'></i>Reply</li>
 <li>15 days</li>
 </ul>
 </div>
 </div>
-<ol class="children">
-<li class="comment">
-<div class="comment-body">
-<div class="comment-author">
+<ol className="children">
+<li className="comment">
+<div className="comment-body">
+<div className="comment-author">
 <img src="assets/img/blog/author2.jpg" alt="image" />
 </div>
 <form>
-<div class="form-group form-inline">
-<input name="message" class="form-control" placeholder="Write a reply" required="required"/>
-<button type="submit" class="btn-primary">
+<div className="form-group form-inline">
+<input name="message" className="form-control" placeholder="Write a reply" required="required"/>
+<button type="submit" className="btn-primary">
 Send
 </button>
 </div>
@@ -127,82 +127,82 @@ Send
 </li>
 </ol>
 </div>
-<div class="comment-reply">
-<form id="commentForm" class="comment-form">
-<h3 class="sub-title">Post comment</h3>
- <div class="row">
-<div class="col-sm-12 col-md-6 col-xs-12">
-<div class="input-group">
-<div class="input-icon"><i class='bx bx-user'></i></div>
-<input type="text" class="form-control" name="name" placeholder="Name" required="required" />
+<div className="comment-reply">
+<form id="commentForm" className="comment-form">
+<h3 className="sub-title">Post comment</h3>
+ <div className="row">
+<div className="col-sm-12 col-md-6 col-xs-12">
+<div className="input-group">
+<div className="input-icon"><i className='bx bx-user'></i></div>
+<input type="text" className="form-control" name="name" placeholder="Name" required="required" />
 </div>
 </div>
-<div class="col-sm-12 col-md-6 col-xs-12">
-<div class="input-group">
-<div class="input-icon"><i class='bx bx-at'></i></div>
-<input type="email" class="form-control" name="email" placeholder="Email" required="required" />
+<div className="col-sm-12 col-md-6 col-xs-12">
+<div className="input-group">
+<div className="input-icon"><i className='bx bx-at'></i></div>
+<input type="email" className="form-control" name="email" placeholder="Email" required="required" />
 </div>
 </div>
-<div class="col-sm-12 col-xs-12">
-<div class="input-group">
-<div class="input-icon textarea"><i class='bx bx-envelope'></i></div>
-<textarea name="message" class="form-control" placeholder="Write Comment" required="required" rows="6"></textarea>
+<div className="col-sm-12 col-xs-12">
+<div className="input-group">
+<div className="input-icon textarea"><i className='bx bx-envelope'></i></div>
+<textarea name="message" className="form-control" placeholder="Write Comment" required="required" rows="6"></textarea>
 </div>
 </div>
 </div>
-<button type="submit" class="btn-primary">
+<button type="submit" className="btn-primary">
 Post comment
 </button>
 </form>
 </div>
 </div>
 </div>
-<div class="col-lg-4 col-md-12">
-<aside class="widget-area">
-<div class="widget widget-author mb-30">
-<div class="author-img">
+<div className="col-lg-4 col-md-12">
+<aside className="widget-area">
+<div className="widget widget-author mb-30">
+<div className="author-img">
 <img src="assets/img/blog/author1.jpg" alt="author" />
 </div>
-<div class="author-info">
+<div className="author-info">
 <h3>Emily</h3>
 <span>Blogger & Youtuber</span>
 </div>
-<div class="social-link">
-<Link to="#" target="_blank"><i class='bx bxl-facebook'></i></Link>
-<Link to="#" target="_blank"><i class='bx bxl-twitter'></i></Link>
-<Link to="#" target="_blank"><i class='bx bxl-linkedin'></i></Link>
-<Link to="#" target="_blank"><i class='bx bxl-instagram'></i></Link>
+<div className="social-link">
+<Link to="#" target="_blank"><i className='bx bxl-facebook'></i></Link>
+<Link to="#" target="_blank"><i className='bx bxl-twitter'></i></Link>
+<Link to="#" target="_blank"><i className='bx bxl-linkedin'></i></Link>
+<Link to="#" target="_blank"><i className='bx bxl-instagram'></i></Link>
 </div>
 </div>
-<div class="widget widget-search mb-30">
-<form class="search-form search-top">
-<input type="search" class="form-control" placeholder="Search..." />
-<button type="submit" class="btn-text-only">
-<i class='bx bx-search-alt'></i>
+<div className="widget widget-search mb-30">
+<form className="search-form search-top">
+<input type="search" className="form-control" placeholder="Search..." />
+<button type="submit" className="btn-text-only">
+<i className='bx bx-search-alt'></i>
 </button>
 </form>
 </div>
-<div class="widget widget-video mb-30">
-<div class="video-image">
+<div className="widget widget-video mb-30">
+<div className="video-image">
 <img src="assets/img/video-bg3.jpg" alt="video" />
 </div>
-<Link to="https://www.youtube.com/watch?v=QSwvg9Rv2EI" class="youtube-popup video-btn">
-<i class='bx bx-right-arrow'></i>
+<Link to="https://www.youtube.com/watch?v=QSwvg9Rv2EI" className="youtube-popup video-btn">
+<i className='bx bx-right-arrow'></i>
 </Link>
 </div>
-<div class="widget widget-article mb-30">
-<h3 class="sub-title">Popular Blog</h3>
-<article class="article-item">
-<div class="image">
+<div className="widget widget-article mb-30">
+<h3 className="sub-title">Popular Blog</h3>
+<article className="article-item">
+<div className="image">
 <img src="assets/img/blog/blog1.jpg" alt="Demo Image" />
 </div>
-<div class="content">
+<div className="content">
 <h3>
 <Link to="blog-details.html">The real voyage does not consist in.</Link>
 </h3>
-<ul class="list">
+<ul className="list">
 <li>
-<div class="author">
+<div className="author">
 <img src="assets/img/blog/author1.jpg" alt="Demo Image"/>
 <span>By - Envy Jeqlin</span>
 </div>
@@ -210,17 +210,17 @@ Post comment
 </ul>
 </div>
 </article>
-<article class="article-item">
-<div class="image">
+<article className="article-item">
+<div className="image">
 <img src="assets/img/blog/blog2.jpg" alt="Demo Image" />
 </div>
-<div class="content">
+<div className="content">
 <h3>
 <Link to="blog-details.html">Mountains is always right destination</Link>
 </h3>
-<ul class="list">
+<ul className="list">
 <li>
-<div class="author">
+<div className="author">
 <img src="assets/img/blog/author3.jpg" alt="Demo Image"/>
 <span>By - David Milan</span>
 </div>
@@ -228,17 +228,17 @@ Post comment
 </ul>
 </div>
 </article>
-<article class="article-item">
-<div class="image">
+<article className="article-item">
+<div className="image">
 <img src="assets/img/blog/blog3.jpg" alt="Demo Image" />
 </div>
-<div class="content">
+<div className="content">
 <h3>
 <Link to="blog-details.html">Traveling is always right destination</Link>
 </h3>
-<ul class="list">
+<ul className="list">
 <li>
-<div class="author">
+<div className="author">
 <img src="assets/img/blog/author4.jpg" alt="Demo Image"/>
 <span>By - Christina</span>
 </div>
@@ -247,32 +247,32 @@ Post comment
 </div>
 </article>
 </div>
-<div class="widget widget-gallery mb-30">
-<h3 class="sub-title">Instagram Post</h3>
-<ul class="instagram-post">
+<div className="widget widget-gallery mb-30">
+<h3 className="sub-title">Instagram Post</h3>
+<ul className="instagram-post">
 <li>
 <img src="assets/img/instagram1.jpg" alt="Demo Image"/>
-<i class='bx bxl-instagram'></i>
+<i className='bx bxl-instagram'></i>
 </li>
 <li>
 <img src="assets/img/instagram2.jpg" alt="Demo Image"/>
-<i class='bx bxl-instagram'></i>
+<i className='bx bxl-instagram'></i>
 </li>
 <li>
 <img src="assets/img/instagram3.jpg" alt="Demo Image"/>
-<i class='bx bxl-instagram'></i>
+<i className='bx bxl-instagram'></i>
 </li>
 <li>
 <img src="assets/img/instagram4.jpg" alt="Demo Image"/>
-<i class='bx bxl-instagram'></i>
+<i className='bx bxl-instagram'></i>
 </li>
 <li>
 <img src="assets/img/instagram5.jpg" alt="Demo Image"/>
-<i class='bx bxl-instagram'></i>
+<i className='bx bxl-instagram'></i>
 </li>
 <li>
 <img src="assets/img/instagram6.jpg" alt="Demo Image"/>
-<i class='bx bxl-instagram'></i>
+<i className='bx bxl-instagram'></i>
 </li>
 </ul>
 </div>
