@@ -118,7 +118,7 @@ vel facilisis consectetur adipiscing.
 <li className="comment">
 <div className="comment-body">
 <div className="comment-author">
-<img src="assets/img/blog/author1.jpg" alt="image" />
+<img src="assets/img/blog/author1.jpg" alt="demo" />
 </div>
 <div className="comment-content">
 <div className="comment-metadata">
@@ -138,7 +138,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. A laudantium distincti
 <li className="comment">
 <div className="comment-body">
 <div className="comment-author">
-<img src="assets/img/blog/author2.jpg" alt="image" />
+<img src="assets/img/blog/author2.jpg" alt="demo" />
 </div>
 <form>
  <div className="form-group form-inline">

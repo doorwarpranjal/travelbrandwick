@@ -19,7 +19,7 @@ export default function Navbar() {
     else{
       setIsAuth(false)
     }
-  },[0])
+  },[localData])
   return (
     <section id="hero-navbar">
       <div className="main-navbar-area">
