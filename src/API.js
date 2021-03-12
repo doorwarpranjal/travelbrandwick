@@ -63,3 +63,21 @@ export const getAllCategories=async()=>{
     }) ;
     return res
 }
+export const getAllTours=async()=>{
+    const res = await axios.get(`${admin_url}/get-all-ad`).then(response=>{
+        return response ;
+    }).catch(err=>{
+       // console.log(err.response)
+        return err
+    }) ;
+    return res
+}
+export const getTopRatedTours=async()=>{
+    const res = await axios.get(`${admin_url}/get-top-rated-ads`).then(response=>{
+        return response ;
+    }).catch(err=>{
+       // console.log(err.response)
+        return err
+    }) ;
+    return res
+}

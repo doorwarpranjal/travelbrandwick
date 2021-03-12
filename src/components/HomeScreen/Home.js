@@ -1,6 +1,33 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
+import {getAllTours,getTopRatedTours} from '../../API'
+import { useEffect } from "react";
+import { useState } from "react";
 export default function Home() {
+  const [topRatedTours,setTopRatedTours]=useState([])
+  useEffect(()=>{
+getTours()
+getTopTours()
+  },[0])
+  const getTours=async()=>{
+    let res=await getAllTours();
+    if(res.status===200){
+      console.log(res.data)
+    }
+    else{
+      console.log('empty')
+    }
+  }
+  const getTopTours=async()=>{
+    let res=await getTopRatedTours();
+    if(res.status===200){
+      console.log(res.data)
+      setTopRatedTours(res.data)
+    }
+    else{
+      console.log('not result ')
+    }
+  }
   return (
     <section id="hero">
       <div id="home" className="home-banner-area home-style-two">
@@ -31,14 +58,14 @@ export default function Home() {
                 </div>
               </div>
               <div className="bg-shape">
-                <img src="assets/img/banner/banner-bg.png" alt="Demo Image" />
+                <img src="assets/img/banner/banner-bg.png" alt="demo" />
               </div>
             </div>
             <div className="slider-item">
               <div className="row">
                 <div className="col-lg-5 align-self-end">
                   <div className="banner-image">
-                    <img src="assets/img/banner/banner2.png" alt="Demo Image" />
+                    <img src="assets/img/banner/banner2.png" alt="demo" />
                   </div>
                 </div>
                 <div className="col-lg-7">
@@ -59,7 +86,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="bg-shape">
-                <img src="assets/img/banner/banner-bg.png" alt="Demo Image" />
+                <img src="assets/img/banner/banner-bg.png" alt="demo" />
               </div>
             </div>
           </div>
@@ -144,115 +171,40 @@ export default function Home() {
               </p>
             </div>
             <div className="row">
-              <div className="col-lg-4 col-md-6">
+              {topRatedTours.map((item,index)=>{
+                if(index<3){
+         return(   
+              <div className="col-lg-4 col-md-6" key={index}>
                 <div className="item-single mb-30">
                   <div className="image">
-                    <img src="assets/img/destination7.jpg" alt="Demo Image" />
+                    <img src={item.data.thumbnailImage} alt="demo" />
                   </div>
                   <div className="content">
-                    <span className="location">
-                      <i className="bx bx-map"></i>95 Fleet St, London
-                    </span>
+                   
                     <h3>
                       <Link to="/destination-details">
-                        Venice The Dream Place
+                        {item.data.tourPlace}
                       </Link>
                     </h3>
-                    <div className="review">
-                      <i className="bx bx-smile"></i>
-                      <span>9</span>
-                      <span>Superb</span>
+                    <div className="review text-success">
+                      <i className="bx bx-smile text-success"></i>{" "}
+                      <span className='text-success'>{Math.floor(item.avgRating)}</span>{" "}
+                      <span className='text-success'>{item.avgRating>8?"Great":item.avgRating>5?"Superb":"Ok" }</span>
                     </div>
                     <p>
-                      Two short getaway breaks in the Greece together and one
-                      mini caravan holiday.
+                      {item.data.description}
                     </p>
                     <hr />
                     <ul className="list">
                       <li>
-                        <i className="bx bx-time"></i>7 Days
+                        <i className="bx bx-time"></i>{item.data.tourDuration}
                       </li>
-                      <li>
-                        <i className="bx bx-group"></i>65+
-                      </li>
-                      <li>$2000</li>
+                      <li>{item.data.price} Rupee</li>
                     </ul>
                   </div>
                 </div>
               </div>
-              <div className="col-lg-4 col-md-6">
-                <div className="item-single mb-30">
-                  <div className="image">
-                    <img src="assets/img/destination8.jpg" alt="Demo Image" />
-                  </div>
-                  <div className="content">
-                    <span className="location">
-                      <i className="bx bx-map"></i>Versailles, France
-                    </span>
-                    <h3>
-                      <Link to="/destination-details">
-                        Palace of Versailles
-                      </Link>
-                    </h3>
-                    <div className="review">
-                      <i className="bx bx-smile"></i>
-                      <span>7.5</span>
-                      <span>Amazing</span>
-                    </div>
-                    <p>
-                      A simple hunting lodging and later a small château with a
-                      moat occupied the site.
-                    </p>
-                    <hr />
-                    <ul className="list">
-                      <li>
-                        <i className="bx bx-time"></i>3 Days
-                      </li>
-                      <li>
-                        <i className="bx bx-group"></i>160+
-                      </li>
-                      <li>$1500</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-6 m-auto">
-                <div className="item-single mb-30">
-                  <div className="image">
-                    <img src="assets/img/destination9.jpg" alt="Demo Image" />
-                  </div>
-                  <div className="content">
-                    <span className="location">
-                      <i className="bx bx-map"></i>Inca Trail, Peru
-                    </span>
-                    <h3>
-                      <Link to="/destination-details">
-                        Inca Trail Machu Picchu
-                      </Link>
-                    </h3>
-                    <div className="review">
-                      <i className="bx bx-smile"></i>
-                      <span>8.5</span>
-                      <span>Superb</span>
-                    </div>
-                    <p>
-                      The gorgeous play of light did justice to the mystique of
-                      the ancient ruins that.
-                    </p>
-                    <hr />
-                    <ul className="list">
-                      <li>
-                        <i className="bx bx-time"></i>3 Days
-                      </li>
-                      <li>
-                        <i className="bx bx-group"></i>160+
-                      </li>
-                      <li>$1500</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+          ) } })} </div>
           </div>
         </section>
 
@@ -447,7 +399,7 @@ export default function Home() {
             >
               <div className="item-single mb-30">
                 <div className="image">
-                  <img src="assets/img/destination1.jpg" alt="Demo Image" />
+                  <img src="assets/img/destination1.jpg" alt="demo" />
                 </div>
                 <div className="content">
                   <span className="location">
@@ -485,7 +437,7 @@ export default function Home() {
             >
               <div className="item-single mb-30">
                 <div className="image">
-                  <img src="assets/img/destination2.jpg" alt="Demo Image" />
+                  <img src="assets/img/destination2.jpg" alt="demo" />
                 </div>
                 <div className="content">
                   <span className="location">
@@ -525,7 +477,7 @@ export default function Home() {
             >
               <div className="item-single mb-30">
                 <div className="image">
-                  <img src="assets/img/destination12.jpg" alt="Demo Image" />
+                  <img src="assets/img/destination12.jpg" alt="demo" />
                 </div>
                 <div className="content">
                   <span className="location">
@@ -563,7 +515,7 @@ export default function Home() {
             >
               <div className="item-single mb-30">
                 <div className="image">
-                  <img src="assets/img/destination4.jpg" alt="Demo Image" />
+                  <img src="assets/img/destination4.jpg" alt="demo" />
                 </div>
                 <div className="content">
                   <span className="location">
@@ -603,7 +555,7 @@ export default function Home() {
             >
               <div className="item-single mb-30">
                 <div className="image">
-                  <img src="assets/img/destination10.jpg" alt="Demo Image" />
+                  <img src="assets/img/destination10.jpg" alt="demo" />
                 </div>
                 <div className="content">
                   <span className="location">
@@ -641,7 +593,7 @@ export default function Home() {
             >
               <div className="item-single mb-30">
                 <div className="image">
-                  <img src="assets/img/destination11.jpg" alt="Demo Image" />
+                  <img src="assets/img/destination11.jpg" alt="demo" />
                 </div>
                 <div className="content">
                   <span className="location">
@@ -836,27 +788,27 @@ export default function Home() {
             <img
               className="image image-1"
               src="assets/img/client1.jpg"
-              alt="Demo Image"
+              alt="demo"
             />
             <img
               className="image image-2"
               src="assets/img/client2.jpg"
-              alt="Demo Image"
+              alt="demo"
             />
             <img
               className="image image-3"
               src="assets/img/client3.jpg"
-              alt="Demo Image"
+              alt="demo"
             />
             <img
               className="image image-4"
               src="assets/img/client4.jpg"
-              alt="Demo Image"
+              alt="demo"
             />
             <img
               className="image image-5"
               src="assets/img/client5.jpg"
-              alt="Demo Image"
+              alt="demo"
             />
           </div>
         </div>
@@ -895,7 +847,7 @@ export default function Home() {
           <div className="owl-carousel">
             <div className="item-single mb-30">
               <div className="image">
-                <img src="assets/img/tour/tour6.jpg" alt="Demo Image" />
+                <img src="assets/img/tour/tour6.jpg" alt="demo" />
               </div>
               <div className="content">
                 <div className="content">
@@ -956,7 +908,7 @@ export default function Home() {
             </div>
             <div className="item-single mb-30">
               <div className="image">
-                <img src="assets/img/tour/tour7.jpg" alt="Demo Image" />
+                <img src="assets/img/tour/tour7.jpg" alt="demo" />
               </div>
               <div className="content">
                 <div className="content">
@@ -1017,7 +969,7 @@ export default function Home() {
             </div>
             <div className="item-single mb-30">
               <div className="image">
-                <img src="assets/img/tour/tour8.jpg" alt="Demo Image" />
+                <img src="assets/img/tour/tour8.jpg" alt="demo" />
               </div>
               <div className="content">
                 <div className="content">
@@ -1097,7 +1049,7 @@ export default function Home() {
             <div className="col-lg-4 col-md-6">
               <div className="item-single mb-30">
                 <div className="image">
-                  <img src="assets/img/blog/blog5.jpg" alt="Demo Image" />
+                  <img src="assets/img/blog/blog5.jpg" alt="demo" />
                 </div>
                 <div className="content">
                   <ul className="info-list">
@@ -1121,7 +1073,7 @@ export default function Home() {
             <div className="col-lg-4 col-md-6">
               <div className="item-single mb-30">
                 <div className="image">
-                  <img src="assets/img/blog/blog2.jpg" alt="Demo Image" />
+                  <img src="assets/img/blog/blog2.jpg" alt="demo" />
                 </div>
                 <div className="content">
                   <ul className="info-list">
@@ -1144,7 +1096,7 @@ export default function Home() {
             <div className="col-lg-4 col-md-6 m-auto">
               <div className="item-single mb-30">
                 <div className="image">
-                  <img src="assets/img/blog/blog6.jpg" alt="Demo Image" />
+                  <img src="assets/img/blog/blog6.jpg" alt="demo" />
                 </div>
                 <div className="content">
                   <ul className="info-list">
