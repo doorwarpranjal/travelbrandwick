@@ -1,33 +1,34 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
-import {getAllTours,getTopRatedTours} from '../../API'
+import { getAllTours, getTopRatedTours } from "../../API";
 import { useEffect } from "react";
 import { useState } from "react";
 export default function Home() {
-  const [topRatedTours,setTopRatedTours]=useState([])
-  useEffect(()=>{
-getTours()
-getTopTours()
-  },[0])
-  const getTours=async()=>{
-    let res=await getAllTours();
-    if(res.status===200){
-      console.log(res.data)
+  const [topRatedTours, setTopRatedTours] = useState([]);
+  const [allTours, setAllTours] = useState([]);
+  useEffect(() => {
+    getTours();
+    getTopTours();
+  }, []);
+  const getTours = async () => {
+    let res = await getAllTours();
+    if (res.status === 200) {
+    //  console.log(res.data);
+      setAllTours(res.data);
+      console.log(allTours)
+    } else {
+      console.log("empty");
     }
-    else{
-      console.log('empty')
+  };
+  const getTopTours = async () => {
+    let res = await getTopRatedTours();
+    if (res.status === 200) {
+     // console.log(res.data);
+      setTopRatedTours(res.data);
+    } else {
+      console.log("not result ");
     }
-  }
-  const getTopTours=async()=>{
-    let res=await getTopRatedTours();
-    if(res.status===200){
-      console.log(res.data)
-      setTopRatedTours(res.data)
-    }
-    else{
-      console.log('not result ')
-    }
-  }
+  };
   return (
     <section id="hero">
       <div id="home" className="home-banner-area home-style-two">
@@ -171,40 +172,49 @@ getTopTours()
               </p>
             </div>
             <div className="row">
-              {topRatedTours.map((item,index)=>{
-                if(index<3){
-         return(   
-              <div className="col-lg-4 col-md-6" key={index}>
-                <div className="item-single mb-30">
-                  <div className="image">
-                    <img src={item.data.thumbnailImage} alt="demo" />
-                  </div>
-                  <div className="content">
-                   
-                    <h3>
-                      <Link to="/destination-details">
-                        {item.data.tourPlace}
-                      </Link>
-                    </h3>
-                    <div className="review text-success">
-                      <i className="bx bx-smile text-success"></i>{" "}
-                      <span className='text-success'>{Math.floor(item.avgRating)}</span>{" "}
-                      <span className='text-success'>{item.avgRating>8?"Great":item.avgRating>5?"Superb":"Ok" }</span>
+              {topRatedTours.map((item, index) => {
+                if (index < 3) {
+                  return (
+                    <div className="col-lg-4 col-md-6" key={index}>
+                      <div className="item-single mb-30">
+                        <div className="image">
+                          <img src={item.data.thumbnailImage} alt="demo" />
+                        </div>
+                        <div className="content">
+                          <h3>
+                            <Link to="/destination-details">
+                              {item.data.tourPlace}
+                            </Link>
+                          </h3>
+                          <div className="review text-success">
+                            <i className="bx bx-smile text-success"></i>{" "}
+                            <span className="text-success">
+                              {Math.floor(item.avgRating)}
+                            </span>{" "}
+                            <span className="text-success">
+                              {item.avgRating > 8
+                                ? "Great"
+                                : item.avgRating > 5
+                                ? "Superb"
+                                : "Ok"}
+                            </span>
+                          </div>
+                          <p>{item.data.description}</p>
+                          <hr />
+                          <ul className="list">
+                            <li>
+                              <i className="bx bx-time"></i>
+                              {item.data.tourDuration}
+                            </li>
+                            <li>{item.data.price} Rupee</li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                    <p>
-                      {item.data.description}
-                    </p>
-                    <hr />
-                    <ul className="list">
-                      <li>
-                        <i className="bx bx-time"></i>{item.data.tourDuration}
-                      </li>
-                      <li>{item.data.price} Rupee</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-          ) } })} </div>
+                  );
+                }
+              })}{" "}
+            </div>
           </div>
         </section>
 
@@ -392,238 +402,44 @@ getTopTours()
             </div>
           </div>
           <div className="row filtr-container">
-            <div
-              className="col-lg-4 col-md-6 filtr-item"
-              data-category="1"
-              data-sort="value"
-            >
-              <div className="item-single mb-30">
-                <div className="image">
-                  <img src="assets/img/destination1.jpg" alt="demo" />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="bx bx-map"></i>Hvar, Croatia
-                  </span>
-                  <h3>
-                    <Link to="/destination-detailsl">Piazza Castello</Link>
-                  </h3>
-                  <div className="review">
-                    <i className="bx bx-smile"></i>
-                    <span>8.5</span>
-                    <span>Superb</span>
+            {allTours.map((item, index) => {
+              if(index<6)
+           {   return(
+              <div
+              ket={index}
+                className="col-lg-4 col-md-6 filtr-item"
+                data-category="1"
+                data-sort="value"
+              >
+                <div className="item-single mb-30">
+                  <div className="image">
+                    <img src={item.thumbnailImage} alt="demo" />
                   </div>
-                  <p>
-                    A wonderful little cottage right on the seashore - perfect
-                    for exploring.
-                  </p>
-                  <hr />
-                  <ul className="list">
-                    <li>
-                      <i className="bx bx-time"></i>3 Days
-                    </li>
-                    <li>
-                      <i className="bx bx-group"></i>160+
-                    </li>
-                    <li>$500</li>
-                  </ul>
+                  <div className="content">
+                   
+                    <h3>
+                      <Link to={`/destination-detailsl/${item.tourId}`}>{item.tourPlace}</Link>
+                    </h3>
+                    {/* <div className="review">
+                      <i className="bx bx-smile"></i>
+                      <span>8.5</span>
+                      <span>Superb</span>
+                    </div> */}
+                    <p>
+                     {item.description}
+                    </p>
+                    <hr />
+                    <ul className="list">
+                      <li>
+                        <i className="bx bx-time"></i>{item.tourDuration}
+                      </li>
+                     
+                      <li>{item.price}</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6 filtr-item"
-              data-category="2, 1"
-              data-sort="value"
-            >
-              <div className="item-single mb-30">
-                <div className="image">
-                  <img src="assets/img/destination2.jpg" alt="demo" />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="bx bx-map"></i>Santorini, Oia ,Greece
-                  </span>
-                  <h3>
-                    <Link to="/destination-detailsl">
-                      Santorini, Oia ,Greece
-                    </Link>
-                  </h3>
-                  <div className="review">
-                    <i className="bx bx-smile"></i>
-                    <span>9</span>
-                    <span>Superb</span>
-                  </div>
-                  <p>
-                    A wonderful little cottage right on the seashore - perfect
-                    for exploring.
-                  </p>
-                  <hr />
-                  <ul className="list">
-                    <li>
-                      <i className="bx bx-time"></i>7 Days
-                    </li>
-                    <li>
-                      <i className="bx bx-group"></i>65+
-                    </li>
-                    <li>$2000</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6 filtr-item"
-              data-category="2"
-              data-sort="value"
-            >
-              <div className="item-single mb-30">
-                <div className="image">
-                  <img src="assets/img/destination12.jpg" alt="demo" />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="bx bx-map"></i>Gulf of Thailand, Thailand
-                  </span>
-                  <h3>
-                    <Link to="/destination-detailsl">Gulf of Thailand</Link>
-                  </h3>
-                  <div className="review">
-                    <i className="bx bx-smile"></i>
-                    <span>7.5</span>
-                    <span>Amazing</span>
-                  </div>
-                  <p>
-                    The Gulf of Thailand, also known as the Gulf of Siam, is a
-                    shallow northwesterly.
-                  </p>
-                  <hr />
-                  <ul className="list">
-                    <li>
-                      <i className="bx bx-time"></i>5 Days
-                    </li>
-                    <li>
-                      <i className="bx bx-group"></i>96+
-                    </li>
-                    <li>$2100</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6 filtr-item"
-              data-category="2, 3"
-              data-sort="value"
-            >
-              <div className="item-single mb-30">
-                <div className="image">
-                  <img src="assets/img/destination4.jpg" alt="demo" />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="bx bx-map"></i>Santorini, Oia ,Greece
-                  </span>
-                  <h3>
-                    <Link to="/destination-detailsl">
-                      Santorini, Oia ,Greece
-                    </Link>
-                  </h3>
-                  <div className="review">
-                    <i className="bx bx-smile"></i>
-                    <span>8</span>
-                    <span>Amazing</span>
-                  </div>
-                  <p>
-                    A wonderful little cottage right on the seashore - perfect
-                    for exploring.
-                  </p>
-                  <hr />
-                  <ul className="list">
-                    <li>
-                      <i className="bx bx-time"></i>7 Days
-                    </li>
-                    <li>
-                      <i className="bx bx-group"></i>65+
-                    </li>
-                    <li>$2000</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6 filtr-item"
-              data-category="1, 3"
-              data-sort="value"
-            >
-              <div className="item-single mb-30">
-                <div className="image">
-                  <img src="assets/img/destination10.jpg" alt="demo" />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="bx bx-map"></i>United Arab Emirates
-                  </span>
-                  <h3>
-                    <Link to="/destination-detailsl">Burj Khalifa</Link>
-                  </h3>
-                  <div className="review">
-                    <i className="bx bx-smile"></i>
-                    <span>8.5</span>
-                    <span>Superb</span>
-                  </div>
-                  <p>
-                    A wonderful little cottage right on the seashore - perfect
-                    for exploring.
-                  </p>
-                  <hr />
-                  <ul className="list">
-                    <li>
-                      <i className="bx bx-time"></i>5 Days
-                    </li>
-                    <li>
-                      <i className="bx bx-group"></i>110+
-                    </li>
-                    <li>$1700</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6 filtr-item"
-              data-category="1, 2"
-              data-sort="value"
-            >
-              <div className="item-single mb-30">
-                <div className="image">
-                  <img src="assets/img/destination11.jpg" alt="demo" />
-                </div>
-                <div className="content">
-                  <span className="location">
-                    <i className="bx bx-map"></i>California Street, USA
-                  </span>
-                  <h3>
-                    <Link to="/destination-detailsl">Sloped California</Link>
-                  </h3>
-                  <div className="review">
-                    <i className="bx bx-smile"></i>
-                    <span>6.5</span>
-                    <span>Amazing</span>
-                  </div>
-                  <p>
-                    A wonderful little cottage right on the seashore - perfect
-                    for exploring.
-                  </p>
-                  <hr />
-                  <ul className="list">
-                    <li>
-                      <i className="bx bx-time"></i>3 Days
-                    </li>
-                    <li>
-                      <i className="bx bx-group"></i>160+
-                    </li>
-                    <li>$1500</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+           )}})}{" "}
           </div>
         </div>
       </section>

@@ -32,7 +32,7 @@ function App() {
           <Route path="/blog" component={Blog} />
           <Route path="/destinations" component={Destination} />
           <Route path="/destination-details" component={DestinationDetails} />
-          <Route path="/tour" component={Tours} />
+          <Route path="/tours" component={Tours} />
           <Route path="/special-offers" component={TripOffers} />
           <Route path="*" component={NotFound} />
         </Switch>
