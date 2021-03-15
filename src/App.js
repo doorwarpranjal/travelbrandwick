@@ -24,13 +24,14 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about-us" exact component={About} />
+          <Route path="/destinations" component={Destination} />
+          <Route path="/destinations/:id" component={Destination} />
           <Route path="/sign-in" exact component={LoginScreen} />
           <Route path="/register" exact component={RegisterScreen} />
           <Route path="/forgot-password" component={ForgotPasswordScreen} />
           <Route path="/new-password/:id" exact component={NewPasswordScreen} />
           <Route path="/contact" component={Contact} />
           <Route path="/blog" component={Blog} />
-          <Route path="/destinations" component={Destination} />
           <Route path="/destination-details" component={DestinationDetails} />
           <Route path="/tours" component={Tours} />
           <Route path="/special-offers" component={TripOffers} />
