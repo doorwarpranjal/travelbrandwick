@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getAllTours } from "../../API";
 import {Pagination} from '@material-ui/lab'
 export default function Destination() {
@@ -25,6 +25,7 @@ export default function Destination() {
       console.log("empty");
     }
   };
+  
   return (
     <section id="heroDestination">
       <div className="page-title-area ptb-100">
@@ -77,7 +78,7 @@ export default function Destination() {
                       </div>
                       <div className="content">
                         <h3>
-                          <Link to={`/destination-detailsl/${item.tourId}`}>
+                        <Link to={`/destination-details/${item._id}`}>
                             {item.tourPlace}
                           </Link>
                         </h3>
@@ -111,7 +112,7 @@ export default function Destination() {
           <div className="row">
             <div className="col-lg-4 col-md-6">
               <div className="item-single mb-30">
-                <i className="bx bx-calendar"></i>
+                <i className="bx bx-calendar" style={{fontSize:'30px'}}></i>
                 <h3>
                   <Link to="#">Reservation</Link>
                 </h3>
@@ -128,7 +129,7 @@ export default function Destination() {
             </div>
             <div className="col-lg-4 col-md-6">
               <div className="item-single mb-30">
-                <i className="bx bxs-plane-take-off"></i>
+                <i className="bx bxs-plane-take-off" style={{fontSize:'30px'}}></i>
                 <h3>
                   <Link to="#">Tour Pack</Link>
                 </h3>
@@ -145,7 +146,7 @@ export default function Destination() {
             </div>
             <div className="col-lg-4 col-md-6 m-auto">
               <div className="item-single mb-30">
-                <i className="bx bx-money"></i>
+                <i className="bx bx-money" style={{fontSize:'30px'}}></i>
                 <h3>
                   <Link to="#">Payment</Link>
                 </h3>
@@ -193,8 +194,6 @@ export default function Destination() {
           </div>
           <div className="row filtr-container">
             {allTours.map((item, index) => {
-              console.log(index);
-
               if (index>2*pageNumber && index<2*pageNumber+7 ) {
                 return (
                   <div
@@ -208,7 +207,8 @@ export default function Destination() {
                       </div>
                       <div className="content">
                         <h3>
-                          <Link to={`/destination-detailsl/${item.tourId}`}>
+                        <Link to={`/destination-details/${item._id}`}>
+                         
                             {item.tourPlace}
                           </Link>
                         </h3>

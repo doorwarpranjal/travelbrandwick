@@ -81,3 +81,12 @@ export const getTopRatedTours=async()=>{
     }) ;
     return res
 }
+export const getTourById=async (data)=>{
+    const res = await axios.get(`${admin_url}/adById/${data}`).then(response=>{
+        return response ;
+    }).catch(err=>{
+       // console.log(err.response)
+        return err
+    }) ;
+    return res
+}

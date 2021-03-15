@@ -1,65 +1,66 @@
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
+
+import { ListItemAvatar } from "@material-ui/core";
+import { useState,useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { getTourById } from "../../API";
 export default function DestinationDetails() {
-//  const [isAuth, setIsAuth] = useState(true);
+  const [tripDetails, setTripDetails] = useState({images:[],includes:[]});
+let parsms=useParams()
+
+useEffect(()=>{
+getTourByTourId(parsms.tourId)
+},[])
+const getTourByTourId=
+  async (id) => {
+    console.log(id)
+    let res = await getTourById(id);
+    if (res.status === 200) {
+        console.log(res.data);
+        setTripDetails(res.data)
+    } else {
+      console.log("empty");
+    }
+  };
+
   return (
  <section id="heroDestinationDetails">
-<div className="page-title-area ptb-100">
-<div className="container">
-<div className="page-title-content">
-<h1>Our Destinations</h1>
-<ul>
-<li className="item"><Link to="index.html">Home</Link></li>
-<li className="item"><Link to="destination-details.html"><i className='bx bx-chevrons-right'></i>Destinations Details</Link></li>
-</ul>
-</div>
-</div>
-<div className="bg-image">
-<img src="assets/img/page-title-area/destination-details.jpg" alt="demo"/>
-</div>
-</div>
-
 
 <section className="destinations-details-section pt-100 pb-70">
 <div className="container">
 <div className="section-title">
-<h2>Oia, Greece</h2>
+<h2>{tripDetails.tourPlace}</h2>
 </div>
 <div className="row">
  <div className="col-lg-8 col-md-12">
 <div className="destination-details-desc mb-30">
 <div className="row align-items-center">
-<div className="col-md-6 col-sm-12">
-<div className="image mb-30">
-<img src="assets/img/destination13.jpg" alt="demo" />
+<div className="col-md-6 col-sm-12" >
+<div className="image mb-30 col-md-12" >
+<img src={tripDetails.images[0]} style={{width:'280px',height:'330px'}} alt="demo" />
 </div>
 </div>
 <div className="col-md-6 col-sm-12">
 <div className="image mb-30">
-<img src="assets/img/destination14.jpg" alt="demo" />
+<img src={tripDetails.images[1]} alt="demo" style={{width:'280px',height:'330px'}} />
 </div>
 </div>
 </div>
 <div className="content mb-20">
-<h3>Greek Cottage, Greece.</h3>
+<h3>{tripDetails.price} Rs</h3>
 <p>
-I have personally participated in many of the programs mentioned on this site. One of the programs is Save Our I have personally participated in many of the programs mentioned on this site. One of Save Our I have personally in many of the programs mentioned on this site.I have personally in many of the programs mentioned on this site. One of the programs is Save.
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-</p>
+{tripDetails.description}</p>
+
 </div>
 <div className="row align-items-center">
 <div className="col-md-4 col-sm-12">
 <div className="image mb-30">
-<img src="assets/img/destination5.jpg" alt="demo" />
+<img src={tripDetails.thumbnailImage} alt="demo" />
 </div>
 </div>
-<div className="col-md-8 col-sm-12">
-<p className="mb-30">
-I have personally participated in many of the programs mentioned on this site. One of the programs is Save Our I have personally participated in many of the programs mentioned on this site. One of Save Our I have personally in many of the programs mentioned on this site.
-</p>
+<div className="col-md-8 col-sm-12 text-center">
+<p className="mb-30 ">
+{tripDetails.generalInfo}</p>
 </div>
 </div>
 <p className="mb-20">
@@ -72,7 +73,7 @@ vel facilisis consectetur adipiscing.
 <div className="col-lg-6 col-md-6">
 <div className="content-list">
 <i className='bx bx-map-alt'></i>
-<h6><span>Country :</span> Oia, Greece</h6>
+<h6>{tripDetails.tourPlace}</h6>
 </div>
 </div>
 <div className="col-lg-6 col-md-6">
@@ -84,7 +85,9 @@ vel facilisis consectetur adipiscing.
 <div className="col-lg-6 col-md-6">
 <div className="content-list">
 <i className='bx bx-notepad'></i>
-<h6><span>Visa Requirments :</span> Yes</h6>
+<h6 ><span>Includes :</span>
+
+    </h6>
 </div>
 </div>
 <div className="col-lg-6 col-md-6">
@@ -118,7 +121,7 @@ vel facilisis consectetur adipiscing.
 <li className="comment">
 <div className="comment-body">
 <div className="comment-author">
-<img src="assets/img/blog/author1.jpg" alt="demo" />
+<img src="/assets/img/blog/author1.jpg" alt="demo" />
 </div>
 <div className="comment-content">
 <div className="comment-metadata">
@@ -138,7 +141,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. A laudantium distincti
 <li className="comment">
 <div className="comment-body">
 <div className="comment-author">
-<img src="assets/img/blog/author2.jpg" alt="demo" />
+<img src="/assets/img/blog/author2.jpg" alt="demo" />
 </div>
 <form>
  <div className="form-group form-inline">
@@ -196,17 +199,17 @@ Post comment
 </div>
 <div className="widget widget-video mb-30">
 <div className="video-image">
-<img src="assets/img/video-bg3.jpg" alt="video" />
+<img src="/assets/img/video-bg3.jpg" alt="video" />
 </div>
-<Link to="https://www.youtube.com/watch?v=QSwvg9Rv2EI" className="youtube-popup video-btn">
+<a href="https://www.youtube.com/watch?v=QSwvg9Rv2EI" className="youtube-popup video-btn">
 <i className='bx bx-right-arrow'></i>
-</Link>
+</a>
  </div>
 <div className="widget widget-article mb-30">
 <h3 className="sub-title">Popular Places</h3>
 <article className="article-item">
 <div className="image">
-<img src="assets/img/destination6.jpg" alt="demo" />
+<img src="/assets/img/destination6.jpg" alt="demo" />
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>95 Fleet, London</span>
@@ -221,7 +224,7 @@ Post comment
 </article>
 <article className="article-item">
 <div className="image">
-<img src="assets/img/destination7.jpg" alt="demo" />
+<img src="/assets/img/destination7.jpg" alt="demo" />
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Venice, Italy</span>
@@ -236,7 +239,7 @@ Post comment
 </article>
 <article className="article-item">
 <div className="image">
-<img src="assets/img/destination8.jpg" alt="demo" />
+<img src="/assets/img/destination8.jpg" alt="demo" />
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Oia, Greece</span>
@@ -254,27 +257,27 @@ Post comment
 <h3 className="sub-title">Instagram Post</h3>
 <ul className="instagram-post">
 <li>
-<img src="assets/img/instagram1.jpg" alt="demo"/>
+<img src="/assets/img/instagram1.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram2.jpg" alt="demo"/>
+<img src="/assets/img/instagram2.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram3.jpg" alt="demo"/>
+<img src="/assets/img/instagram3.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
- <img src="assets/img/instagram4.jpg" alt="demo"/>
+ <img src="/assets/img/instagram4.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram5.jpg" alt="demo"/>
+<img src="/assets/img/instagram5.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram6.jpg" alt="demo"/>
+<img src="/assets/img/instagram6.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 </ul>
