@@ -2,12 +2,16 @@
 
 
 import { useState,useEffect } from "react";
+import Rating from '@material-ui/lab/Rating';
 import { Link, useParams } from "react-router-dom";
-import { getTourById } from "../../API";
+import { getTourById,postComment as  addTestimonial} from "../../API";
 export default function DestinationDetails() {
   const [tripDetails, setTripDetails] = useState({images:[],includes:[],testimonial:[]});
   const [showReplies,setShowReplies]=useState(false)
-  const [isAuth,setIsAuth]=useState(false)
+  const [isAuth,setIsAuth]=useState(false) 
+  const [value, setValue] = useState(2);
+  const [postComment,setPostComment]=useState("")
+
 let parsms=useParams()
 
 useEffect(()=>{
@@ -17,6 +21,16 @@ if(token){
   setIsAuth(true)
 }
 },[])
+const postMyComment=async (e)=>{
+  e.preventDefault()
+let res=await addTestimonial(parsms.tourId,{reviewContent:postComment,rating:value})
+if (res.status === 200) {
+  console.log(res.data);
+ // setTripDetails(res.data)
+} else {
+console.log(res.response)
+}
+}
 const getTourByTourId=
   async (id) => {
     console.log(id)
@@ -175,26 +189,22 @@ Send
 <form id="commentForm" className="comment-form">
 <h3 className="sub-title">Post comment</h3>
 <div className="row">
-<div className="col-sm-12 col-md-6 col-xs-12">
-<div className="input-group">
-<div className="input-icon"><i className='bx bx-user'></i></div>
-<input type="text" className="form-control" name="name" placeholder="Name" required="required" />
-</div>
-</div>
-<div className="col-sm-12 col-md-6 col-xs-12">
-<div className="input-group">
-<div className="input-icon"><i className='bx bx-at'></i></div>
-<input type="email" className="form-control" name="email" placeholder="Email" required="required" />
-</div>
-</div>
 <div className="col-sm-12 col-xs-12">
+<Rating
+          name="simple-controlled"
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          max={10}
+        />
 <div className="input-group">
 <div className="input-icon textarea"><i className='bx bx-envelope'></i></div>
-<textarea name="message" className="form-control" placeholder="Write Comment" required="required" rows="6"></textarea>
+<textarea name="message" onChange={(e)=>setPostComment(e.target.value)} className="form-control" placeholder="Write Comment" required="required" rows="6"></textarea>
 </div>
 </div>
 </div>
-<button type="submit" className="btn-primary">
+<button type="submit" className="btn-primary" onClick={postMyComment}>
 Post comment
 </button>
 </form>:<> <div>

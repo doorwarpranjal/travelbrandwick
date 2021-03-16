@@ -5,7 +5,6 @@ const admin_url='https://travel-web-admin.herokuapp.com'
 const localData = JSON.parse(localStorage.getItem('recoil-persist'))
 
 
-
 export const Login =async(userData)=>{
     const res = await axios.post(`${base_url}/signin`,userData).then(response=>{
 
@@ -83,6 +82,19 @@ export const getTopRatedTours=async()=>{
 }
 export const getTourById=async (data)=>{
     const res = await axios.get(`${base_url}/get-tour-by-tourId/${data}`).then(response=>{
+        return response ;
+    }).catch(err=>{
+       // console.log(err.response)
+        return err
+    }) ;
+    return res
+}
+export const postComment=async (tourId,data)=>{
+    const res = await axios.post(`${base_url}/add-testimonial-to-tour/${tourId}`,data,{
+       
+        headers :   {'Authorization': `${localData.Travel_user.userToken}` }
+        
+    }).then(response=>{
         return response ;
     }).catch(err=>{
        // console.log(err.response)
