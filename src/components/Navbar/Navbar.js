@@ -55,21 +55,11 @@ export default function Navbar() {
                   </li>
 
                   <li className="nav-item">
-                    <Link to="#" className="nav-link toggle">
-                      Destinations<i className="bx bxs-chevron-down"></i>
-                    </Link>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link to="/destinations" className="nav-link">
+                  <Link to="/destinations" className="nav-link">
                           Destinations
                         </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="/destination-details" className="nav-link">
-                          Destinations Details
-                        </Link>
-                      </li>
-                    </ul>
+                  
+               
                   </li>
                   <li className="nav-item">
                     <Link to="#" className="nav-link toggle">

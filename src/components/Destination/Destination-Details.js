@@ -1,15 +1,21 @@
 
 
-import { ListItemAvatar } from "@material-ui/core";
+
 import { useState,useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getTourById } from "../../API";
 export default function DestinationDetails() {
-  const [tripDetails, setTripDetails] = useState({images:[],includes:[]});
+  const [tripDetails, setTripDetails] = useState({images:[],includes:[],testimonial:[]});
+  const [showReplies,setShowReplies]=useState(false)
+  const [isAuth,setIsAuth]=useState(false)
 let parsms=useParams()
 
 useEffect(()=>{
 getTourByTourId(parsms.tourId)
+let token=JSON.parse(localStorage.getItem('recoil-persist'))
+if(token){
+  setIsAuth(true)
+}
 },[])
 const getTourByTourId=
   async (id) => {
@@ -117,28 +123,31 @@ vel facilisis consectetur adipiscing.
 <hr/>
 <div className="comments-area mb-30">
 <h3 className="sub-title">Comments</h3>
-<ol className="comment-list">
+{tripDetails.testimonial.map((item,index)=>{
+  return (
+    <ol className="comment-list" key={index}>
 <li className="comment">
 <div className="comment-body">
 <div className="comment-author">
-<img src="/assets/img/blog/author1.jpg" alt="demo" />
+<img src={"/assets/img/blog/author1.jpg"|| item.reviewBy.profileImg} alt="demo" />
 </div>
 <div className="comment-content">
 <div className="comment-metadata">
-<h4 className="name">Emma Watson</h4>
+<h4 className="name">{item.reviewBy.name}</h4>
 </div>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. A laudantium distinctio ea reprehenderit est laborum!
-</p>
+{item.reviewContent}</p>
 <ul className="list">
-<li><i className='bx bx-heart'></i>Likes</li>
-<li><i className='bx bx-reply'></i>Reply</li>
-<li>15 days</li>
+{/* <li><i className='bx bx-heart'></i>Likes</li> */}
+<li onClick={()=>setShowReplies(!showReplies)}><i className='bx bx-reply' ></i>Reply</li>
+
 </ul>
 </div>
 </div>
 <ol className="children">
-<li className="comment">
+  {showReplies?
+  
+  <li className="comment">
 <div className="comment-body">
 <div className="comment-author">
 <img src="/assets/img/blog/author2.jpg" alt="demo" />
@@ -153,11 +162,16 @@ Send
 </form>
 </div>
 </li>
+:null}
 </ol>
 </li>
 </ol>
+
+  )
+})}
 </div>
 <div className="comment-reply">
+{isAuth?
 <form id="commentForm" className="comment-form">
 <h3 className="sub-title">Post comment</h3>
 <div className="row">
@@ -183,7 +197,11 @@ Send
 <button type="submit" className="btn-primary">
 Post comment
 </button>
-</form>
+</form>:<> <div>
+<div className='lock'> <h3 className="sub-title " style={{color:'white'}}>Post comment</h3><i class="fas fa-lock"  style={{color:'white'}}> </i>
+<h2> <Link to='/sign-in' style={{color:'white'}}> Login</Link></h2>
+</div>
+</div> </>}
 </div>
 </div>
 </div>

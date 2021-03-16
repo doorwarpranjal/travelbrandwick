@@ -93,3 +93,16 @@ h1{
 
 
 
+#heroDestinationDetails .lock{
+justify-items: center;
+align-items: center;
+background-color: rgb(80, 77, 77);
+color: white;
+width: 90%;
+height: 200px;
+
+text-align: center;
+font-size: 50px;
+z-index: -1;
+
+}
