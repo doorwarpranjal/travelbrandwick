@@ -122,3 +122,13 @@ export const getBlogbyId=async (data)=>{
     }) ;
     return res
 }
+export const getImages=async ()=>{
+    const res = await axios.get(`${admin_url}/get-all-images`,{
+    }).then(response=>{
+        return response ;
+    }).catch(err=>{
+       // console.log(err.response)
+        return err
+    }) ;
+    return res
+}
