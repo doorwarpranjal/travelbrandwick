@@ -58,7 +58,6 @@ const submitHandler=async(e)=>{
     setToastText('Successfully Logged in')
     setTimeout(() => {
       window.location.replace('/')
-     
     }, 1000);
   }
   else{

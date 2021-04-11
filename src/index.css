@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -7,33 +7,81 @@
     General
 ------------------------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@400;600;700&display=swap");
 
-h1, h2, h3, h4, h5, h6{font-family: 'Montserrat', sans-serif; font-weight:normal; margin-top: 0px; margin-bottom: 0px; text-transform: uppercase; letter-spacing: 1px;}
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: inherit; }
-h1 { font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 700; color: #332c55;}
-h2 { font-family: 'Montserrat',  sans-serif; font-style: normal;font-size: 30px; font-weight: 600; color: #332c55;}
-h3 { font-family: 'Montserrat', sans-serif;  font-style: normal; font-weight: 600; color: #332c55;}
-h4 { font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 600; color: #332c55;}
-h5 { font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 600; color: #332c55;}
-h6 { font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 600; color: #332c55;}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: inherit;
+}
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  color: #332c55;
+}
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: 30px;
+  font-weight: 600;
+  color: #332c55;
+}
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #332c55;
+}
+h4 {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #332c55;
+}
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #332c55;
+}
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #332c55;
+}
 
 a {
   color: #505050;
   text-decoration: none;
 }
 
-a:hover { 
-  color: #728B6B;
+a:hover {
+  color: #728b6b;
   text-decoration: none !important;
 }
 
-
-
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -43,66 +91,69 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-h1{
+h1 {
   font-size: 40px;
 }
-
-
-
-
 
 /* 
   Toast
 */
-.toast{
+.toast {
   visibility: hidden;
   min-width: 250px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #332c55;
   font-size: 14px;
   font-weight: 500;
   text-align: center;
   background-color: white;
   border: 1px solid #505050;
-  padding :10px;
+  padding: 10px;
   position: fixed;
   z-index: 1500;
   top: 30px;
-  box-shadow:0 0 6px 0.2px #728B6B;
+  box-shadow: 0 0 6px 0.2px #728b6b;
 }
 
-
-.toast.show{
-  visibility:visible ;
+.toast.show {
+  visibility: visible;
 }
 
-@keyframes fadein{
-  from{top:0;opacity:0;}
-  to{top:30px;opacity:1}
+@keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 30px;
+    opacity: 1;
+  }
 }
 
-@keyframes fadeout{
-  from{top:30px;opacity: 1;}
-  to{top:0;opacity:0}
+@keyframes fadeout {
+  from {
+    top: 30px;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
 }
 
+#heroDestinationDetails .lock {
+  justify-items: center;
+  align-items: center;
+  background-color: rgb(80, 77, 77);
+  color: white;
+  width: 90%;
+  height: 200px;
 
-
-
-#heroDestinationDetails .lock{
-justify-items: center;
-align-items: center;
-background-color: rgb(80, 77, 77);
-color: white;
-width: 90%;
-height: 200px;
-
-text-align: center;
-font-size: 50px;
-z-index: -1;
-
+  text-align: center;
+  font-size: 50px;
+  z-index: -1;
 }

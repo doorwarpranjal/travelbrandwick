@@ -102,3 +102,13 @@ export const postComment=async (tourId,data)=>{
     }) ;
     return res
 }
+export const getBlogs=async ()=>{
+    const res = await axios.get(`${admin_url}/getAllBlog`,{
+    }).then(response=>{
+        return response ;
+    }).catch(err=>{
+       // console.log(err.response)
+        return err
+    }) ;
+    return res
+}
