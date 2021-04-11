@@ -112,3 +112,13 @@ export const getBlogs=async ()=>{
     }) ;
     return res
 }
+export const getBlogbyId=async (data)=>{
+    const res = await axios.get(`${admin_url}/getBlogById/${data}`,{
+    }).then(response=>{
+        return response ;
+    }).catch(err=>{
+       // console.log(err.response)
+        return err
+    }) ;
+    return res
+}

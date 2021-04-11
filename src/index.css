@@ -157,3 +157,12 @@ h1 {
   font-size: 50px;
   z-index: -1;
 }
+.blogger-details{
+  position: fixed;
+}
+@media (max-width:976px){
+.blogger-details{
+  position: relative;
+  margin-bottom: 20px;
+}
+}

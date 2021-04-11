@@ -14,6 +14,7 @@ import RegisterScreen from "./components/Auth/RegisterScreen"
 import ForgotPasswordScreen from "./components/Auth/ForgotPasswordScreen"
 import NewPasswordScreen from "./components/Auth/NewPasswordScreen"
 import Blog from "./components/BlogScreen/All-Blogs"
+import BlogDetails from "./components/BlogScreen/Blog"
 function App() {
  
   console.log()
@@ -32,6 +33,7 @@ function App() {
           <Route path="/contact" component={Contact} />
           <Route path="/blog/:page" component={Blog} />
           <Route path="/blog/" component={Blog} />
+          <Route path="/blog-details/:id" exact component={BlogDetails} />
           <Route path="/destination-details/:tourId" component={DestinationDetails} />
           <Route path="/tours" component={Tours} />
           <Route path="/special-offers" component={TripOffers} />

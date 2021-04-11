@@ -69,7 +69,7 @@ export default function Blog() {
 <li><i className='bx bx-tag'></i>Tour, Tourism, Travel</li>
 </ul>
 <h3>
-<a href="blog-details.html"> {blogs[2*n].title}</a></h3>
+<Link to={{pathname:`blog-details/${blogs[2*n]._id}`}}> {blogs[2*n].title}</Link></h3>
 <p>
 {blogs[2*n].shortDescription}</p>
 <ul className="list">
@@ -80,7 +80,7 @@ export default function Blog() {
 </div>
 </li>
 <li>
-<a href="blog.html" className="btn-primary">Read More</a>
+<Link to={{pathname:`blog-details/${blogs[2*n]._id}`}} className="btn-primary">Read More</Link>
 </li>
 </ul>
 </div>
@@ -102,7 +102,7 @@ export default function Blog() {
 <li><i className='bx bx-tag'></i>Tour</li>
 </ul>
 <h3>
-<a href="blog-details.html">{item.title}</a>
+<Link to={{pathname:`blog-details/${item._id}`}}>{item.title}</Link>
 </h3>
 <ul className="list">
 <li>
@@ -132,7 +132,7 @@ export default function Blog() {
 <li><i className='bx bx-tag'></i>Tour, Tourism, Travel</li>
  </ul>
 <h3>
-<a href="blog-details.html">{blogs[2*n+1].title}</a>
+<Link to={{pathname:`blog-details/${blogs[2*n]._id}`}}>{blogs[2*n+1].title}</Link>
 </h3>
 <p>
 {blogs[2*n+1].shortDescription}</p>
@@ -144,15 +144,15 @@ export default function Blog() {
 </div>
 </li>
 <li>
-<a href="blog.html" className="btn-primary">Read More</a>
+<Link to={{pathname:`blog-details/${blogs[2*n]._id}`}}className="btn-primary">Read More</Link>
 </li>
 </ul>
 </div>
 </div>
 </div>
-:null}<div className="col-lg-6">
-<div className="row">
+:null}
 <div className="col-lg-6">
+
 <div className="row">
   {blogs.map((item,index)=>{
     if(index===2*n+7 || index===2*n+8 || index===2*n+9 || index===2*n+10){
@@ -167,7 +167,7 @@ export default function Blog() {
 <li><i className='bx bx-tag'></i>Tour</li>
 </ul>
 <h3>
-<a href="blog-details.html">{item.title}</a>
+<Link to={{pathname:`blog-details/${item._id}`}}>{item.title}</Link>
 </h3>
 <ul className="list">
 <li>
@@ -185,104 +185,7 @@ export default function Blog() {
     }
   })}
   </div>
-</div>
-</div>
-</div>
-<div className="col-lg-3 col-md-6">
-<div className="item-single mb-30">
-<div className="image">
-<img src="assets/img/blog/blog9.jpg" alt="demo" />
-</div>
-<div className="content">
-<ul className="info-list">
-<li><i className='bx bx-calendar'></i> Oct 10, 2020</li>
-<li><i className='bx bx-tag'></i>Tour</li>
-</ul>
-<h3>
-<a href="blog-details.html">Stop worrying about the potholes.</a>
-</h3>
- <ul className="list">
-<li>
-<div className="author">
-<img src="assets/img/blog/author2.jpg" alt="demo"/>
-<span>By - David Stiffen</span>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div className="col-lg-3 col-md-6">
-<div className="item-single mb-30">
-<div className="image">
-<img src="assets/img/blog/blog10.jpg" alt="demo" />
-</div>
-<div className="content">
-<ul className="info-list">
-<li><i className='bx bx-calendar'></i> Nov 10, 2020</li>
-<li><i className='bx bx-tag'></i>Travel</li>
-</ul>
-<h3>
-<a href="blog-details.html">Fear is only temporary regrets last forever.</a>
-</h3>
-<ul className="list">
-<li>
-<div className="author">
-<img src="assets/img/blog/author3.jpg" alt="demo"/>
-<span>By - David Milan</span>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div className="col-lg-3 col-md-6">
-<div className="item-single mb-30">
-<div className="image">
-<img src="assets/img/blog/blog11.jpg" alt="demo" />
-</div>
-<div className="content">
-<ul className="info-list">
-<li><i className='bx bx-calendar'></i> Oct 5, 2020</li>
-<li><i className='bx bx-tag'></i>Travel</li>
-</ul>
-<h3>
-<a href="blog-details.html">Life begins at the end of your comfort zone.</a>
-</h3>
-<ul className="list">
-<li>
-<div className="author">
-<img src="assets/img/blog/author4.jpg" alt="demo"/>
-<span>By - Christina</span>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div className="col-lg-3 col-md-6">
-<div className="item-single mb-30">
-<div className="image">
-<img src="assets/img/blog/blog12.jpg" alt="demo" />
-</div>
-<div className="content">
-<ul className="info-list">
-<li><i className='bx bx-calendar'></i> Oct 5, 2020</li>
-<li><i className='bx bx-tag'></i>Travel</li>
-</ul>
-<h3>
-<a href="blog-details.html">Travel makes one thing, you see what.</a>
-</h3>
-<ul className="list">
-<li>
-<div className="author">
-<img src="assets/img/blog/author5.jpg" alt="demo"/>
-<span>By - Emily</span>
-</div>
-</li>
-</ul>
-</div>
-</div>
+
 </div>
 <div className="col-lg-12 col-md-12">
 <div className="pagination text-center">
