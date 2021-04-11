@@ -15,6 +15,7 @@ import ForgotPasswordScreen from "./components/Auth/ForgotPasswordScreen"
 import NewPasswordScreen from "./components/Auth/NewPasswordScreen"
 import Blog from "./components/BlogScreen/All-Blogs"
 import BlogDetails from "./components/BlogScreen/Blog"
+import Scroll from './components/ScrollToTop/ScrollToTop'
 function App() {
  
   console.log()
@@ -22,6 +23,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
+        <Scroll/>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about-us" exact component={About} />
