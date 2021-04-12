@@ -130,10 +130,13 @@ vel facilisis consectetur adipiscing.
 </div>
 </div>
 </div>
-<p className="mb-20">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus
-vel facilisis consectetur adipiscing.
-</p>
+<div className='text-center mb-20'>
+  <Link to={'/booking/'+tripDetails._id+"/"+tripDetails.tourId}>
+  <button className='btn btn-outline-success'>
+    Open Booking Options
+  </button>
+  </Link>
+</div>
 <hr/>
 <div className="comments-area mb-30">
 <h3 className="sub-title">Comments</h3>

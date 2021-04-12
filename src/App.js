@@ -16,6 +16,7 @@ import NewPasswordScreen from "./components/Auth/NewPasswordScreen"
 import Blog from "./components/BlogScreen/All-Blogs"
 import BlogDetails from "./components/BlogScreen/Blog"
 import Scroll from './components/ScrollToTop/ScrollToTop'
+import Booking from './components/Booking/Booking'
 function App() {
  
   console.log()
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/about-us" exact component={About} />
           <Route path="/destinations" component={Destination} />
+          <Route path="/booking/:id/:tourid" component={Booking} />
           <Route path="/sign-in" exact component={LoginScreen} />
           <Route path="/register" exact component={RegisterScreen} />
           <Route path="/forgot-password" component={ForgotPasswordScreen} />
