@@ -28,7 +28,7 @@ export default function Navbar() {
             <div className="main-responsive-menu">
               <div className="logo">
                 <Link to="/">
-                  <img src="assets/img/logo1.png" alt="logo" />
+                  <img src="./assets/img/logo1.png" alt="logo" />
                 </Link>
               </div>
               <div className="cart responsive">

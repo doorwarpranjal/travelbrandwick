@@ -3451,9 +3451,7 @@ textarea.form-control {
   background-color: #fd5056;
   border: 1px solid #fd5056;
 }
-.features-section .item-single:hover {
-  background: #4141a5;
-}
+
 .features-section .item-single:hover i {
   color: #fff;
 }

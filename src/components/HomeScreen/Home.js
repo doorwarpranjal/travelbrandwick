@@ -227,12 +227,7 @@ export default function Home() {
               <div className="col-lg-6">
                 <div className="about-content mb-30">
                   <h2>About Us</h2>
-                  <h6>
-                    Top Tour Operators and Travel Agency. We offering in total
-                    793 tours and holidays throughout the world. Combined we
-                    have received 1532 customer reviews and an average rating of
-                    5 out of 5 stars.
-                  </h6>
+                  
                   <p>
                     Travel has helped us to understand the meaning of life and
                     it has helped us become better people. Each time we travel,
@@ -309,70 +304,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="container">
-          <div className="section-title">
-            <h2>Top Features</h2>
-            <p>
-              Travel has helped us to understand the meaning of life and it has
-              helped us become better people. Each time we travel, we see the
-              world with new eyes.
-            </p>
-          </div>
-          <div className="row">
-            <div className="col-lg-4 col-md-6">
-              <div className="item-single mb-30">
-                <i className="bx bx-calendar"></i>
-                <h3>
-                  <Link to="#">Reservation</Link>
-                </h3>
-                <p>
-                  As compared with earlier times where a reservation personnel
-                  has to update its inventory every time.
-                </p>
-                <div className="cta-btn">
-                  <Link to="#" className="btn-primary">
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="item-single mb-30">
-                <i className="bx bxs-plane-take-off"></i>
-                <h3>
-                  <Link to="#">Tour Pack</Link>
-                </h3>
-                <p>
-                  You can dream, create, design, and build the most wonder ful
-                  place in the world. But it requires people.
-                </p>
-                <div className="cta-btn">
-                  <Link to="#" className="btn-primary">
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 m-auto">
-              <div className="item-single mb-30">
-                <i className="bx bx-money"></i>
-                <h3>
-                  <Link to="#">Payment</Link>
-                </h3>
-                <p>
-                  As compared with earlier times where a reservation personnel
-                  has to update its inventory every time.
-                </p>
-                <div className="cta-btn">
-                  <Link to="#" className="btn-primary">
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     </section>
 
       <section
         id="destination"
@@ -387,20 +319,7 @@ export default function Home() {
               world with new eyes.
             </p>
           </div>
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <div className="filter-group">
-                <ul id="control" className="list-control">
-                  <li className="active" data-filter="all">
-                    All
-                  </li>
-                  <li data-filter="1">Budget-Friendly</li>
-                  <li data-filter="2">Royal</li>
-                  <li data-filter="3">Recommended</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          
           <div className="row filtr-container">
             {allTours.map((item, index) => {
               if(index<6)

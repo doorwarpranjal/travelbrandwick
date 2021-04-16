@@ -166,3 +166,119 @@ h1 {
   margin-bottom: 20px;
 }
 }
+#heroTour  .inner-div{
+  float: inline-end;
+  position: absolute;
+  bottom: 30px;
+  margin: 40px;
+  
+}
+#heroTour .tour-bg{
+  position: relative;
+  height: 450px;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+color: #ffffff;
+
+font-family: 'Montserrat',sans-serif;
+  background-size: cover;
+}
+#heroTour  .inner-div h2{
+font-weight: 700;
+color: #ffffff;
+font-size: 35px;
+text-transform: capitalize;
+}
+.standard{
+  font-weight: 700;
+  color: #332c55;
+  font-size: 23px;
+  text-transform: capitalize;
+  
+  }
+  .cta-btn{
+    width: 100%;
+    background: #ff7c5b;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 25px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    color: #fff ;
+   font-weight: 600;
+    padding: 12.5px 20.5px;
+    border-radius: 4px;
+    z-index: 1;
+    box-shadow: 0px 15px 25px 0px rgb(255 124 91 / 30%);
+    transition: all 500ms ease;
+  }
+  .cta-btn:hover{
+    color: #ff7c5b;
+    background-color: #ffffff;
+  }
+ #heroTour ul li{
+    list-style-type: square;
+    margin-left: 20px;
+  }
+  .f-size{
+  font-weight: 700;
+text-align: left !important;
+    font-size: 20px;
+    color: #505050;
+  }
+#heroTour  .inner-div span{
+  font-weight: 500;
+ text-align: center;
+  font-size: 15px;
+  }
+  #heroTour  .inner-div span .price{
+    color: 
+    #ff7c5b;
+    font-weight: 600;
+    text-align: center;
+     font-size: 45px;
+    }
+    #heroTour  .description{
+      font-size: 18px;
+      font-weight: 500;
+      color: rgb(105, 104, 104);
+    }
+    #heroTour .table{
+      background-color: #f5f6f6;
+      font-weight: 500;
+    }
+    #heroTour .booking-div{
+      padding: 40px;
+      background-color: whitesmoke;
+      margin-top: -127px;
+      box-shadow: 2px 3px 10px whitesmoke;
+    }
+    #heroTour .table i{
+      color:#ff7c5b
+    }
+    .theme-color{
+      color: #ff7c5b;
+    }
+    .f-18{
+      font-size: 18px;
+    }
+    .date-span{
+    
+    display: inline-block;
+    left: 5px;
+    top: 3px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 50%;
+    background: #ff7c5b;
+    border: solid 5px white;
+    box-shadow: rgb(201, 200, 200) 2px 2px 5px 5px;;
+
+    }
