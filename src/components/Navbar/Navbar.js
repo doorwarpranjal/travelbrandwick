@@ -63,12 +63,12 @@ export default function Navbar() {
                   </li>
                   <li className="nav-item">
                     <Link to="#" className="nav-link toggle">
-                      Tours<i className="bx bxs-chevron-down"></i>
+                      Gallery<i className="bx bxs-chevron-down"></i>
                     </Link>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
                         <Link to="/tours" className="nav-link">
-                          Tours
+                          Gallery
                         </Link>
                       </li>
                       <li className="nav-item">

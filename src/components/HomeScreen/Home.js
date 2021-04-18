@@ -182,7 +182,7 @@ export default function Home() {
                         </div>
                         <div className="content">
                           <h3>
-                            <Link to={`/destination-details/${item._id}`}>
+                            <Link to={`/tour/${item._id}`}>
                               {item.data.tourPlace}
                             </Link>
                           </h3>
@@ -337,7 +337,7 @@ export default function Home() {
                   <div className="content">
                    
                     <h3>
-                      <Link to={`/destination-details/${item._id}`}>{item.tourPlace}</Link>
+                      <Link to={`/tour/${item._id}`}>{item.tourPlace}</Link>
                     </h3>
                     {/* <div className="review">
                       <i className="bx bx-smile"></i>

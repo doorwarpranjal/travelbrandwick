@@ -36,7 +36,7 @@ function App() {
           <Route path="/forgot-password" component={ForgotPasswordScreen} />
           <Route path="/new-password/:id" exact component={NewPasswordScreen} />
           <Route path="/contact" component={Contact} />
-          <Route path="/tour" component={Tour} />
+          <Route path="/tour/:id" component={Tour} />
           <Route path="/blog/:page" component={Blog} />
           <Route path="/blog/" component={Blog} />
           <Route path="/blog-details/:id" exact component={BlogDetails} />
