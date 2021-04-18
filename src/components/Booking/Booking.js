@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Toast from "../Toast/Toast";
 import { CircularProgress } from "@material-ui/core";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -10,6 +9,7 @@ import {
   postOrder,
 } from "../../API";
 import axios from "axios";
+import Toast from "../Toast/Toast";
 import showToast from "../Toast/showToast";
 export default function Destination() {
   const [tripDate, settripDate] = useState("");
