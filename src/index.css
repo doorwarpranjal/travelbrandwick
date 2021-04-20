@@ -3001,3 +3001,7 @@ text-align: left !important;
   height: 250px !important;
   
 }
+.gallery-image{
+  height: 300px !important;
+  width: 100%;
+}
