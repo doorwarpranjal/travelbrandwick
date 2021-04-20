@@ -166,20 +166,6 @@ export default function Destination() {
               world with new eyes.
             </p>
           </div>
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <div className="filter-group">
-                <ul id="control" className="list-control">
-                  <li className="active" data-filter="all">
-                    All
-                  </li>
-                  <li data-filter="1">Budget-Friendly</li>
-                  <li data-filter="2">Royal</li>
-                  <li data-filter="3">Recommended</li>
-                </ul>
-              </div>
-            </div>
-          </div>
           <div className="row filtr-container">
             {allTours.map((item, index) => {
               if (index>2*pageNumber && index<2*pageNumber+7 ) {
