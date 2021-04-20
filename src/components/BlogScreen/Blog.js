@@ -22,21 +22,23 @@ export default function Blog() {
     }
    }
   return (
-    <section id="heroBlog">
-<div className="page-title-area ">
-<div className="container">
-<div className="page-title-content">
-<h1>Blog Details</h1>
-<ul>
-<li className="item"><Link to="index.html">Home</Link></li>
-</ul>
-</div>
-</div>
-<div className="bg-image">
-<img src="assets/img/page-title-area/blog-details.jpg" alt="demo"/>
-</div>
-</div>
-
+    <section id="">
+  <div className="page-title-area ptb-100">
+        <div className="container">
+          <div className="page-title-content">
+            <h1>Blogs</h1>
+            <ul>
+              <li className="item">
+                <Link to="/">Home</Link>
+              </li>
+             
+            </ul>
+          </div>
+        </div>
+        <div className="bg-image">
+          <img src="assets/img/page-title-area/destinations.jpg"   alt="demo" />
+        </div>
+      </div>
 <section className="blog-details-section pt-100 pb-70">
 <div className="container">
 <div className="section-title">
