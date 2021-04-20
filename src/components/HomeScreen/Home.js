@@ -104,7 +104,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="container">
+        {/* <div className="container">
           <div className="search-form">
             <form id="searchForm">
               <div className="row align-items-center">
@@ -169,7 +169,7 @@ export default function Home() {
               </div>
             </form>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <section className="features-section pt-100 pb-70">
@@ -201,7 +201,9 @@ export default function Home() {
                           <div className="review text-success">
                             <i className="bx bx-smile text-success"></i>{" "}
                             <span className="text-success">
-                              {Math.floor(item.avgRating)}
+                              {item.avgRating>4?
+                              Math.floor(item.avgRating)
+                           :"5" }
                             </span>{" "}
                             <span className="text-success">
                               {item.avgRating > 8
@@ -218,7 +220,7 @@ export default function Home() {
                               <i className="bx bx-time"></i>
                               {item.data.tourDuration}
                             </li>
-                            <li>{item.data.price} Rupee</li>
+                            <li>{item.data.price} Rs.</li>
                           </ul>
                         </div>
                       </div>
@@ -365,7 +367,7 @@ export default function Home() {
                         <i className="bx bx-time"></i>{item.tourDuration}
                       </li>
                      
-                      <li>{item.price}</li>
+                      <li>{item.price} Rs.</li>
                     </ul>
                   </div>
                 </div>
@@ -662,7 +664,7 @@ export default function Home() {
                         <i className="bx bx-time"></i>{item.tourDuration}
                       </li>
                      
-                      <li>{item.price}</li>
+                      <li>{item.price} Rs.</li>
                     </ul>
                   </div>
                 </div>

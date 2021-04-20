@@ -17,6 +17,7 @@ import Blog from "./components/BlogScreen/All-Blogs"
 import BlogDetails from "./components/BlogScreen/Blog"
 import Booking from './components/Booking/Booking'
 import Tour from './components/Tour/tour'
+import TourByCategory from './components/Tour/tourByCategory'
 import ScrollToTop from './components/scrollToTop'
 function App() {
  
@@ -30,6 +31,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/about-us" exact component={About} />
           <Route path="/destinations" component={Destination} />
+          <Route path="/toursbycategory/:id" component={TourByCategory} />
           {/* <Route path="/booking/:id/:tourid" component={Booking} /> */}
           <Route path="/sign-in" exact component={LoginScreen} />
           <Route path="/register" exact component={RegisterScreen} />

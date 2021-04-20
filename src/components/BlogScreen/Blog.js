@@ -11,10 +11,11 @@ export default function Blog() {
    
    },[])
    const getBlog=async()=>{
-    let res=await getBlogbyId(parsm.id)
-    if (res.status === 200) {
-      console.log(res.data);
-      setBlog(res.data)
+     let res=await getBlogbyId(parsm.id)
+     if (res.status === 200) {
+       console.log(res.data);
+       setBlog(res.data)
+     //  console.log(parse(blog.content))
      // setTripDetails(res.data)
     } else {
     console.log(res.response)
@@ -74,7 +75,9 @@ export default function Blog() {
 </ul>
 <h3>{blog.totle}</h3>
 <div className="content ">
-{parse(blog.content)}
+  {blog.content?
+ parse(blog.content)
+  :null}
 </div>
 <hr/>
 </div>

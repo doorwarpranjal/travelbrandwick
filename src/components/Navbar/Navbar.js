@@ -32,12 +32,7 @@ export default function Navbar() {
                   src="https://res.cloudinary.com/dvu7miswu/image/upload/v1618921323/tn5jlcs6xdfqtuqiohjy.png" alt="logo" />
                 </Link>
               </div>
-              <div className="cart responsive">
-                <Link to="/cart" className="cart-btn">
-                  <i className="bx bx-cart"></i>
-                  <span className="badge">0</span>
-                </Link>
-              </div>
+              
             </div>
           </div>
         </div>

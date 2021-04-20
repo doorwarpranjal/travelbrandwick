@@ -1,4 +1,5 @@
 //import './Navbar.css'
+import { Link } from "@material-ui/core";
 import { useState } from "react";
 
 export default function Footer() {
@@ -8,17 +9,21 @@ export default function Footer() {
  
  <footer className="footer-area">
         <div className="container">
-            <div className="footer-top pt-100 pb-70">
+            <div className="footer-top pt-40 ">
                 <div className="row">
                     <div className="col-lg-3 col-md-5 col-sm-6 col-12">
                         <div className="footer-widget">
                             <div className="navbar-brand">
-                                <a href="index.html">
-                                    <img src="assets/img/logo2.png" alt="Logo" />
-                                </a>
+                                <Link href="/">
+                                    <img src="https://res.cloudinary.com/dvu7miswu/image/upload/v1618921323/tn5jlcs6xdfqtuqiohjy.png" alt="logo" />
+                                </Link>
                             </div>
                             <p>You can dream, create, design, and build the most wonderful place.</p>
-                            <div className="contact-info">
+                       </div>
+                    </div>
+                    <div className="col-lg-3 col-md-5 col-sm-6 col-12 mt-6" style={{marginTop:'60px'}}>
+                        <div className="footer-widget">
+                        <div className="contact-info">
                                 <div className="content">
                                     <a href="tel:+0123456987"><i className='bx bx-phone'></i>+0123 456 987</a>
                                 </div>
@@ -32,24 +37,7 @@ export default function Footer() {
                                     <a href="#"><i className='bx bx-map'></i>Mon-Fri: 8 AM – 7 PM</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-3 col-md-5 col-sm-6 col-12">
-                        <div className="footer-widget">
-                            <h5>Latest News</h5>
-                            <ul className="footer-news">
-                                <li className="content">
-                                    <a href="blog-details.html">Surrounded by the peaceful waters of Lake Victoria.</a>
-                                    <span>October 05, 2020</span>
-                                    <hr/>
-                                </li>
-                                <li className="content">
-                                    <a href="blog-details.html">Morning came very early today. The alarm went off at 4
-                                        am</a>
-                                    <span>October 05, 2020</span>
-                                </li>
-                            </ul>
-                        </div>
+                         </div>
                     </div>
                     <div className="col-lg-2 col-md-5 col-sm-6 col-12">
                         <div className="footer-widget">
@@ -112,8 +100,8 @@ export default function Footer() {
                     <div className="copy-right-content">
                         <p>
                             Copyright @2021  Designed By
-                            <a href="https://hibootstrap.com/" target="_blank">
-                                theBrandwick
+                            <a href="https:www.thebrandwick.com" target="_blank">
+                               {"  "} theBrandwick
                             </a>
                         </p>
                     </div>

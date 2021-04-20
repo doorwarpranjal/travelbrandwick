@@ -1,21 +1,22 @@
 import { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { getAllTours } from "../../API";
+import { Link, useHistory, useParams } from "react-router-dom";
+import { getAllTours,getTourByCatgories } from "../../API";
 import {Pagination} from '@material-ui/lab'
 export default function Destination() {
   //  const [isAuth, setIsAuth] = useState(true);
- 
+ let params=useParams()
   const [allTours, setAllTours] = useState([]);
   const [pageValue,setPageValue]=useState(0)
   const [pageNumber,setPageNumber]=useState(1)
   useEffect(() => {
+      console.log(params)
     getTours();
     // getTopTours();
   }, []);
   const getTours = async () => {
-    let res = await getAllTours();
+    let res = await getTourByCatgories(params.id);
     if (res.status === 200) {
-      //  console.log(res.data);
+        console.log(res.data);
       setAllTours(res.data);
       let arrlength=res.data.length
       let pageNo=Math.round((arrlength-3)/3)
@@ -34,18 +35,18 @@ export default function Destination() {
             <h1>Destinations</h1>
             <ul>
               <li className="item">
-                <Link to="/index">Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li className="item">
                 <Link to="/destinations">
-                  <i className="bx bx-chevrons-right"></i>Destinations
+                  <i className="bx bx-chevrons-right"></i>Destinations By Category 
                 </Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="bg-image">
-          <img src="assets/img/page-title-area/destinations.jpg" alt="demo" />
+          <img src="assets/img/page-title-area/destinations.jpg"   alt="demo" />
         </div>
       </div>
 
@@ -73,8 +74,8 @@ export default function Destination() {
                     data-sort="value"
                   >
                     <div className="item-single mb-30">
-                      <div className="image card-image">
-                        <img src={item.thumbnailImage} alt="demo" />
+                      <div className="image">
+                        <img src={item.thumbnailImage} className='carousel-image' alt="demo" />
                       </div>
                       <div className="content">
                         <h3>
@@ -95,7 +96,7 @@ export default function Destination() {
                             {item.tourDuration}
                           </li>
 
-                          <li>{item.price}</li>
+                          <li>{item.price} Rs</li>
                         </ul>
                       </div>
                     </div>
@@ -120,7 +121,7 @@ export default function Destination() {
                   As compared with earlier times where a reservation personnel
                   has to update its inventory every time.
                 </p>
-              
+                
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -133,7 +134,7 @@ export default function Destination() {
                   You can dream, create, design, and build the most wonder ful
                   place in the world. But it requires people.
                 </p>
-                
+               
               </div>
             </div>
             <div className="col-lg-4 col-md-6 m-auto">
@@ -146,7 +147,7 @@ export default function Destination() {
                   As compared with earlier times where a reservation personnel
                   has to update its inventory every time.
                 </p>
-          
+               
               </div>
             </div>
           </div>
@@ -157,6 +158,8 @@ export default function Destination() {
         id="destination"
         className="destination-section ptb-100 bg-light"
       >
+        {  console.log(allTours.length)}
+          {allTours.length>3?
         <div className="container">
           <div className="section-title">
             <h2>Tours</h2>
@@ -165,20 +168,6 @@ export default function Destination() {
               helped us become better people. Each time we travel, we see the
               world with new eyes.
             </p>
-          </div>
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <div className="filter-group">
-                <ul id="control" className="list-control">
-                  <li className="active" data-filter="all">
-                    All
-                  </li>
-                  <li data-filter="1">Budget-Friendly</li>
-                  <li data-filter="2">Royal</li>
-                  <li data-filter="3">Recommended</li>
-                </ul>
-              </div>
-            </div>
           </div>
           <div className="row filtr-container">
             {allTours.map((item, index) => {
@@ -190,8 +179,8 @@ export default function Destination() {
                     data-sort="value"
                   >
                     <div className="item-single mb-30">
-                      <div className="image card-image">
-                        <img src={item.thumbnailImage} alt="demo" />
+                      <div className="image ">
+                        <img src={item.thumbnailImage} className='card-image' alt alt="demo" />
                       </div>
                       <div className="content">
                         <h3>
@@ -237,7 +226,7 @@ export default function Destination() {
             </div>
           </div>
         </div>
-      </section>
+    :null}  </section>
     </section>
   );
 }

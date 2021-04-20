@@ -193,3 +193,16 @@ export const getCatgories = async () => {
     });
   return res;
 };
+
+export const getTourByCatgories = async (data) => {
+  const res = await axios
+    .get(`${base_url}/get-tour-by-category/${data}`)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log(err.response);
+      return err;
+    });
+  return res;
+};
