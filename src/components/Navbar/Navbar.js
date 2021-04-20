@@ -67,11 +67,11 @@ export default function Navbar() {
                           Gallery
                         </Link>
                       </li>
-                      <li className="nav-item">
+                      {/* <li className="nav-item">
                         <Link to="/special-offers" className="nav-link">
                           Trip Offers
                         </Link>
-                      </li>
+                      </li> */}
                     </ul>
                   </li>
                   <li className="nav-item">

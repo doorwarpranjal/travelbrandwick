@@ -78,7 +78,7 @@ export default function Destination() {
                       </div>
                       <div className="content">
                         <h3>
-                        <Link to={`/tour/${item._id}`}>
+                        <Link to={`/destination/${item._id}`}>
                             {item.tourPlace}
                           </Link>
                         </h3>
@@ -195,7 +195,7 @@ export default function Destination() {
                       </div>
                       <div className="content">
                         <h3>
-                        <Link to={`/tour/${item._id}`}>
+                        <Link to={`/destination/${item._id}`}>
                          
                             {item.tourPlace}
                           </Link>

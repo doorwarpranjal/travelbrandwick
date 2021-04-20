@@ -147,7 +147,8 @@ const getTourByTourId=
         className="tour-bg mb-6 "
         style={{
           backgroundImage:
-            `url(${tripDetails.thumbnailImage})`,     }}
+            `url(${tripDetails.thumbnailImage})`,
+          backgroundPosition:'center'     }}
       >
         <div className="inner-div">
           <Star size={30} className='theme-color f-18' />
@@ -347,7 +348,7 @@ const getTourByTourId=
             <div class="owl-carousel">
               {tripDetails.images.map((item,index)=>{
                 return(
-                  <div className="item" key={index}><img src={item} /></div>
+                  <div className="item" key={index}><img src={item} className='gallery-image' /></div>
                 )
               })}
   
