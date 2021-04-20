@@ -122,10 +122,9 @@ p {
   background-color: #fff9e9 !important;
 }
 .section-title {
-  max-width: 720px;
+ 
   text-align: center;
-  margin-right: auto;
-  margin-left: auto;
+
   margin-bottom: 50px;
   position: relative;
   z-index: 5;
@@ -2154,16 +2153,7 @@ textarea.form-control {
 .destination-section .item-single:hover .content h3 a:hover {
   text-decoration: underline;
 }
-.destination-section .item-single:hover .content .list li {
-  color: #d6d6d6;
-}
-.destination-section .item-single:hover .content .list li:last-child {
-  color: #fff;
-}
-.destination-section .item-single:hover .content p {
-  color: #d6d6d6;
-  display: block;
-}
+
 .destination-section .item-single .spacer {
   width: 100%;
   min-height: 150px;
@@ -3447,25 +3437,18 @@ textarea.form-control {
   display: inline-flex;
 }
 .features-section .item-single .btn-primary:hover {
-  color: #fff;
+  
   background-color: #fd5056;
   border: 1px solid #fd5056;
 }
 
-.features-section .item-single:hover i {
-  color: #fff;
-}
-.features-section .item-single:hover h3 a {
-  color: #fff;
-}
+
 .features-section .item-single:hover h3 a:hover {
   color: #fd5056;
 }
-.features-section .item-single:hover p {
-  color: #d6d6d6;
-}
+
 .features-section .item-single:hover .btn-primary {
-  color: #fff;
+  
   border: 1px solid #fff;
 }
 .features-section .item-single:hover .btn-primary:hover {

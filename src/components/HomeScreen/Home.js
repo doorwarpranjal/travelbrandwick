@@ -1,20 +1,32 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
-import { getAllTours, getTopRatedTours } from "../../API";
+import { getAllTours, getCatgories, getTopRatedTours } from "../../API";
 import { useEffect } from "react";
 import { useState } from "react";
 export default function Home() {
   const [topRatedTours, setTopRatedTours] = useState([]);
   const [allTours, setAllTours] = useState([]);
+  const [categories,setCategories]=useState([])
   useEffect(() => {
     getTours();
     getTopTours();
+    getAllCategories()
   }, []);
   const getTours = async () => {
     let res = await getAllTours();
     if (res.status === 200) {
     //  console.log(res.data);
       setAllTours(res.data);
+      console.log(allTours)
+    } else {
+      console.log("empty");
+    }
+  };
+  const getAllCategories = async () => {
+    let res = await getCatgories();
+    if (res.status === 200) {
+      console.log(res.data,'categories');
+      setCategories(res.data);
       console.log(allTours)
     } else {
       console.log("empty");
@@ -163,7 +175,7 @@ export default function Home() {
       <section className="features-section pt-100 pb-70">
         <section id="top-destination" className="top-destination-section pb-70">
           <div className="container">
-            <div className="section-title">
+            <div className="section-title text-center">
               <h2>Top Destinations</h2>
               <p>
                 Travel has helped us to understand the meaning of life and it
@@ -178,7 +190,7 @@ export default function Home() {
                     <div className="col-lg-4 col-md-6" key={index}>
                       <div className="item-single mb-30">
                         <div className="image">
-                          <img src={item.data.thumbnailImage} alt="demo" />
+                          <img src={item.data.thumbnailImage} className='card-image' alt="demo" />
                         </div>
                         <div className="content">
                           <h3>
@@ -332,7 +344,7 @@ export default function Home() {
               >
                 <div className="item-single mb-30">
                   <div className="image">
-                    <img src={item.thumbnailImage} alt="demo" />
+                    <img src={item.thumbnailImage} className='card-image' alt="demo" />
                   </div>
                   <div className="content">
                    
@@ -572,7 +584,7 @@ export default function Home() {
       <section id="tours" className="recent-tours-section pt-100 pb-70">
         <div className="container">
           <div className="section-title">
-            <h2>Recent Tours</h2>
+            <h2>Choose By Category</h2>
             <p>
               Travel has helped us to understand the meaning of life and it has
               helped us become better people. Each time we travel, we see the
@@ -580,281 +592,84 @@ export default function Home() {
             </p>
           </div>
           <div className="owl-carousel">
-            <div className="item-single mb-30">
-              <div className="image">
-                <img src="assets/img/tour/tour6.jpg" alt="demo" />
-              </div>
-              <div className="content">
-                <div className="content">
-                  <div className="review">
-                    <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star"></i>
-                    <span>39 Review</span>
-                  </div>
-                  <div className="title">
-                    <h3>
-                      <Link to="#">Top Destination in Himachal</Link>
-                    </h3>
-                  </div>
-                  <ul className="list">
-                    <li>
-                      <i className="bx bx-time"></i>7 Days
-                    </li>
-                    <li>
-                      <i className="bx bx-group"></i>60+
-                    </li>
-                    <li>$1500</li>
-                  </ul>
+            {categories.map((item,index)=>{ 
+              return(
+                <div className="item-single mb-30">
+                <div className="image">
+                  <img src={item.thumbImage} className='carousel-image' alt="demo" />
+                </div>
+                <div className="content text-center">
+                  <div className="content ">
+                    <div className="title text-center">
+                      <h3>
+                        <Link to={"/toursbycategory/"+item._id}>{item.categoryName}</Link>
+                      </h3>
+                    </div>
+                      </div>
+                </div>
+                <div className="flip-content text-center">
+                 
+                  <h3>
+                    <Link to={"/toursbycategory/"+item._id}>{item.categoryName}</Link>
+                  </h3>
+                  <hr />
                 </div>
               </div>
-              <div className="flip-content">
-                <span className="location">
-                  <i className="bx bx-map"></i>Hvar, Croatia
-                </span>
-                <h3>
-                  <Link to="/tours">Top Destination in Himachal</Link>
-                </h3>
-                <div className="review mb-15">
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <span>25 Review</span>
-                </div>
-                <p>
-                  A wonderful little cottage right on the seashore - perfect for
-                  exploring with the little boat.
-                </p>
-                <hr />
-                <ul className="list">
-                  <li>
-                    <i className="bx bx-time"></i>3 Days
-                  </li>
-                  <li>
-                    <i className="bx bx-group"></i>160+
-                  </li>
-                  <li>$1500</li>
-                </ul>
-              </div>
-            </div>
-            <div className="item-single mb-30">
-              <div className="image">
-                <img src="assets/img/tour/tour7.jpg" alt="demo" />
-              </div>
-              <div className="content">
-                <div className="content">
-                  <div className="review">
-                    <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star"></i>
-                    <span>27 Review</span>
-                  </div>
-                  <div className="title">
-                    <h3>
-                      <Link to="#">Top Honeymoon Destinations</Link>
-                    </h3>
-                  </div>
-                  <ul className="list">
-                    <li>
-                      <i className="bx bx-time"></i>5 Days
-                    </li>
-                    <li>
-                      <i className="bx bx-group"></i>59+
-                    </li>
-                    <li>$1350</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="flip-content">
-                <span className="location">
-                  <i className="bx bx-map"></i>Gulf, Thailand
-                </span>
-                <h3>
-                  <Link to="/tours">Top Honeymoon Destinations</Link>
-                </h3>
-                <div className="review mb-15">
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <span>27 Review</span>
-                </div>
-                <p>
-                  A wonderful little cottage right on the seashore - perfect for
-                  exploring with the little boat.
-                </p>
-                <hr />
-                <ul className="list">
-                  <li>
-                    <i className="bx bx-time"></i>5 Days
-                  </li>
-                  <li>
-                    <i className="bx bx-group"></i>59+
-                  </li>
-                  <li>$1350</li>
-                </ul>
-              </div>
-            </div>
-            <div className="item-single mb-30">
-              <div className="image">
-                <img src="assets/img/tour/tour8.jpg" alt="demo" />
-              </div>
-              <div className="content">
-                <div className="content">
-                  <div className="review">
-                    <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star"></i>
-                    <span>46 Review</span>
-                  </div>
-                  <div className="title">
-                    <h3>
-                      <Link to="#">Treks and Camping</Link>
-                    </h3>
-                  </div>
-                  <ul className="list">
-                    <li>
-                      <i className="bx bx-time"></i>7 Days
-                    </li>
-                    <li>
-                      <i className="bx bx-group"></i>160+
-                    </li>
-                    <li>$1090</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="flip-content">
-                <span className="location">
-                  <i className="bx bx-map"></i>Egypt, Asia
-                </span>
-                <h3>
-                  <Link to="/tours">Trek and Camping</Link>
-                </h3>
-                <div className="review mb-15">
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <span>46 Review</span>
-                </div>
-                <p>
-                  A wonderful little cottage right on the seashore - perfect for
-                  exploring with the little boat.
-                </p>
-                <hr />
-                <ul className="list">
-                  <li>
-                    <i className="bx bx-time"></i>7 Days
-                  </li>
-                  <li>
-                    <i className="bx bx-group"></i>160+
-                  </li>
-                  <li>$1090</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+               )
+            })} </div>
         </div>
       </section>
-
-      <section
-        id="blog"
-        className="blog-section blog-style-two pt-100 pb-70 bg-light"
-      >
-        <div className="container">
+      <div className="container">
+        {allTours.length>6? <>
           <div className="section-title">
-            <h2>Latest News & Blog</h2>
+            <h2>More Tours</h2>
             <p>
               Travel has helped us to understand the meaning of life and it has
               helped us become better people. Each time we travel, we see the
               world with new eyes.
             </p>
           </div>
-          <div className="row">
-            <div className="col-lg-4 col-md-6">
-              <div className="item-single mb-30">
-                <div className="image">
-                  <img src="assets/img/blog/blog5.jpg" alt="demo" />
-                </div>
-                <div className="content">
-                  <ul className="info-list">
-                    <li>
-                      <i className="bx bx-calendar"></i> Oct 10, 2020
-                    </li>
-                  </ul>
-                  <h3>
-                    <Link to="/blog-details">
-                      Hang on the beach with little sea turtles.
-                    </Link>
-                  </h3>
-                  <p>
-                    I have personally participated in many of the programs
-                    mentioned on this site. One of the programs is Save Our
-                    Sea...
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="item-single mb-30">
-                <div className="image">
-                  <img src="assets/img/blog/blog2.jpg" alt="demo" />
-                </div>
-                <div className="content">
-                  <ul className="info-list">
-                    <li>
-                      <i className="bx bx-calendar"></i> Nov 10, 2020
-                    </li>
-                  </ul>
-                  <h3>
-                    <Link to="/blog-details">
-                      In nightlife you can do anything you want.
-                    </Link>
-                  </h3>
-                  <p>
-                    I am a self-proclaimed experience junkie. There is nothing I
-                    love more than going somewhere or doing something new...
-                  </p>
+      <div className="row filtr-container">
+            {allTours.map((item, index) => {
+              if(index>6 && index<12)
+           {   return(
+              <div
+              ket={index}
+                className="col-lg-4 col-md-6 filtr-item"
+                data-category="1"
+                data-sort="value"
+              >
+                <div className="item-single mb-30">
+                  <div className="image">
+                    <img src={item.thumbnailImage} className='card-image' alt="demo" />
+                  </div>
+                  <div className="content">
+                   
+                    <h3>
+                      <Link to={`/tour/${item._id}`}>{item.tourPlace}</Link>
+                    </h3>
+                    {/* <div className="review">
+                      <i className="bx bx-smile"></i>
+                      <span>8.5</span>
+                      <span>Superb</span>
+                    </div> */}
+                    <p>
+                     {item.description}
+                    </p>
+                    <hr />
+                    <ul className="list">
+                      <li>
+                        <i className="bx bx-time"></i>{item.tourDuration}
+                      </li>
+                     
+                      <li>{item.price}</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-4 col-md-6 m-auto">
-              <div className="item-single mb-30">
-                <div className="image">
-                  <img src="assets/img/blog/blog6.jpg" alt="demo" />
-                </div>
-                <div className="content">
-                  <ul className="info-list">
-                    <li>
-                      <i className="bx bx-calendar"></i> Oct 5, 2020
-                    </li>
-                  </ul>
-                  <h3>
-                    <Link to="/blog-details">
-                      Travel survival tips: airports & flights.
-                    </Link>
-                  </h3>
-                  <p>
-                    I recently returned from a three-week trip to the
-                    Netherlands, United Kingdom, India, and Hong Kong. I was on
-                    13 planes...
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+           )}})}{" "}
+          </div> </>:null}
         </div>
-      </section>
     </section>
   );
 }

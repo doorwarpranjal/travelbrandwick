@@ -28,7 +28,8 @@ export default function Navbar() {
             <div className="main-responsive-menu">
               <div className="logo">
                 <Link to="/">
-                  <img src="./assets/img/logo1.png" alt="logo" />
+                  <img style={{width:'40px'}} 
+                  src="https://res.cloudinary.com/dvu7miswu/image/upload/v1618921323/tn5jlcs6xdfqtuqiohjy.png" alt="logo" />
                 </Link>
               </div>
               <div className="cart responsive">
@@ -44,7 +45,7 @@ export default function Navbar() {
           <div className="container">
             <nav className="navbar navbar-expand-md navbar-light">
               <Link className="navbar-brand" to="/">
-                <img src="assets/img/logo1.png" alt="Logo" />
+                <img style={{width:'60px'}} src="https://res.cloudinary.com/dvu7miswu/image/upload/v1618921323/tn5jlcs6xdfqtuqiohjy.png" alt="Logo" />
               </Link>
               <div className="collapse navbar-collapse mean-menu">
                 <ul className="navbar-nav ml-auto">
@@ -67,7 +68,7 @@ export default function Navbar() {
                     </Link>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <Link to="/tours" className="nav-link">
+                        <Link to="/gallery" className="nav-link">
                           Gallery
                         </Link>
                       </li>
@@ -83,21 +84,13 @@ export default function Navbar() {
                       Blog
                     </Link>
                   </li>
-                 
                   <li className="nav-item">
                     <Link to="/about-us" className="nav-link">
                       About
                     </Link>
-                  </li>
-                  
+                  </li>                  
                 {isAuth?
                 <>
-                <div className="cart">
-                <Link to="/cart" className="cart-btn">
-                  <i className="bx bx-cart"></i>
-                  <span className="badge">0</span>
-                </Link>
-              </div>
                 <li className="nav-item" >
                 <Link to="#" onClick={logoutHandler} className="nav-link">
                   Logout
@@ -106,7 +99,6 @@ export default function Navbar() {
               </>
                 :
                 <li className="nav-item" >
-
                 <div className="cart">
                   <Link to="/sign-in" className="nav-link toggle">
                     Sign-in <i className="fas fa-sign-in-alt " ></i>

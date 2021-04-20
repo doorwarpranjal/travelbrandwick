@@ -15,9 +15,9 @@ import ForgotPasswordScreen from "./components/Auth/ForgotPasswordScreen"
 import NewPasswordScreen from "./components/Auth/NewPasswordScreen"
 import Blog from "./components/BlogScreen/All-Blogs"
 import BlogDetails from "./components/BlogScreen/Blog"
-import Scroll from './components/ScrollToTop/ScrollToTop'
 import Booking from './components/Booking/Booking'
 import Tour from './components/Tour/tour'
+import ScrollToTop from './components/scrollToTop'
 function App() {
  
   console.log()
@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        <Scroll/>
+        <ScrollToTop/>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about-us" exact component={About} />
@@ -41,7 +41,7 @@ function App() {
           <Route path="/blog/" component={Blog} />
           <Route path="/blog-details/:id" exact component={BlogDetails} />
           {/* <Route path="/destination-details/:tourId" component={DestinationDetails} /> */}
-          <Route path="/tours" component={Tours} />
+          <Route path="/gallery" component={Tours} />
           <Route path="/special-offers" component={TripOffers} />
           <Route path="*" component={NotFound} />
         </Switch>
