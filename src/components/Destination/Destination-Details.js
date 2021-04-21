@@ -1,65 +1,86 @@
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
+
+
+import { useState,useEffect } from "react";
+import Rating from '@material-ui/lab/Rating';
+import { Link, useParams } from "react-router-dom";
+import { getTourById,postComment as  addTestimonial} from "../../API";
 export default function DestinationDetails() {
-//  const [isAuth, setIsAuth] = useState(true);
+  const [tripDetails, setTripDetails] = useState({images:[],includes:[],testimonial:[]});
+  const [showReplies,setShowReplies]=useState(false)
+  const [isAuth,setIsAuth]=useState(false) 
+  const [value, setValue] = useState(2);
+  const [postComment,setPostComment]=useState("")
+
+let parsms=useParams()
+
+useEffect(()=>{
+getTourByTourId(parsms.tourId)
+let token=JSON.parse(localStorage.getItem('recoil-persist'))
+if(token){
+  setIsAuth(true)
+}
+},[])
+const postMyComment=async (e)=>{
+  e.preventDefault()
+let res=await addTestimonial(parsms.tourId,{reviewContent:postComment,rating:value})
+if (res.status === 200) {
+  console.log(res.data);
+ // setTripDetails(res.data)
+} else {
+console.log(res.response)
+}
+}
+const getTourByTourId=
+  async (id) => {
+    console.log(id)
+    let res = await getTourById(id);
+    if (res.status === 200) {
+        console.log(res.data);
+        setTripDetails(res.data)
+    } else {
+      console.log("empty");
+    }
+  };
+
   return (
  <section id="heroDestinationDetails">
-<div className="page-title-area ptb-100">
-<div className="container">
-<div className="page-title-content">
-<h1>Our Destinations</h1>
-<ul>
-<li className="item"><Link to="index.html">Home</Link></li>
-<li className="item"><Link to="destination-details.html"><i className='bx bx-chevrons-right'></i>Destinations Details</Link></li>
-</ul>
-</div>
-</div>
-<div className="bg-image">
-<img src="assets/img/page-title-area/destination-details.jpg" alt="Demo Image"/>
-</div>
-</div>
-
 
 <section className="destinations-details-section pt-100 pb-70">
 <div className="container">
 <div className="section-title">
-<h2>Oia, Greece</h2>
+<h2>{tripDetails.tourPlace}</h2>
 </div>
 <div className="row">
  <div className="col-lg-8 col-md-12">
 <div className="destination-details-desc mb-30">
 <div className="row align-items-center">
-<div className="col-md-6 col-sm-12">
-<div className="image mb-30">
-<img src="assets/img/destination13.jpg" alt="Demo Image" />
+<div className="col-md-6 col-sm-12" >
+<div className="image mb-30 col-md-12" >
+<img src={tripDetails.images[0]} style={{width:'280px',height:'330px'}} alt="demo" />
 </div>
 </div>
 <div className="col-md-6 col-sm-12">
 <div className="image mb-30">
-<img src="assets/img/destination14.jpg" alt="Demo Image" />
+<img src={tripDetails.images[1]} alt="demo" style={{width:'280px',height:'330px'}} />
 </div>
 </div>
 </div>
 <div className="content mb-20">
-<h3>Greek Cottage, Greece.</h3>
+<h3>{tripDetails.price} Rs</h3>
 <p>
-I have personally participated in many of the programs mentioned on this site. One of the programs is Save Our I have personally participated in many of the programs mentioned on this site. One of Save Our I have personally in many of the programs mentioned on this site.I have personally in many of the programs mentioned on this site. One of the programs is Save.
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-</p>
+{tripDetails.description}</p>
+
 </div>
 <div className="row align-items-center">
 <div className="col-md-4 col-sm-12">
 <div className="image mb-30">
-<img src="assets/img/destination5.jpg" alt="Demo Image" />
+<img src={tripDetails.thumbnailImage} alt="demo" />
 </div>
 </div>
-<div className="col-md-8 col-sm-12">
-<p className="mb-30">
-I have personally participated in many of the programs mentioned on this site. One of the programs is Save Our I have personally participated in many of the programs mentioned on this site. One of Save Our I have personally in many of the programs mentioned on this site.
-</p>
+<div className="col-md-8 col-sm-12 text-center">
+<p className="mb-30 ">
+{tripDetails.generalInfo}</p>
 </div>
 </div>
 <p className="mb-20">
@@ -72,7 +93,7 @@ vel facilisis consectetur adipiscing.
 <div className="col-lg-6 col-md-6">
 <div className="content-list">
 <i className='bx bx-map-alt'></i>
-<h6><span>Country :</span> Oia, Greece</h6>
+<h6>{tripDetails.tourPlace}</h6>
 </div>
 </div>
 <div className="col-lg-6 col-md-6">
@@ -84,7 +105,9 @@ vel facilisis consectetur adipiscing.
 <div className="col-lg-6 col-md-6">
 <div className="content-list">
 <i className='bx bx-notepad'></i>
-<h6><span>Visa Requirments :</span> Yes</h6>
+<h6 ><span>Includes :</span>
+
+    </h6>
 </div>
 </div>
 <div className="col-lg-6 col-md-6">
@@ -107,38 +130,44 @@ vel facilisis consectetur adipiscing.
 </div>
 </div>
 </div>
-<p className="mb-20">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus
-vel facilisis consectetur adipiscing.
-</p>
+<div className='text-center mb-20'>
+  <Link to={'/booking/'+tripDetails._id+"/"+tripDetails.tourId}>
+  <button className='btn btn-outline-success'>
+    Open Booking Options
+  </button>
+  </Link>
+</div>
 <hr/>
 <div className="comments-area mb-30">
 <h3 className="sub-title">Comments</h3>
-<ol className="comment-list">
+{tripDetails.testimonial.map((item,index)=>{
+  return (
+    <ol className="comment-list" key={index}>
 <li className="comment">
 <div className="comment-body">
 <div className="comment-author">
-<img src="assets/img/blog/author1.jpg" alt="image" />
+<img src={"/assets/img/blog/author1.jpg"|| item.reviewBy.profileImg} alt="demo" />
 </div>
 <div className="comment-content">
 <div className="comment-metadata">
-<h4 className="name">Emma Watson</h4>
+<h4 className="name">{item.reviewBy.name}</h4>
 </div>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. A laudantium distinctio ea reprehenderit est laborum!
-</p>
+{item.reviewContent}</p>
 <ul className="list">
-<li><i className='bx bx-heart'></i>Likes</li>
-<li><i className='bx bx-reply'></i>Reply</li>
-<li>15 days</li>
+{/* <li><i className='bx bx-heart'></i>Likes</li> */}
+<li onClick={()=>setShowReplies(!showReplies)}><i className='bx bx-reply' ></i>Reply</li>
+
 </ul>
 </div>
 </div>
 <ol className="children">
-<li className="comment">
+  {showReplies?
+  
+  <li className="comment">
 <div className="comment-body">
 <div className="comment-author">
-<img src="assets/img/blog/author2.jpg" alt="image" />
+<img src="/assets/img/blog/author2.jpg" alt="demo" />
 </div>
 <form>
  <div className="form-group form-inline">
@@ -150,37 +179,42 @@ Send
 </form>
 </div>
 </li>
+:null}
 </ol>
 </li>
 </ol>
+
+  )
+})}
 </div>
 <div className="comment-reply">
+{isAuth?
 <form id="commentForm" className="comment-form">
 <h3 className="sub-title">Post comment</h3>
 <div className="row">
-<div className="col-sm-12 col-md-6 col-xs-12">
-<div className="input-group">
-<div className="input-icon"><i className='bx bx-user'></i></div>
-<input type="text" className="form-control" name="name" placeholder="Name" required="required" />
-</div>
-</div>
-<div className="col-sm-12 col-md-6 col-xs-12">
-<div className="input-group">
-<div className="input-icon"><i className='bx bx-at'></i></div>
-<input type="email" className="form-control" name="email" placeholder="Email" required="required" />
-</div>
-</div>
 <div className="col-sm-12 col-xs-12">
+<Rating
+          name="simple-controlled"
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          max={10}
+        />
 <div className="input-group">
 <div className="input-icon textarea"><i className='bx bx-envelope'></i></div>
-<textarea name="message" className="form-control" placeholder="Write Comment" required="required" rows="6"></textarea>
+<textarea name="message" onChange={(e)=>setPostComment(e.target.value)} className="form-control" placeholder="Write Comment" required="required" rows="6"></textarea>
 </div>
 </div>
 </div>
-<button type="submit" className="btn-primary">
+<button type="submit" className="btn-primary" onClick={postMyComment}>
 Post comment
 </button>
-</form>
+</form>:<> <div>
+<div className='lock'> <h3 className="sub-title " style={{color:'white'}}>Post comment</h3><i class="fas fa-lock"  style={{color:'white'}}> </i>
+<h2> <Link to='/sign-in' style={{color:'white'}}> Login</Link></h2>
+</div>
+</div> </>}
 </div>
 </div>
 </div>
@@ -196,17 +230,17 @@ Post comment
 </div>
 <div className="widget widget-video mb-30">
 <div className="video-image">
-<img src="assets/img/video-bg3.jpg" alt="video" />
+<img src="/assets/img/video-bg3.jpg" alt="video" />
 </div>
-<Link to="https://www.youtube.com/watch?v=QSwvg9Rv2EI" className="youtube-popup video-btn">
+<a href="https://www.youtube.com/watch?v=QSwvg9Rv2EI" className="youtube-popup video-btn">
 <i className='bx bx-right-arrow'></i>
-</Link>
+</a>
  </div>
 <div className="widget widget-article mb-30">
 <h3 className="sub-title">Popular Places</h3>
 <article className="article-item">
 <div className="image">
-<img src="assets/img/destination6.jpg" alt="Demo Image" />
+<img src="/assets/img/destination6.jpg" alt="demo" />
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>95 Fleet, London</span>
@@ -221,7 +255,7 @@ Post comment
 </article>
 <article className="article-item">
 <div className="image">
-<img src="assets/img/destination7.jpg" alt="Demo Image" />
+<img src="/assets/img/destination7.jpg" alt="demo" />
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Venice, Italy</span>
@@ -236,7 +270,7 @@ Post comment
 </article>
 <article className="article-item">
 <div className="image">
-<img src="assets/img/destination8.jpg" alt="Demo Image" />
+<img src="/assets/img/destination8.jpg" alt="demo" />
 </div>
 <div className="content">
 <span className="location"><i className='bx bx-map'></i>Oia, Greece</span>
@@ -254,27 +288,27 @@ Post comment
 <h3 className="sub-title">Instagram Post</h3>
 <ul className="instagram-post">
 <li>
-<img src="assets/img/instagram1.jpg" alt="Demo Image"/>
+<img src="/assets/img/instagram1.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram2.jpg" alt="Demo Image"/>
+<img src="/assets/img/instagram2.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram3.jpg" alt="Demo Image"/>
+<img src="/assets/img/instagram3.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
- <img src="assets/img/instagram4.jpg" alt="Demo Image"/>
+ <img src="/assets/img/instagram4.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram5.jpg" alt="Demo Image"/>
+<img src="/assets/img/instagram5.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 <li>
-<img src="assets/img/instagram6.jpg" alt="Demo Image"/>
+<img src="/assets/img/instagram6.jpg" alt="demo"/>
 <i className='bx bxl-instagram'></i>
 </li>
 </ul>

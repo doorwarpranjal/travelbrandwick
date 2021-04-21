@@ -1,11 +1,28 @@
 import './Navbar.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from './logo1.png'
 import './Navbar.css'
 
 export default function Navbar() {
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
+  const localData = JSON.parse(localStorage.getItem('recoil-persist'))
+
+  const logoutHandler=()=>{
+    localStorage.removeItem('recoil-persist')
+    window.location.reload()
+  }
+  //console.log(localData.Travel_user)
+  useEffect(()=>{
+
+    if(localData!==null){
+      
+     setIsAuth(true)
+    }
+    else{
+      setIsAuth(false)
+    }
+  },[localData])
   return (
     <section id="hero-navbar">
       <div className="main-navbar-area">
@@ -41,30 +58,20 @@ export default function Navbar() {
                   </li>
 
                   <li className="nav-item">
-                    <Link to="#" className="nav-link toggle">
-                      Destinations<i className="bx bxs-chevron-down"></i>
-                    </Link>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link to="/destinations" className="nav-link">
+                  <Link to="/destinations" className="nav-link">
                           Destinations
                         </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="/destination-details" className="nav-link">
-                          Destinations Details
-                        </Link>
-                      </li>
-                    </ul>
+                  
+               
                   </li>
                   <li className="nav-item">
                     <Link to="#" className="nav-link toggle">
-                      Tours<i className="bx bxs-chevron-down"></i>
+                      Gallery<i className="bx bxs-chevron-down"></i>
                     </Link>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
                         <Link to="/tours" className="nav-link">
-                          Tours
+                          Gallery
                         </Link>
                       </li>
                       <li className="nav-item">
@@ -75,7 +82,7 @@ export default function Navbar() {
                     </ul>
                   </li>
                   <li className="nav-item">
-                    <Link to="#" className="nav-link">
+                    <Link to="/blog" className="nav-link">
                       Blog
                     </Link>
                   </li>
@@ -86,6 +93,21 @@ export default function Navbar() {
                     </Link>
                   </li>
                   
+                {isAuth?
+                <>
+                <div className="cart">
+                <Link to="/cart" className="cart-btn">
+                  <i className="bx bx-cart"></i>
+                  <span className="badge">0</span>
+                </Link>
+              </div>
+                <li className="nav-item" >
+                <Link to="#" onClick={logoutHandler} className="nav-link">
+                  Logout
+                </Link>
+              </li>
+              </>
+                :
                 <li className="nav-item" >
 
                 <div className="cart">
@@ -94,15 +116,8 @@ export default function Navbar() {
                   </Link>
                 </div>
                 </li>
-                </ul>
-                {isAuth?null:
-                <div className="cart">
-                  <Link to="cart.html" className="cart-btn">
-                    <i className="bx bx-cart"></i>
-                    <span className="badge">0</span>
-                  </Link>
-                </div>
-                }
+              }  </ul>
+              
               </div>
             </nav>
           </div>

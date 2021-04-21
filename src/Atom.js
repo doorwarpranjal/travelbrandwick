@@ -6,7 +6,7 @@ import { recoilPersist } from 'recoil-persist'
 const { persistAtom } = recoilPersist()
 
 const userState = atom({
-  key: "Travel-user",
+  key: "Travel_user",
   default: {
     email: null,
     userId: null,

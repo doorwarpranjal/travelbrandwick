@@ -3,22 +3,26 @@ import { Link } from 'react-router-dom'
 import {Signup} from '../../../API'
 import {userState} from '../../../Atom'
 import { useRecoilState } from "recoil";
+import showToast from '../../Toast/showToast';
+import Toast from '../../Toast/Toast';
+import {CircularProgress} from '@material-ui/core'
 export default function RegisterForm() {
   const [ myUser , setmyUser ] = useRecoilState(userState)
   const [email,setEmail]=useState("")
   const [name,setName]=useState("")
   const [phone,setPhone]=useState("")
   const [password,setPassword]=useState("")
+  const [toastColor,setToastColor]=useState("green")
+  const [toastText,setToastText]=useState("")
+  const [loading,setLoading]=useState(false)
   function validation(){
-if(!email){
-  console.log('no email')
+if(!email || !password || !phone || !name){
+  showToast()
+  setToastColor('red')
+  setToastText('Fill All Fields')
   return false
 }
-else if(!password){
-  console.log('no email')
-  return false
 
-}
 else{
   return true
 }
@@ -27,26 +31,35 @@ else{
 const submitHandler=async(e)=>{
   e.preventDefault()
   if(validation()){
-
+    setLoading(true)
     let data={
       password:password,
       email:email,mobile:phone,name:name
     }
     let res=await Signup(data)
+    console.log(res.response)
     if(res.status===200){
-      console.log(res)
-     // localStorage.setItem('user-data',res.data)
-     
-      window.location.replace('/sign-in')
+      setLoading(false)
+      showToast()
+      setToastColor('green')
+      setToastText('Successfully SignUp in')
+      setTimeout(() => {
+        window.location.replace('/sign-in')
+      }, 1000);
     }
     else{
-console.log(res.response.data.error)
+      console.log(res.response)
+      setLoading(false)
+      showToast()
+      setToastColor('red')
+      setToastText('Email Already Exist or Not Valid')
     }
     
   }
 }
   return (
     <form id='#authForm' onSubmit={submitHandler}>
+       <Toast color={toastColor} text={toastText}/>
       <div className='content'>
         <h3>Create Account</h3>
         <p>Register please if you don't have an account</p>
@@ -59,7 +72,7 @@ console.log(res.response.data.error)
           type='text'
           className='form-control'
           placeholder='Username'
-          required
+           
           onChange={(e)=>setName(e.target.value)}
         />
       </div>
@@ -71,7 +84,7 @@ console.log(res.response.data.error)
           type='text'
           className='form-control'
           placeholder='Email Address'
-          required
+           
           onChange={(e)=>setEmail(e.target.value)}
         />
       </div>
@@ -83,7 +96,7 @@ console.log(res.response.data.error)
           type='password'
           className='form-control'
           placeholder='Password'
-          required
+           
           onChange={(e)=>setPassword(e.target.value)}
         />
       </div>
@@ -95,7 +108,7 @@ console.log(res.response.data.error)
           type='text'
           className='form-control'
           placeholder='Phone Number'
-          required
+           
           onChange={(e)=>setPhone(e.target.value)}
         />
       </div>
@@ -105,14 +118,14 @@ console.log(res.response.data.error)
             <input type='checkbox' id='agreement' />
             <label htmlFor='agreement'>
               I agreed travelBrandwick{' '}
-              <a href='terms-of-service.html'>Terms of Services</a> and{' '}
-              <a href='privacy-policy.html'>Privacy Policy</a>
+              <Link href='/terms-of-service'>Terms of Services</Link> and{' '}
+              <Link href='/privacy-policy'>Privacy Policy</Link>
             </label>
           </div>
         </div>
       </div>
-      <button type='submit' className='btn-primary'>
-        Register
+      <button type='submit'  className='btn-primary'>
+  {loading?<CircularProgress/> : "Register" }     
       </button>
       Already have a Account <Link to='/sign-in' className='primary-color'>
             Signin
