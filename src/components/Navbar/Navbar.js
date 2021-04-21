@@ -1,6 +1,9 @@
 import './Navbar.css'
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Logo from './logo1.png'
+import './Navbar.css'
+
 export default function Navbar() {
   const [isAuth, setIsAuth] = useState(true);
   return (
@@ -11,7 +14,7 @@ export default function Navbar() {
             <div className="main-responsive-menu">
               <div className="logo">
                 <Link to="/">
-                  <img src="assets/img/logo1.png" alt="logo" />
+                  <img src={Logo} style={{width : '10px !important'}} alt="logo" />
                 </Link>
               </div>
               <div className="cart responsive">

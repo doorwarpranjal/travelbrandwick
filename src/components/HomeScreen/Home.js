@@ -265,12 +265,7 @@ export default function Home() {
               <div className="col-lg-6">
                 <div className="about-content mb-30">
                   <h2>About Us</h2>
-                  <h6>
-                    Top Tour Operators and Travel Agency. We offering in total
-                    793 tours and holidays throughout the world. Combined we
-                    have received 1532 customer reviews and an average rating of
-                    5 out of 5 stars.
-                  </h6>
+                    <br/>
                   <p>
                     Travel has helped us to understand the meaning of life and
                     it has helped us become better people. Each time we travel,

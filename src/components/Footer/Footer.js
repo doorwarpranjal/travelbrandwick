@@ -1,5 +1,7 @@
 //import './Navbar.css'
 import { useState } from "react";
+import Logo from '../Navbar/logo1.png'
+import '../Navbar/Navbar.css'
 
 export default function Footer() {
   const [isAuth, setIsAuth] = useState(true);
@@ -13,9 +15,11 @@ export default function Footer() {
                     <div class="col-lg-3 col-md-5 col-sm-6 col-12">
                         <div class="footer-widget">
                             <div class="navbar-brand">
-                                <a href="index.html">
-                                    <img src="assets/img/logo2.png" alt="Logo" />
-                                </a>
+                            <div className="logo">
+                <a href="/">
+                  <img src={Logo} style={{width : '10px !important'}} alt="logo" />
+                </a>
+              </div>
                             </div>
                             <p>You can dream, create, design, and build the most wonderful place.</p>
                             <div class="contact-info">
