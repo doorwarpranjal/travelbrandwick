@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { getAllTours } from "../../API";
 import {Pagination} from '@material-ui/lab'
+import Card from "../Card/Card";
 export default function Destination() {
   //  const [isAuth, setIsAuth] = useState(true);
  
@@ -54,176 +55,27 @@ export default function Destination() {
         className="top-destination-section pt-100 pb-70 bg-light"
       >
         <div className="container">
-          <div className="section-title">
-            <h2>Recently Added</h2>
-            <p>
+           <div className="section-title">
+          <h2>Tours</h2>
+            {/* <p>
               Travel has helped us to understand the meaning of life and it has
               helped us become better people. Each time we travel, we see the
               world with new eyes.
-            </p>
-          </div>
+            </p> */}
+          </div> 
           <div className="row">
             {allTours.map((item, index) => {
-              if (index < 3) {
+              if (index) {
                 return (
-                  <div
-                    ket={index}
-                    className="col-lg-4 col-md-6 filtr-item"
-                    data-category="1"
-                    data-sort="value"
-                  >
-                    <div className="item-single mb-30">
-                      <div className="image card-image">
-                        <img src={item.thumbnailImage} alt="demo" />
-                      </div>
-                      <div className="content">
-                        <h3>
-                        <Link to={`/destination/${item._id}`}>
-                            {item.tourPlace}
-                          </Link>
-                        </h3>
-                        {/* <div className="review">
-                      <i className="bx bx-smile"></i>
-                      <span>8.5</span>
-                      <span>Superb</span>
-                    </div> */}
-                        <p>{item.description}</p>
-                        <hr />
-                        <ul className="list">
-                          <li>
-                            <i className="bx bx-time"></i>
-                            {item.tourDuration}
-                          </li>
-
-                          <li>{item.price}</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                );
+                  <div className="col-lg-4 col-md-6 mt-4" key={index}>
+                  <Card cardItem={item} />
+                    </div>   );
               }
             })}{" "}
           </div>
         </div>
       </section>
 
-      <section className="features-section pt-100 pb-70">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-4 col-md-6">
-              <div className="item-single mb-30">
-                <i className="bx bx-calendar" style={{fontSize:'30px'}}></i>
-                <h3>
-                  <Link to="#">Reservation</Link>
-                </h3>
-                <p>
-                  As compared with earlier times where a reservation personnel
-                  has to update its inventory every time.
-                </p>
-              
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="item-single mb-30">
-                <i className="bx bxs-plane-take-off" style={{fontSize:'30px'}}></i>
-                <h3>
-                  <Link to="#">Tour Pack</Link>
-                </h3>
-                <p>
-                  You can dream, create, design, and build the most wonder ful
-                  place in the world. But it requires people.
-                </p>
-                
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 m-auto">
-              <div className="item-single mb-30">
-                <i className="bx bx-money" style={{fontSize:'30px'}}></i>
-                <h3>
-                  <Link to="#">Payment</Link>
-                </h3>
-                <p>
-                  As compared with earlier times where a reservation personnel
-                  has to update its inventory every time.
-                </p>
-          
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="destination"
-        className="destination-section ptb-100 bg-light"
-      >
-        <div className="container">
-          <div className="section-title">
-            <h2>Tours</h2>
-            <p>
-              Travel has helped us to understand the meaning of life and it has
-              helped us become better people. Each time we travel, we see the
-              world with new eyes.
-            </p>
-          </div>
-          <div className="row filtr-container">
-            {allTours.map((item, index) => {
-              if (index>2*pageNumber && index<2*pageNumber+7 ) {
-                return (
-                  <div
-                    className="col-lg-4 col-md-6 filtr-item"
-                    data-category="1"
-                    data-sort="value"
-                  >
-                    <div className="item-single mb-30">
-                      <div className="image card-image">
-                        <img src={item.thumbnailImage} alt="demo" />
-                      </div>
-                      <div className="content">
-                        <h3>
-                        <Link to={`/destination/${item._id}`}>
-                         
-                            {item.tourPlace}
-                          </Link>
-                        </h3>
-                        <div className="review">
-                          <i className="bx bx-smile"></i>
-                          <span>8.5</span>
-                          <span>Superb</span>
-                        </div>
-                        <p>{item.description}</p>
-                        <hr />
-                        <ul className="list">
-                          <li>
-                            <i className="bx bx-time"></i>
-                            {item.tourDuration}
-                          </li>
-
-                          <li>{item.price}</li>
-                        </ul>
-                      </div>
-                      <div className="spacer"></div>
-                    </div>
-                  </div>
-                );
-              }
-            })}
-          </div>
-          <div className="row">
-            <div className="col-lg-12 col-md-12">
-              <div className="pagination text-center">
-              
-
-
-                <span className="page-numbers" aria-current="page">
-<Pagination count={pageValue} color="secondary" onChange={(e,v)=>setPageNumber(v)} />
-                  
-                </span>
-            </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </section>
   );
 }

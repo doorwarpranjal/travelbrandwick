@@ -3,23 +3,23 @@ import "./Home.css";
 import { getAllTours, getCatgories, getTopRatedTours } from "../../API";
 import { useEffect } from "react";
 import { useState } from "react";
-import RCard from '../Card/RatedCard'
-import Card from '../Card/Card'
+import RCard from "../Card/RatedCard";
+import Card from "../Card/Card";
 export default function Home() {
   const [topRatedTours, setTopRatedTours] = useState([]);
   const [allTours, setAllTours] = useState([]);
-  const [categories,setCategories]=useState([])
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
     getTours();
     getTopTours();
-    getAllCategories()
+    getAllCategories();
   }, []);
   const getTours = async () => {
     let res = await getAllTours();
     if (res.status === 200) {
-    //  console.log(res.data);
+      //  console.log(res.data);
       setAllTours(res.data);
-      console.log(allTours)
+      console.log(allTours);
     } else {
       console.log("empty");
     }
@@ -27,9 +27,9 @@ export default function Home() {
   const getAllCategories = async () => {
     let res = await getCatgories();
     if (res.status === 200) {
-      console.log(res.data,'categories');
+      console.log(res.data, "categories");
       setCategories(res.data);
-      console.log(allTours)
+      console.log(allTours);
     } else {
       console.log("empty");
     }
@@ -37,7 +37,7 @@ export default function Home() {
   const getTopTours = async () => {
     let res = await getTopRatedTours();
     if (res.status === 200) {
-     // console.log(res.data);
+      // console.log(res.data);
       setTopRatedTours(res.data);
     } else {
       console.log("not result ");
@@ -189,8 +189,8 @@ export default function Home() {
               {topRatedTours.map((item, index) => {
                 if (index < 3) {
                   return (
-                  <div className="col-lg-4 col-md-6 mt-4" key={index}>
-                  <RCard cardItem={item} />
+                    <div className="col-lg-4 col-md-6 mt-4" key={index}>
+                      <RCard cardItem={item} />
                     </div>
                   );
                 }
@@ -208,7 +208,7 @@ export default function Home() {
               <div className="col-lg-6">
                 <div className="about-content mb-30">
                   <h2>About Us</h2>
-                  
+
                   <p>
                     Travel has helped us to understand the meaning of life and
                     it has helped us become better people. Each time we travel,
@@ -284,8 +284,7 @@ export default function Home() {
             <img src="assets/img/shape2.png" alt="Background Shape" />
           </div>
         </section>
-
-     </section>
+      </section>
 
       <section
         id="destination"
@@ -300,14 +299,17 @@ export default function Home() {
               world with new eyes.
             </p>
           </div>
-          
+
           <div className="row filtr-container">
             {allTours.map((item, index) => {
-              if(index<6)
-           {   return(
-            <div className="col-lg-4 col-md-6 mt-4" key={index}>
-            <Card cardItem={item} />
-              </div>  )}})}{" "}
+              if (index < 6) {
+                return (
+                  <div className="col-lg-4 col-md-6 mt-4" key={index}>
+                    <Card cardItem={item} />
+                  </div>
+                );
+              }
+            })}{" "}
           </div>
         </div>
       </section>
@@ -529,84 +531,66 @@ export default function Home() {
             </p>
           </div>
           <div className="owl-carousel">
-            {categories.map((item,index)=>{ 
-              return(
+            {categories.map((item, index) => {
+              return (
                 <div className="item-single mb-30">
-                <div className="image">
-                  <img src={item.thumbImage} className='carousel-image' alt="demo" />
-                </div>
-                <div className="content text-center">
-                  <div className="content ">
-                    <div className="title text-center">
-                      <h3>
-                        <Link to={"/toursbycategory/"+item._id}>{item.categoryName}</Link>
-                      </h3>
-                    </div>
+                  <div className="image">
+                    <img
+                      src={item.thumbImage}
+                      className="carousel-image"
+                      alt="demo"
+                    />
+                  </div>
+                  <div className="content text-center">
+                    <div className="content ">
+                      <div className="title text-center">
+                        <h3>
+                          <Link to={"/toursbycategory/" + item._id}>
+                            {item.categoryName}
+                          </Link>
+                        </h3>
                       </div>
+                    </div>
+                  </div>
+                  <div className="flip-content text-center">
+                    <h3>
+                      <Link to={"/toursbycategory/" + item._id}>
+                        {item.categoryName}
+                      </Link>
+                    </h3>
+                    <hr />
+                  </div>
                 </div>
-                <div className="flip-content text-center">
-                 
-                  <h3>
-                    <Link to={"/toursbycategory/"+item._id}>{item.categoryName}</Link>
-                  </h3>
-                  <hr />
-                </div>
-              </div>
-               )
-            })} </div>
+              );
+            })}{" "}
+          </div>
         </div>
       </section>
       <div className="container">
-        {allTours.length>6? <>
-          <div className="section-title">
-            <h2>More Tours</h2>
-            <p>
-              Travel has helped us to understand the meaning of life and it has
-              helped us become better people. Each time we travel, we see the
-              world with new eyes.
-            </p>
-          </div>
-      <div className="row filtr-container">
-            {allTours.map((item, index) => {
-              if(index>6 && index<12)
-           {   return(
-              <div
-              ket={index}
-                className="col-lg-4 col-md-6 filtr-item"
-                data-category="1"
-                data-sort="value"
-              >
-                <div className="item-single mb-30">
-                  <div className="image">
-                    <img src={item.thumbnailImage} className='card-image' alt="demo" />
-                  </div>
-                  <div className="content">
-                   
-                    <h3>
-                      <Link to={`/destination/${item._id}`}>{item.tourPlace}</Link>
-                    </h3>
-                    {/* <div className="review">
-                      <i className="bx bx-smile"></i>
-                      <span>8.5</span>
-                      <span>Superb</span>
-                    </div> */}
-                    <p>
-                     {item.description}
-                    </p>
-                    <hr />
-                    <ul className="list">
-                      <li>
-                        <i className="bx bx-time"></i>{item.tourDuration}
-                      </li>
-                     
-                      <li>{item.price} Rs.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-           )}})}{" "}
-          </div> </>:null}
-        </div>
+        {allTours.length > 6 ? (
+          <>
+            <div className="section-title">
+              <h2>More Tours</h2>
+              <p>
+                Travel has helped us to understand the meaning of life and it
+                has helped us become better people. Each time we travel, we see
+                the world with new eyes.
+              </p>
+            </div>
+            <div className="row filtr-container mb-30">
+              {allTours.map((item, index) => {
+                if (index > 6 && index < 12) {
+                  return (
+                    <div className="col-lg-4 col-md-6 mt-4" key={index}>
+                      <Card cardItem={item} />
+                    </div>
+                  );
+                }
+              })}{" "}
+            </div>{" "}
+          </>
+        ) : null}
+      </div>
     </section>
   );
 }
