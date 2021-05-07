@@ -188,6 +188,7 @@ jQuery(
         $(".newsletter-form").removeClass("animated shake");
       }, 1000);
     }
+    console.log('loaded scr')
     function submitMSGSub(valid, msg) {
       if (valid) {
         var msgClasses = "validation-success";
