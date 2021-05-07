@@ -1,22 +1,26 @@
 //import './Navbar.css'
 import { Link } from "@material-ui/core";
 import { useState } from "react";
+import Logo from '../Navbar/logo1.png'
+import '../Navbar/Navbar.css'
 
 export default function Footer() {
   const [isAuth, setIsAuth] = useState(true);
   return (
     <section id="hero-footer" >
  
- <footer className="footer-area">
-        <div className="container">
-            <div className="footer-top pt-40 ">
-                <div className="row">
-                    <div className="col-lg-3 col-md-5 col-sm-6 col-12">
-                        <div className="footer-widget">
-                            <div className="navbar-brand">
-                                <Link href="/">
-                                    <img src="https://res.cloudinary.com/dvu7miswu/image/upload/v1618921323/tn5jlcs6xdfqtuqiohjy.png" alt="logo" />
-                                </Link>
+ <footer class="footer-area">
+        <div class="container">
+            <div class="footer-top pt-100 pb-70">
+                <div class="row">
+                    <div class="col-lg-3 col-md-5 col-sm-6 col-12">
+                        <div class="footer-widget">
+                            <div class="navbar-brand">
+                            <div className="logo">
+                <a href="/">
+                  <img src={Logo} style={{width : '10px !important'}} alt="logo" />
+                </a>
+              </div>
                             </div>
                             <p>You can dream, create, design, and build the most wonderful place.</p>
                        </div>

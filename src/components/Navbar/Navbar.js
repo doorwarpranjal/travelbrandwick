@@ -1,6 +1,9 @@
 import './Navbar.css'
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Logo from './logo1.png'
+import './Navbar.css'
+
 export default function Navbar() {
   const [isAuth, setIsAuth] = useState(false);
   const localData = JSON.parse(localStorage.getItem('recoil-persist'))
@@ -28,8 +31,13 @@ export default function Navbar() {
             <div className="main-responsive-menu">
               <div className="logo">
                 <Link to="/">
-                  <img style={{width:'40px'}} 
-                  src="https://res.cloudinary.com/dvu7miswu/image/upload/v1618921323/tn5jlcs6xdfqtuqiohjy.png" alt="logo" />
+                  <img src={Logo} style={{width : '10px !important'}} alt="logo" />
+                </Link>
+              </div>
+              <div className="cart responsive">
+                <Link to="/cart" className="cart-btn">
+                  <i className="bx bx-cart"></i>
+                  <span className="badge">0</span>
                 </Link>
               </div>
               
