@@ -3,6 +3,8 @@ import "./Home.css";
 import { getAllTours, getCatgories, getTopRatedTours } from "../../API";
 import { useEffect } from "react";
 import { useState } from "react";
+import RCard from '../Card/RatedCard'
+import Card from '../Card/Card'
 export default function Home() {
   const [topRatedTours, setTopRatedTours] = useState([]);
   const [allTours, setAllTours] = useState([]);
@@ -183,47 +185,12 @@ export default function Home() {
                 the world with new eyes.
               </p>
             </div>
-            <div className="row">
+            <div className="row ml-auto mr-auto card-row">
               {topRatedTours.map((item, index) => {
                 if (index < 3) {
                   return (
-                    <div className="col-lg-4 col-md-6" key={index}>
-                      <div className="item-single mb-30">
-                        <div className="image">
-                          <img src={item.data.thumbnailImage} className='card-image' alt="demo" />
-                        </div>
-                        <div className="content">
-                          <h3>
-                            <Link to={`/destination/${item._id}`}>
-                              {item.data.tourPlace}
-                            </Link>
-                          </h3>
-                          <div className="review text-success">
-                            <i className="bx bx-smile text-success"></i>{" "}
-                            <span className="text-success">
-                              {item.avgRating>4?
-                              Math.floor(item.avgRating)
-                           :"5" }
-                            </span>{" "}
-                            <span className="text-success">
-                              {item.avgRating > 8
-                                ? "Great"
-                                : item.avgRating > 5
-                                ? "Superb"
-                                : "Ok"}
-                            </span>
-                          </div>
-                          <p>{item.data.description}</p>
-                          <hr />
-                          <ul className="list">
-                            <li>
-                              <i className="bx bx-time"></i>
-                              {item.data.tourDuration}
-                            </li>
-                            <li>{item.data.price} Rs.</li>
-                          </ul>
-                        </div>
-                      </div>
+                  <div className="col-lg-4 col-md-6 mt-4" key={index}>
+                  <RCard cardItem={item} />
                     </div>
                   );
                 }
@@ -338,41 +305,9 @@ export default function Home() {
             {allTours.map((item, index) => {
               if(index<6)
            {   return(
-              <div
-              ket={index}
-                className="col-lg-4 col-md-6 filtr-item"
-                data-category="1"
-                data-sort="value"
-              >
-                <div className="item-single mb-30">
-                  <div className="image">
-                    <img src={item.thumbnailImage} className='card-image' alt="demo" />
-                  </div>
-                  <div className="content">
-                   
-                    <h3>
-                      <Link to={`/destination/${item._id}`}>{item.tourPlace}</Link>
-                    </h3>
-                    {/* <div className="review">
-                      <i className="bx bx-smile"></i>
-                      <span>8.5</span>
-                      <span>Superb</span>
-                    </div> */}
-                    <p>
-                     {item.description}
-                    </p>
-                    <hr />
-                    <ul className="list">
-                      <li>
-                        <i className="bx bx-time"></i>{item.tourDuration}
-                      </li>
-                     
-                      <li>{item.price} Rs.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-           )}})}{" "}
+            <div className="col-lg-4 col-md-6 mt-4" key={index}>
+            <Card cardItem={item} />
+              </div>  )}})}{" "}
           </div>
         </div>
       </section>

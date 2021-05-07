@@ -198,7 +198,7 @@ const getTourByTourId=
                     <th className="standard">Include:</th>
                     <th className="ml-3">
                       <ul>
-                        {tripDetails.includes.map((item,index)=>{
+                        {tripDetails.includes && tripDetails.includes.map((item,index)=>{
                           return(
                             <li>{item}</li>
                           )
@@ -377,12 +377,12 @@ const getTourByTourId=
 {item.reviewContent}</p>
 <ul className="list">
 {/* <li><i className='bx bx-heart'></i>Likes</li> */}
-<li onClick={()=>setShowReplies(!showReplies)}><i className='bx bx-reply' ></i>Reply</li>
+{/* <li onClick={()=>setShowReplies(!showReplies)}><i className='bx bx-reply' ></i>Reply</li> */}
 
 </ul>
 </div>
 </div>
-<ol className="children">
+{/* <ol className="children">
   {showReplies?
   
   <li className="comment">
@@ -401,7 +401,7 @@ Send
 </div>
 </li>
 :null}
-</ol>
+</ol> */}
 </li>
 </ol>
 
