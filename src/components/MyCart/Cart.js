@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { getAllTours, getMyProfile } from "../../API";
 import {Autocomplete, Pagination} from '@material-ui/lab'
-import Card from "../Card/Card";
+import Card from "../Card/OrderCard";
 import { TextField } from "@material-ui/core";
 
 export default function Destination() {
@@ -39,9 +39,9 @@ export default function Destination() {
       >
         <div className="container">
            <div className="section-title">
-          <h2>Tours</h2>
+          <h2>History</h2>
           <div className="container">
-          <div className="search-form">
+          {/* <div className="search-form">
             <form id="searchForm">
               <div className="row align-items-center m-auto">
               <div className="col-1 col-md-3 ">
@@ -71,7 +71,7 @@ export default function Destination() {
              
               </div>
             </form>
-          </div>
+          </div> */}
         </div> 
     
             {/* <p>
@@ -83,12 +83,14 @@ export default function Destination() {
           <div className="row">
               {allTours.length<=0?<h3> Looks Like Your My Order is empty</h3>:
             allTours.map((item, index) => {
-                if (index) {
+            
+                  console.log(item)
+                  //console.log(item)
                     return (
                         <div className="col-lg-4 col-md-6 mt-4" key={index}>
-                  <Card cardItem={item} />
+                  <Card cardItem={item.orderId} />
                     </div>   );
-              }
+              
             })}{" "}
         
           </div>
