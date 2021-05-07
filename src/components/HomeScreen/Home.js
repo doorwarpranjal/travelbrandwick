@@ -5,10 +5,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import RCard from "../Card/RatedCard";
 import Card from "../Card/Card";
+import { TextField } from "@material-ui/core";
+import { Autocomplete } from "@material-ui/lab";
 export default function Home() {
   const [topRatedTours, setTopRatedTours] = useState([]);
   const [allTours, setAllTours] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [keyValues, setkeyValues] = useState([]);
   useEffect(() => {
     getTours();
     getTopTours();
@@ -17,8 +20,20 @@ export default function Home() {
   const getTours = async () => {
     let res = await getAllTours();
     if (res.status === 200) {
-      //  console.log(res.data);
+     //  console.log(res.data);
       setAllTours(res.data);
+      let array=[]
+      res.data.forEach(element => {
+        if(element.tourPlace){
+
+          array.push(element.tourPlace)
+        }
+
+      });
+      setkeyValues(array)
+      //console.log(array)
+
+      
       console.log(allTours);
     } else {
       console.log("empty");
@@ -106,72 +121,39 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* <div className="container">
-          <div className="search-form">
+         <div className="container">
+          <div className="search-form" style={{zIndex:-1}}>
             <form id="searchForm">
-              <div className="row align-items-center">
-                <div className="col-lg-11">
-                  <div className="row">
-                    <div className="col-lg-3">
-                      <div className="select-box">
-                        <i className="bx bx-map-alt"></i>
-                        <select className="form-control">
-                          <option data-display="Destination">Nothing</option>
-                          <option value="1">North America</option>
-                          <option value="2">Spain Madrid</option>
-                          <option value="3">Japan Tokyo</option>
-                          <option value="4">Europe City</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="col-lg-3">
-                      <div className="select-box">
-                        <i className="bx bx-calendar"></i>
-                        <input
-                          type="text"
-                          className="date-select form-control"
-                          placeholder="Depart Date"
-                          required="required"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-3">
-                      <div className="select-box">
-                        <i className="bx bx-package"></i>
-                        <select className="form-control">
-                          <option data-display="Travel Type">
-                            Travel Type
-                          </option>
-                          <option value="1">City Tour</option>
-                          <option value="2">Family Tours</option>
-                          <option value="3">Seasonal Tours</option>
-                          <option value="4">Outdoor Activities</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="col-lg-3">
-                      <div className="select-box">
-                        <i className="bx bx-time"></i>
-                        <select className="form-control">
-                          <option data-display="Tour Duration">Nothing</option>
-                          <option value="1">5 Days</option>
-                          <option value="2">12 Days</option>
-                          <option value="3">21 Days</option>
-                          <option value="4">30 Days</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-1">
-                  <button type="button" className="btn-search">
-                    <i className="bx bx-search-alt"></i>
-                  </button>
-                </div>
+              <div className="row align-items-center m-auto">
+              <div className="col-1 col-md-3 ">
+</div>
+                <div className="col-lg-7 ">
+
+
+                  <Autocomplete
+        style={{width:'100%'}}
+        
+        id="fixed-tags-demo"
+        options={keyValues}
+        // onChange={addMembersToTeam}
+        //  getOptionLabel={(option) => option.name}
+        renderInput={(params) => (
+          <TextField
+          {...params}
+          className=' choosing-option-autocomplete'
+          variant="standard"
+          label="Search"
+          placeholder="Select Tour by name and Keywords"
+          
+          />
+          )}
+          />    </div>
+         
+             
               </div>
             </form>
           </div>
-        </div> */}
+        </div> 
       </div>
 
       <section className="features-section pt-100 pb-70">

@@ -206,3 +206,17 @@ export const getTourByCatgories = async (data) => {
     });
   return res;
 };
+export const getMyProfile = async (data) => {
+  const res = await axios
+    .get(`${base_url}/getMyProfile`,{
+      headers: { Authorization: `${localData.Travel_user.userToken}` },
+    })
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log(err.response);
+      return err;
+    });
+  return res;
+};

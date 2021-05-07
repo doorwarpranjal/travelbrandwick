@@ -19,9 +19,9 @@ import Booking from './components/Booking/Booking'
 import Tour from './components/Tour/tour'
 import TourByCategory from './components/Tour/tourByCategory'
 import ScrollToTop from './components/scrollToTop'
+import Cart from './components/MyCart/Cart'
 function App() {
- 
-  console.log()
+
   return (
     <div className="App">
       <Router>
@@ -45,6 +45,8 @@ function App() {
           {/* <Route path="/destination-details/:tourId" component={DestinationDetails} /> */}
           <Route path="/gallery" component={Tours} />
           <Route path="/special-offers" component={TripOffers} />
+          <Route path="/cart" component={Cart} />
+
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>

@@ -1,62 +1,37 @@
 import { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { getAllTours } from "../../API";
+import { getAllTours, getMyProfile } from "../../API";
 import {Autocomplete, Pagination} from '@material-ui/lab'
 import Card from "../Card/Card";
 import { TextField } from "@material-ui/core";
+
 export default function Destination() {
   //  const [isAuth, setIsAuth] = useState(true);
+  const localData = JSON.parse(localStorage.getItem('recoil-persist'))
   const [keyValues, setkeyValues] = useState([]);
   const [allTours, setAllTours] = useState([]);
   const [pageValue,setPageValue]=useState(0)
   const [pageNumber,setPageNumber]=useState(1)
   useEffect(() => {
-    getTours();
+  //  getTours();
+    console.log(localData)
+    getProfile()
     // getTopTours();
   }, []);
-  const getTours = async () => {
-    let res = await getAllTours();
+  const getProfile = async () => {
+    let res = await getMyProfile();
     if (res.status === 200) {
-      //  console.log(res.data);
-      setAllTours(res.data);
-     
-      let array=[]
-      res.data.forEach(element => {
-        if(element.tourPlace){
-
-          array.push(element.tourPlace)
-        }
-
-      });
-      setkeyValues(array)
-      //console.log(allTours,pageValue,pageNo);
+       console.log(res.data);
+     setAllTours(res.data.myOrders)
     } else {
       console.log("empty");
     }
   };
   
+  
   return (
     <section id="heroDestination">
-      <div className="page-title-area ptb-100">
-        <div className="container">
-          <div className="page-title-content">
-            <h1>Destinations</h1>
-            <ul>
-              <li className="item">
-                <Link to="/index">Home</Link>
-              </li>
-              <li className="item">
-                <Link to="/destinations">
-                  <i className="bx bx-chevrons-right"></i>Destinations
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="bg-image">
-          <img src="assets/img/page-title-area/destinations.jpg" alt="demo" />
-        </div>
-      </div>
+      
 
       <section
         id="top-destination"
@@ -106,14 +81,16 @@ export default function Destination() {
             </p> */}
           </div> 
           <div className="row">
-            {allTours.map((item, index) => {
-              if (index) {
-                return (
-                  <div className="col-lg-4 col-md-6 mt-4" key={index}>
+              {allTours.length<=0?<h3> Looks Like Your My Order is empty</h3>:
+            allTours.map((item, index) => {
+                if (index) {
+                    return (
+                        <div className="col-lg-4 col-md-6 mt-4" key={index}>
                   <Card cardItem={item} />
                     </div>   );
               }
             })}{" "}
+        
           </div>
         </div>
       </section>

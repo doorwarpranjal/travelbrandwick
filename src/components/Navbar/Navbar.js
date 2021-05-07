@@ -66,21 +66,9 @@ export default function Navbar() {
                
                   </li>
                   <li className="nav-item">
-                    <Link to="#" className="nav-link toggle">
-                      Gallery<i className="bx bxs-chevron-down"></i>
-                    </Link>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link to="/gallery" className="nav-link">
+                  <Link to="/gallery" className="nav-link">
                           Gallery
                         </Link>
-                      </li>
-                      {/* <li className="nav-item">
-                        <Link to="/special-offers" className="nav-link">
-                          Trip Offers
-                        </Link>
-                      </li> */}
-                    </ul>
                   </li>
                   <li className="nav-item">
                     <Link to="/blog" className="nav-link">
@@ -91,9 +79,21 @@ export default function Navbar() {
                     <Link to="/about-us" className="nav-link">
                       About
                     </Link>
-                  </li>                  
+                    
+                  </li>
+                  <li className="nav-item">
+                      <Link to="/contact-us" className="nav-link">
+                        Contact Us
+                      </Link>
+                    </li>                  
                 {isAuth?
                 <>
+                <div className="cart">
+            <Link to="/cart" className="cart-btn">
+                  <i className="bx bx-cart"></i>
+                  <span className="badge">0</span>
+                </Link>
+              </div>
                 <li className="nav-item" >
                 <Link to="#" onClick={logoutHandler} className="nav-link">
                   Logout
