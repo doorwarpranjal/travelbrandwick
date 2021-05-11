@@ -26,7 +26,7 @@ export default function Card({cardItem}) {
       <div>
         <img
           className="card-img"
-          src={cardItem.tripId.thumbnailImage}
+          src={cardItem.tripId.cardImage}
         />
       </div>
       <div className="card-text">

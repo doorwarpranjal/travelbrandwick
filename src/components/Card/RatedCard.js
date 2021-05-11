@@ -8,7 +8,7 @@ export default function Card({cardItem}) {
       <div>
         <img
           className="card-img"
-          src={cardItem.data.thumbnailImage}
+          src={cardItem.data.cardImage}
         />
       </div>
       <div className="card-text">
@@ -25,7 +25,7 @@ export default function Card({cardItem}) {
           </div>
           <div className="col-12 p-2">
             <span className="weight-6">
-              <LocationOnIcon /> Delhi
+              <LocationOnIcon /> {cardItem.data.location}
             </span>
             <span className="weight-6 " style={{ marginLeft: "15px" }}>
               <AttachMoneyIcon/> {cardItem.data.price}

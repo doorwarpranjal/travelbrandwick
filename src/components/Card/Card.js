@@ -6,7 +6,7 @@ export default function Card({cardItem}) {
       <div>
         <img
           className="card-img"
-          src={cardItem.thumbnailImage}
+          src={cardItem.cardImage}
         />
       </div>
       <div className="card-text">
@@ -23,7 +23,7 @@ export default function Card({cardItem}) {
           </div>
           <div className="col-8">
             <span className="weight-6">
-              <LocationOnIcon /> Delhi
+              <LocationOnIcon /> {cardItem.location}
             </span>
             <span className="weight-6 " style={{ marginLeft: "20px" }}>
               <i class="fas fa-rupee-sign"></i> {cardItem.price}
