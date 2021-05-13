@@ -10,6 +10,7 @@ export default function Destination() {
   const [allTours, setAllTours] = useState([]);
   const [pageValue,setPageValue]=useState(0)
   const [pageNumber,setPageNumber]=useState(1)
+  const [searchTerm,setsearchTerm]=useState("")
   useEffect(() => {
     getTours();
     // getTopTours();
@@ -71,27 +72,10 @@ export default function Destination() {
               <div className="row align-items-center m-auto">
               <div className="col-1 col-md-3 ">
 </div>
-                <div className="col-lg-7 ">
-
-
-                  <Autocomplete
-        style={{width:'100%'}}
-        
-        id="fixed-tags-demo"
-        options={keyValues}
-        // onChange={addMembersToTeam}
-        //  getOptionLabel={(option) => option.name}
-        renderInput={(params) => (
-          <TextField
-          {...params}
-          className=' choosing-option-autocomplete'
-          variant="standard"
-          label="Filter"
-          placeholder="Filter"
-          
-          />
-          )}
-          />    </div>
+                <div className="col-lg-10 m-auto">
+<TextField id="outlined-basic" style={{width:'100%'}} label="Search" variant="outlined" onChange={(e)=>setsearchTerm(e.target.value)} />
+            
+              </div>
          
              
               </div>
@@ -106,13 +90,45 @@ export default function Destination() {
             </p> */}
           </div> 
           <div className="row">
-            {allTours.map((item, index) => {
-              if (index) {
+            {
+            allTours &&
+            allTours
+              .filter((item, index) => {
+                if (
+                  item.tourPlace
+                    .toLocaleLowerCase()
+                    .includes(searchTerm.toLocaleLowerCase())
+                ){
+                  return item
+                }
+                else if (
+                    item.location
+                      .toLocaleLowerCase()
+                      .includes(searchTerm.toLocaleLowerCase())
+                      ){
+
+                        return item;
+                      }
+                    else  if(item.keywords!==[]){
+                      let iteminit;
+                        item.keywords.map(element=>{
+                             if(element.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())){
+                           //  console.log(true,element,item.keywords)
+                              iteminit=item
+                             }
+                        })
+                        return iteminit
+                      }
+                    
+                
+              })
+            .map((item, index) => {
+              
                 return (
                   <div className="col-lg-4 col-md-6 mt-4" key={index}>
                   <Card cardItem={item} />
                     </div>   );
-              }
+              
             })}{" "}
           </div>
         </div>
