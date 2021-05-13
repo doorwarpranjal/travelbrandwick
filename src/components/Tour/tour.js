@@ -70,7 +70,7 @@ export default function Tour() {
         key: "rzp_test_tdnTzNT1KfkDD6", // Enter the Key ID generated from the Dashboard
         amount: amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         currency: "INR",
-        name: "Travel Brandwick",
+        name: "the Mountmonks",
         image:
           "https://res.cloudinary.com/dvu7miswu/image/upload/v1616579166/shop/cgumdqpcqrnquxtkbrpa.jpg",
         order_id: "", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1

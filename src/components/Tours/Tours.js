@@ -107,14 +107,7 @@ export default function Tours() {
                           <h3>
                             <Link to="/">{item.tourPlace}</Link>
                           </h3>
-                          <div className="review " style={{fontSize:'10px'}}>
-                        <Rating
-          name="customized-empty"
-          defaultValue={parseInt(item.rating/2)}
-        max={5}
-          readOnly
-          emptyIcon={<StarBorderBox fontSize="inherit" />}
-          /></div>
+                        
                         </div>
                         
                       </div>

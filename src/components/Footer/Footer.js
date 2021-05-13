@@ -105,7 +105,7 @@ export default function Footer() {
                 <p>
                   Copyright @2021 Designed By
                   <a href="https:www.thebrandwick.com" target="_blank">
-                    {"  "} theBrandwick
+                    {"  "} the MountMonks
                   </a>
                 </p>
               </div>

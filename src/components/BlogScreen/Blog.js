@@ -53,7 +53,7 @@ export default function Blog() {
 <img src="https://res.cloudinary.com/dvu7miswu/image/upload/v1616061752/a2z5guhisnfrxvydcca3.jpg" alt="author" />
 </div>
 <div className="author-info">
-<h3>Travel Brandwick</h3>
+<h3>the Mountmonks</h3>
 <span>Blogger & Youtuber</span>
 </div>
 <div className="social-link">
