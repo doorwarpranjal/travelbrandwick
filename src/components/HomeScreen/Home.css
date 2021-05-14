@@ -1,19 +1,89 @@
 .card{
-  
     padding: 0;
-    border-radius: 20px;
-   
-   
-    box-shadow: 0px 5px 2px 2px rgb(175, 174, 174);
+    border-radius: 8px;
+    box-shadow: 0px 5px 2px 2px #f3f3f34d;
+    transition: all 0.3s ease-in-out;
 }
+
+.card:hover{
+    box-shadow: 5px 7px 4px 4px #e7e7e74d;
+  
+}
+
 .card-img{
-    border-radius: 20px;
-    height: 250px;
-   
+    border-radius: 8px;
+    height: 30vh;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+   object-fit: cover;
 }
 
 .color-orange{
     color: rgb(247, 107, 56);
     font-family: "Montserrat", sans-serif;
     font-weight: 800 !important;
+}
+
+
+.cta-btn{
+    border: 1px solid #ff7c5b;
+    padding: 8px 20px;
+}
+
+
+.icon-margin-top{
+    margin-top: -5px;
+    width: 10px ;
+}
+
+
+
+.card-description-text{
+    font-size: 12px;
+    margin-bottom: 11px;
+}
+
+
+
+.homepage-main-text-container{
+    margin-top: -30vh;
+}
+
+
+.homepage-cta-paragraph{
+    width: 75%;
+}
+
+
+.homepage-cta-button{
+    width: 25%;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .homepage-cta-paragraph{
+        width: 90%;
+        margin: auto 0;
+    }
+    
+    
+    .homepage-cta-button{
+        width: 50%;
+    }
+
+    .homepage-cta-heading{
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .homepage-main-text-container{
+        padding: 32px !important; 
+        margin-top: 8vh;
+    }
+
+    .homepage-row{
+        flex-wrap: wrap-reverse;
+    }
+
 }

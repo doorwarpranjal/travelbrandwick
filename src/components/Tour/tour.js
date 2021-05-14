@@ -281,7 +281,7 @@ const getTourByTourId=
                   dateFormat="dd/MM/yyyy"
                   className="form-control"
                   selected={tripDate}
-                  placeholderText="Trip On"
+                  placeholderText="Start Date"
                   onChange={(date) => settripDate(date)}
                 />{" "}
               </div>
@@ -291,7 +291,7 @@ const getTourByTourId=
                     dateFormat="dd/MM/yyyy"
                     className="form-control"
                     selected={tripTill}
-                    placeholderText="Trip Till"
+                    placeholderText="End Date"
                     onChange={(date) => settripTill(date)}
                   />{" "}
                 </div>

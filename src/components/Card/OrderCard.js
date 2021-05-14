@@ -29,7 +29,7 @@ export default function Card({cardItem}) {
           src={cardItem.tripId.cardImage}
         />
       </div>
-      <div className="card-text">
+      <div className="card-text pb-1">
         <div className="row m-auto pt-3">
           <div className="col-8">
             <h6 className="content ">

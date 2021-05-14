@@ -7,33 +7,34 @@ import RCard from "../Card/RatedCard";
 import Card from "../Card/Card";
 import { TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
+import HomepageBannerImage from "../../assets/banner1.png";
+
 export default function Home() {
   const [topRatedTours, setTopRatedTours] = useState([]);
   const [allTours, setAllTours] = useState([]);
   const [categories, setCategories] = useState([]);
   const [keyValues, setkeyValues] = useState([]);
+
   useEffect(() => {
     getTours();
     getTopTours();
     getAllCategories();
   }, []);
+
   const getTours = async () => {
     let res = await getAllTours();
     if (res.status === 200) {
-     //  console.log(res.data);
+      //  console.log(res.data);
       setAllTours(res.data);
-      let array=[]
-      res.data.forEach(element => {
-        if(element.tourPlace){
-
-          array.push(element.tourPlace)
+      let array = [];
+      res.data.forEach((element) => {
+        if (element.tourPlace) {
+          array.push(element.tourPlace);
         }
-
       });
-      setkeyValues(array)
+      setkeyValues(array);
       //console.log(array)
 
-      
       console.log(allTours);
     } else {
       console.log("empty");
@@ -61,104 +62,65 @@ export default function Home() {
   return (
     <section id="hero">
       <div id="home" className="home-banner-area home-style-two">
-        <div className="container-fluid p-0">
-          <div className="banner-slider-two owl-carousel">
-            <div className="slider-item">
-              <div className="row">
-                <div className="col-lg-5 align-self-end">
-                  <div className="banner-image">
-                    <img src="assets/img/banner/banner1.png" alt="Demo " />
-                  </div>
-                </div>
-                <div className="col-lg-7">
-                  <div className="banner-content">
-                    <span className="sub-title">Amazing Places</span>
-                    <h1>
-                      Explore <span>Life</span> Travel Where You Want
-                    </h1>
-                    <p>
-                      Travel has helped us to understand the meaning of life and
-                      it has helped us become better people. Each time we
-                      travel, we see the world with new eyes.
-                    </p>
-                    <Link to="/destinations" className="btn-primary">
-                      Destination
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-shape">
-                <img src="assets/img/banner/banner-bg.png" alt="demo" />
-              </div>
+        <div className="container-fluid p-0 vh-90">
+          <div className="row align-items-center homepage-row ">
+            <div className="col-lg-5">
+              <img src={HomepageBannerImage} />
             </div>
-            <div className="slider-item">
-              <div className="row">
-                <div className="col-lg-5 align-self-end">
-                  <div className="banner-image">
-                    <img src="assets/img/banner/banner2.png" alt="demo" />
-                  </div>
-                </div>
-                <div className="col-lg-7">
-                  <div className="banner-content">
-                    <span className="sub-title">Amazing Places</span>
-                    <h1>
-                      Explore <span>Life</span> Travel Where You Want
-                    </h1>
-                    <p>
-                      Travel has helped us to understand the meaning of life and
-                      it has helped us become better people. Each time we
-                      travel, we see the world with new eyes.
-                    </p>
-                    <Link to="/destinations" className="btn-primary">
-                      Destination
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-shape">
-                <img src="assets/img/banner/banner-bg.png" alt="demo" />
-              </div>
+
+            <div className="col-lg-7 p-3 homepage-main-text-container ">
+              <h2 className="homepage-cta-heading">
+                Plan the perfect trip and seek the adventure in the mountains.
+              </h2>
+              <p className="homepage-cta-paragraph py-2 m-1">
+                Travel has helped us to understand the meaning of life and it
+                has helped us become better people. Each time we travel, we see
+                the world with new eyes.
+              </p>
+
+              <Link to={`/destinations`}>
+                <button className="cta-btn m-1 homepage-cta-button border-none">
+                  Explore Places
+                </button>
+              </Link>
             </div>
           </div>
         </div>
-         <div className="container">
-          <div className="search-form" style={{zIndex:-1}}>
+
+        {/* trip search form goes here  */}
+        <div className="container mt-20">
+          <div className="search-form" style={{ zIndex: 1 }}>
             <form id="searchForm">
               <div className="row align-items-center m-auto">
-              <div className="col-1 col-md-3 ">
-</div>
+                <div className="col-1 col-md-3 "></div>
                 <div className="col-lg-7 ">
-
-
                   <Autocomplete
-        style={{width:'100%'}}
-        
-        id="fixed-tags-demo"
-        options={keyValues}
-        // onChange={addMembersToTeam}
-        //  getOptionLabel={(option) => option.name}
-        renderInput={(params) => (
-          <TextField
-          {...params}
-          className=' choosing-option-autocomplete'
-          variant="standard"
-          label="Search"
-          placeholder="Select Tour by name and Keywords"
-          
-          />
-          )}
-          />    </div>
-         
-             
+                    style={{ width: "100%" }}
+                    id="fixed-tags-demo"
+                    options={keyValues}
+                    // onChange={addMembersToTeam}
+                    //  getOptionLabel={(option) => option.name}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        className=" choosing-option-autocomplete"
+                        variant="standard"
+                        label="Search"
+                        placeholder="Select Tour by name and Keywords"
+                      />
+                    )}
+                  />{" "}
+                </div>
               </div>
             </form>
           </div>
-        </div> 
+        </div>
       </div>
+      {/* trip search form goes here  */}
 
       <section className="features-section pt-100 pb-70">
         <section id="top-destination" className="top-destination-section pb-70">
-          <div className="container">
+          <div className="container-fluid">
             <div className="section-title text-center">
               <h2>Top Destinations</h2>
               <p>
@@ -169,9 +131,9 @@ export default function Home() {
             </div>
             <div className="row ml-auto mr-auto card-row">
               {topRatedTours.map((item, index) => {
-                if (index < 3) {
+                if (index < 4) {
                   return (
-                    <div className="col-lg-4 col-md-6 mt-4" key={index}>
+                    <div className="col-lg-3 col-md-6 mt-4" key={index}>
                       <RCard cardItem={item} />
                     </div>
                   );
@@ -189,9 +151,9 @@ export default function Home() {
             <div className="row align-items-center">
               <div className="col-lg-6">
                 <div className="about-content mb-30">
-                  <h2>About Us</h2>
+                  <h2 className="mb-2">About Us</h2>
 
-                  <p>
+                  <p className="mb-3">
                     Travel has helped us to understand the meaning of life and
                     it has helped us become better people. Each time we travel,
                     we see the world with new eyes.
@@ -244,17 +206,16 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-6"  style={{maxHeight : '80vh'}}>
                 <div className="video-content mb-30">
-                  <div className="video-image">
-                    <img src="assets/img/about2.jpg" alt="video" />
+                  <div className="video-image" >
+                    <img
+                      loading="lazy"
+                      style={{maxHeight : '80vh', objectFit : 'cover'}}
+                      src="https://s3-ap-southeast-1.amazonaws.com/kesarimedialibrary/wp-content/uploads/2019/04/15093432/Ladakh-Bike-Trip-1.jpg"
+                      alt="Ladakh Bike Trip Photo"
+                    />
                   </div>
-                  <Link
-                    to="https://www.youtube.com/watch?v=i9E_Blai8vk"
-                    className="youtube-popup video-btn"
-                  >
-                    <i className="bx bx-right-arrow"></i>
-                  </Link>
                 </div>
               </div>
             </div>
@@ -272,7 +233,7 @@ export default function Home() {
         id="destination"
         className="destination-section destination-style-two pt-100 pb-70 bg-light"
       >
-        <div className="container">
+        <div className="container-fluid">
           <div className="section-title">
             <h2>Popular Destinations</h2>
             <p>
@@ -286,7 +247,7 @@ export default function Home() {
             {allTours.map((item, index) => {
               if (index < 6) {
                 return (
-                  <div className="col-lg-4 col-md-6 mt-4" key={index}>
+                  <div className="col-lg-3 col-md-6 mt-4" key={index}>
                     <Card cardItem={item} />
                   </div>
                 );

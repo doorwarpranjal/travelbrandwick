@@ -17,3 +17,8 @@
 .footer-area .navbar-brand{
     width: 100px;
 }
+
+
+.main-navbar-area.stickyadd{
+    position: relative !important;
+}

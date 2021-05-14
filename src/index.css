@@ -219,7 +219,7 @@ text-transform: capitalize;
   .cta-btn:hover{
     color: #ff7c5b;
     background-color: #ffffff;
-    border: #ff7c5b 2px solid;
+    border: #ff7c5b 1px solid;
   }
  #heroTour ul li{
     list-style-type: square;
