@@ -76,7 +76,7 @@ export default function Blog() {
 <li>
 <div className="author">
 <img src="assets/img/blog/author1.jpg" alt="demo"/>
-<span>By - Travel Brandwick</span>
+<span>By - the Mountmonks</span>
 </div>
 </li>
 <li>
@@ -108,7 +108,7 @@ export default function Blog() {
 <li>
 <div className="author">
 <img src="assets/img/blog/author2.jpg" alt="demo"/>
-<span>By Brandwick</span>
+<span>By the Mountmonks</span>
 </div>
 </li>
 </ul>
@@ -173,7 +173,7 @@ export default function Blog() {
 <li>
 <div className="author">
 <img src="assets/img/blog/author2.jpg" alt="demo"/>
-<span>By Brandwick</span>
+<span>By the Mountmonks</span>
 </div>
 </li>
 </ul>

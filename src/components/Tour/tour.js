@@ -70,7 +70,7 @@ export default function Tour() {
         key: "rzp_test_tdnTzNT1KfkDD6", // Enter the Key ID generated from the Dashboard
         amount: amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         currency: "INR",
-        name: "Travel Brandwick",
+        name: "the Mountmonks",
         image:
           "https://res.cloudinary.com/dvu7miswu/image/upload/v1616579166/shop/cgumdqpcqrnquxtkbrpa.jpg",
         order_id: "", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
@@ -96,11 +96,6 @@ export default function Tour() {
             setToastText("Something went Wrong");
             showToast();
           }
-        },
-        prefill: {
-          name: "Gaurav Kumar",
-          email: "gaurav.kumar@example.com",
-          contact: "9999999999",
         },
         notes: {
           address: "Razorpay Corporate Office",
@@ -152,7 +147,8 @@ const getTourByTourId=
         className="tour-bg mb-6 "
         style={{
           backgroundImage:
-            `url(${tripDetails.thumbnailImage})`,     }}
+            `url(${tripDetails.thumbnailImage})`,
+          backgroundPosition:'center'     }}
       >
         <div className="inner-div">
           <Star size={30} className='theme-color f-18' />
@@ -202,7 +198,7 @@ const getTourByTourId=
                     <th className="standard">Include:</th>
                     <th className="ml-3">
                       <ul>
-                        {tripDetails.includes.map((item,index)=>{
+                        {tripDetails.includes && tripDetails.includes.map((item,index)=>{
                           return(
                             <li>{item}</li>
                           )
@@ -352,7 +348,7 @@ const getTourByTourId=
             <div class="owl-carousel">
               {tripDetails.images.map((item,index)=>{
                 return(
-                  <div className="item" key={index}><img src={item} /></div>
+                  <div className="item" key={index}><img src={item} className='gallery-image' /></div>
                 )
               })}
   
@@ -381,12 +377,12 @@ const getTourByTourId=
 {item.reviewContent}</p>
 <ul className="list">
 {/* <li><i className='bx bx-heart'></i>Likes</li> */}
-<li onClick={()=>setShowReplies(!showReplies)}><i className='bx bx-reply' ></i>Reply</li>
+{/* <li onClick={()=>setShowReplies(!showReplies)}><i className='bx bx-reply' ></i>Reply</li> */}
 
 </ul>
 </div>
 </div>
-<ol className="children">
+{/* <ol className="children">
   {showReplies?
   
   <li className="comment">
@@ -405,7 +401,7 @@ Send
 </div>
 </li>
 :null}
-</ol>
+</ol> */}
 </li>
 </ol>
 

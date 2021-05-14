@@ -5,6 +5,9 @@
 .logo{
     max-width: 200px !important;
 }
+.logo img{
+    height: 50px  !important;
+}
 
 .navbar-light .navbar-brand{
     width: 70px !important;

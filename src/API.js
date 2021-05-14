@@ -163,7 +163,7 @@ export const getImages = async () => {
     });
   return res;
 };
-console.log(localData)
+//console.log(localData)
 export const postOrder = async (data) => {
   const res = await axios
     .post(`${base_url}/postOrder`, data, {
@@ -177,6 +177,45 @@ export const postOrder = async (data) => {
     })
     .catch((err) => {
       // console.log(err.response)
+      return err;
+    });
+  return res;
+};
+export const getCatgories = async () => {
+  const res = await axios
+    .get(`${admin_url}/getAllCategories`)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log(err.response);
+      return err;
+    });
+  return res;
+};
+
+export const getTourByCatgories = async (data) => {
+  const res = await axios
+    .get(`${base_url}/get-tour-by-category/${data}`)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log(err.response);
+      return err;
+    });
+  return res;
+};
+export const getMyProfile = async (data) => {
+  const res = await axios
+    .get(`${base_url}/getMyProfile`,{
+      headers: { Authorization: `${localData.Travel_user.userToken}` },
+    })
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log(err.response);
       return err;
     });
   return res;

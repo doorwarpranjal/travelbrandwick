@@ -15,34 +15,38 @@ import ForgotPasswordScreen from "./components/Auth/ForgotPasswordScreen"
 import NewPasswordScreen from "./components/Auth/NewPasswordScreen"
 import Blog from "./components/BlogScreen/All-Blogs"
 import BlogDetails from "./components/BlogScreen/Blog"
-import Scroll from './components/ScrollToTop/ScrollToTop'
 import Booking from './components/Booking/Booking'
 import Tour from './components/Tour/tour'
+import TourByCategory from './components/Tour/tourByCategory'
+import ScrollToTop from './components/scrollToTop'
+import Cart from './components/MyCart/Cart'
 function App() {
- 
-  console.log()
+
   return (
     <div className="App">
       <Router>
         <Navbar />
-        <Scroll/>
+        <ScrollToTop/>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about-us" exact component={About} />
           <Route path="/destinations" component={Destination} />
+          <Route path="/toursbycategory/:id" component={TourByCategory} />
           {/* <Route path="/booking/:id/:tourid" component={Booking} /> */}
           <Route path="/sign-in" exact component={LoginScreen} />
           <Route path="/register" exact component={RegisterScreen} />
           <Route path="/forgot-password" component={ForgotPasswordScreen} />
           <Route path="/new-password/:id" exact component={NewPasswordScreen} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/tour/:id" component={Tour} />
+          <Route path="/contact-us" component={Contact} />
+          <Route path="/destination/:id" component={Tour} />
           <Route path="/blog/:page" component={Blog} />
           <Route path="/blog/" component={Blog} />
           <Route path="/blog-details/:id" exact component={BlogDetails} />
           {/* <Route path="/destination-details/:tourId" component={DestinationDetails} /> */}
-          <Route path="/tours" component={Tours} />
+          <Route path="/gallery" component={Tours} />
           <Route path="/special-offers" component={TripOffers} />
+          <Route path="/cart" component={Cart} />
+
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>
