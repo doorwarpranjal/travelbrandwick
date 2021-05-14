@@ -237,37 +237,37 @@ export default function Home() {
                     <div className="col-lg-6 col-md-6">
                       <div className="content-list">
                         <i className="bx bx-check-shield"></i>
-                        <h6>Safety Travel System</h6>
+                        <p>Safety Travel System</p>
                       </div>
                     </div>
                     <div className="col-lg-6 col-md-6">
                       <div className="content-list">
                         <i className="bx bx-donate-heart"></i>
-                        <h6>Budget-Friendly Tour</h6>
+                        <p>Budget-Friendly Tour</p>
                       </div>
                     </div>
                     <div className="col-lg-6 col-md-6">
                       <div className="content-list">
                         <i className="bx bx-time"></i>
-                        <h6>Expert Trip Planning</h6>
+                        <p>Expert Trip Planning</p>
                       </div>
                     </div>
                     <div className="col-lg-6 col-md-6">
                       <div className="content-list">
                         <i className="bx bx-station"></i>
-                        <h6>Fast Communication</h6>
+                        <p>Fast Communication</p>
                       </div>
                     </div>
                     <div className="col-lg-6 col-md-6">
                       <div className="content-list">
                         <i className="bx bx-like"></i>
-                        <h6>Right Solution & Guide</h6>
+                        <p>Right Solution & Guide</p>
                       </div>
                     </div>
                     <div className="col-lg-6 col-md-6">
                       <div className="content-list">
                         <i className="bx bx-support"></i>
-                        <h6>24/7 Customer Support</h6>
+                        <p>24/7 Customer Support</p>
                       </div>
                     </div>
                   </div>
@@ -312,7 +312,7 @@ export default function Home() {
       >
         <div className="container">
           <div className="section-title">
-            <h2>Destinations</h2>
+            <h2>Popular Destinations</h2>
             <p>
               Travel has helped us to understand the meaning of life and it has
               helped us become better people. Each time we travel, we see the
@@ -331,7 +331,7 @@ export default function Home() {
                 data-sort="value"
               >
                 <div className="item-single mb-30">
-                  <div className="image">
+                  <div className="popular-destination-image">
                     <img src={item.thumbnailImage} alt="demo" />
                   </div>
                   <div className="content">
@@ -366,7 +366,6 @@ export default function Home() {
       <section id="testimonial" className="testimonial-section ptb-100">
         <div className="container">
           <div className="section-title">
-            <h2>What're Our Clients Say</h2>
             <p>
               Travel has helped us to understand the meaning of life and it has
               helped us become better people. Each time we travel, we see the

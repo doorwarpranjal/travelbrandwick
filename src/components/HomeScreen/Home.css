@@ -1,0 +1,16 @@
+.popular-destination-image{
+    height: 30vh;
+    overflow: hidden;
+}
+
+
+.filtr-item{
+    height: 60vh;
+    margin-top: 10vh;
+}
+
+
+.destination-style-two .item-single .content{
+    height: 35vh;
+    padding-bottom: 10px;
+}
