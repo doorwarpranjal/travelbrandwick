@@ -25,10 +25,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
+    
         <ScrollToTop/>
         <Switch>
           <Route path="/" exact component={Home} />
+          <Navbar />
           <Route path="/about-us" exact component={About} />
           <Route path="/destinations" component={Destination} />
           <Route path="/toursbycategory/:id" component={TourByCategory} />

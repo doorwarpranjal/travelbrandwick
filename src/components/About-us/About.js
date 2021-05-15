@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom'
+import Testimonial from "../Testimonials/Testimonial";
+
 export default function NotFound() {
+
+
+
+
   return (
     <div>
       <div className='page-title-area ptb-100'>
@@ -29,22 +35,14 @@ export default function NotFound() {
             <div className='col-lg-10 m-auto'>
               <div className='about-content'>
                 <div className='row'>
-                  <div className='col-12'>
+                  <div className='col-10 offset-1'>
                     <h2>About the MountMonks</h2>
-                    <h6>
+                    <p>
                       Top Tour Operators and Travel Agency. We offering in total
                       793 tours and holidays through-out the world. Combined we
                       have received 1532 customer reviews.
-                    </h6>
-                    <p>
-                      Travel has helped us to understand the meaning of life and
-                      it has helped us become better people. Each time we
-                      travel, we see the world with new eyes.Travel has helped
-                      us to understand the meaning of life and it has helped us
-                      become better people. Each time we travel, we see the
-                      world with new eyes.Travel has helped us to understand the
-                      meaning of life and it has helped us.
                     </p>
+               
                   </div>
                 </div>
                 <div className='col-lg-10 m-auto'>
@@ -130,19 +128,15 @@ export default function NotFound() {
             </div>
             <div className='col-lg-6'>
               <div className='about-content mb-30'>
-                <h2>Why Choose Us</h2>
-                <h6>
+                <h2>Why Choose Us ?</h2>
+                <p className="my-2">
                   Top Tour Operators and Travel Agency. We offering in total 793
                   tours and holidays throughout the world. Combined we have
                   received 1532 customer reviews and an average rating of 5 out
                   of 5 stars.
-                </h6>
-                <p>
-                  Travel has helped us to understand the meaning of life and it
-                  has helped us become better people. Each time we travel, we
-                  see the world with new eyes.
                 </p>
-                <div className='row'>
+              
+                <div className='row mt-3'>
                   <div className='col-lg-6 col-md-6'>
                     <div className='content-list'>
                       <i className='bx bx-check-shield' />
@@ -199,254 +193,16 @@ export default function NotFound() {
           <img src='assets/img/shape2.png' alt='Background Shape' />
         </div>
       </section>
-      <section className='features-section pt-100 pb-70'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-4'>
-              <div className='item-single mb-30'>
-                <i className='bx bx-calendar' />
-                <h3>
-                  <a href='#'>Reservation</a>
-                </h3>
-                <p>
-                  As compared with earlier times where a reservation personnel
-                  has to update its inventory every time.
-                </p>
-                <div className='cta-btn'>
-                  <a href='#' className='btn-primary'>
-                    Read More
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-4'>
-              <div className='item-single mb-30'>
-                <i className='bx bxs-plane-take-off' />
-                <h3>
-                  <a href='#'>Tour Pack</a>
-                </h3>
-                <p>
-                  You can dream, create, design, and build the most wonder ful
-                  place in the world. But it requires people.
-                </p>
-                <div className='cta-btn'>
-                  <a href='#' className='btn-primary'>
-                    Read More
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-4'>
-              <div className='item-single mb-30'>
-                <i className='bx bx-money' />
-                <h3>
-                  <a href='#'>Payment</a>
-                </h3>
-                <p>
-                  As compared with earlier times where a reservation personnel
-                  has to update its inventory every time.
-                </p>
-                <div className='cta-btn'>
-                  <a href='#' className='btn-primary'>
-                    Read More
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        id='testimonial'
-        className='testimonial-section ptb-100 bg-light'
-      >
-        <div className='container'>
-          <div className='section-title'>
-            <h2>What're Our Clients Say</h2>
-            <p>
-              Travel has helped us to understand the meaning of life and it has
-              helped us become better people. Each time we travel, we see the
-              world with new eyes.
-            </p>
-          </div>
-          <div className='row'>
-            <div className='col-lg-8 m-auto'>
-              <div className='testimonial-slider owl-carousel'>
-                <div className='slider-item'>
-                  <div className='client-img'>
-                    <img src='assets/img/client1.jpg' alt='client-1' />
-                  </div>
-                  <div className='content'>
-                    <div className='client-info'>
-                      <h3>Jordan Alin</h3>
-                      <span>Bloger &amp; Youtuber</span>
-                    </div>
-                    <div className='quote'>
-                      <i className='bx bxs-quote-left' />
-                    </div>
-                    <p>
-                      The Personal Travel Agents Academy is a 12-month training
-                      programme allowing anyone with no previous travel
-                      experience to start their own travel business. This is an
-                      advanced course to help build knowledge in travel and
-                      develop sales skills.
-                    </p>
-                    <div className='review'>
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                    </div>
-                  </div>
-                </div>
-                <div className='slider-item'>
-                  <div className='client-img'>
-                    <img src='assets/img/client2.jpg' alt='client-1' />
-                  </div>
-                  <div className='content'>
-                    <div className='client-info mb-30'>
-                      <h3>David Milan</h3>
-                      <span>Photographer</span>
-                    </div>
-                    <div className='quote'>
-                      <i className='bx bxs-quote-left' />
-                    </div>
-                    <p>
-                      The Personal Travel Agents Academy is a 12-month training
-                      programme allowing anyone with no previous travel
-                      experience to start their own travel business. This is an
-                      advanced course to help build knowledge in travel and
-                      develop sales skills.
-                    </p>
-                    <div className='review mt-15'>
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                    </div>
-                  </div>
-                </div>
-                <div className='slider-item'>
-                  <div className='client-img'>
-                    <img src='assets/img/client3.jpg' alt='client-1' />
-                  </div>
-                  <div className='content'>
-                    <div className='client-info mb-30'>
-                      <h3>Thomas Alva</h3>
-                      <span>Journalist</span>
-                    </div>
-                    <div className='quote'>
-                      <i className='bx bxs-quote-left' />
-                    </div>
-                    <p>
-                      The Personal Travel Agents Academy is a 12-month training
-                      programme allowing anyone with no previous travel
-                      experience to start their own travel business. This is an
-                      advanced course to help build knowledge in travel and
-                      develop sales skills.
-                    </p>
-                    <div className='review mt-15'>
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                    </div>
-                  </div>
-                </div>
-                <div className='slider-item'>
-                  <div className='client-img'>
-                    <img src='assets/img/client4.jpg' alt='client-1' />
-                  </div>
-                  <div className='content'>
-                    <div className='client-info mb-30'>
-                      <h3>Emma Watson</h3>
-                      <span>Actress &amp; Model</span>
-                    </div>
-                    <div className='quote'>
-                      <i className='bx bxs-quote-left' />
-                    </div>
-                    <p>
-                      The Personal Travel Agents Academy is a 12-month training
-                      programme allowing anyone with no previous travel
-                      experience to start their own travel business. This is an
-                      advanced course to help build knowledge in travel and
-                      develop sales skills.
-                    </p>
-                    <div className='review mt-15'>
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                    </div>
-                  </div>
-                </div>
-                <div className='slider-item'>
-                  <div className='client-img'>
-                    <img src='assets/img/client5.jpg' alt='client-1' />
-                  </div>
-                  <div className='content'>
-                    <div className='client-info mb-30'>
-                      <h3>Jordan Alin</h3>
-                      <span>Bloger &amp; Youtuber</span>
-                    </div>
-                    <div className='quote'>
-                      <i className='bx bxs-quote-left' />
-                    </div>
-                    <p>
-                      The Personal Travel Agents Academy is a 12-month training
-                      programme allowing anyone with no previous travel
-                      experience to start their own travel business. This is an
-                      advanced course to help build knowledge in travel and
-                      develop sales skills.
-                    </p>
-                    <div className='review mt-15'>
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                      <i className='bx bxs-star' />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='clients-img'>
-            <img
-              className='image image-1'
-              src='assets/img/client1.jpg'
-              alt='Demo Image'
-            />
-            <img
-              className='image image-2'
-              src='assets/img/client2.jpg'
-              alt='Demo Image'
-            />
-            <img
-              className='image image-3'
-              src='assets/img/client3.jpg'
-              alt='Demo Image'
-            />
-            <img
-              className='image image-4'
-              src='assets/img/client4.jpg'
-              alt='Demo Image'
-            />
-            <img
-              className='image image-5'
-              src='assets/img/client5.jpg'
-              alt='Demo Image'
-            />
-          </div>
-        </div>
-        <div className='shape'>
-          <img src='assets/img/shape1.png' alt='Background Shape' />
-        </div>
-      </section>
+
+
+
+
+    
+      <Testimonial/>
+
+    
+    
+    
       <section id='team' className='team-section pt-100 pb-70'>
         <div className='container'>
           <div className='section-title'>
@@ -577,6 +333,9 @@ export default function NotFound() {
           </div>
         </div>
       </section>
+  
+  
+  
     </div>
   )
 }

@@ -81,20 +81,11 @@ jQuery(
       autoplayTimeout: 8500,
       smartSpeed: 1000,
     });
-    $(".testimonial-slider").owlCarousel({
-      loop: true,
-      nav: true,
-      navText: [
-        "<i class='bx bx-left-arrow-alt'></i>",
-        "<i class='bx bx-right-arrow-alt'></i>",
-      ],
-      dots: false,
-      autoplay: true,
-      autoplayHoverPause: true,
-      autoplayTimeout: 8500,
-      smartSpeed: 450,
-      items: 1,
-    });
+
+
+ 
+
+
     $(".tours-slider").owlCarousel({
       loop: true,
       margin: 20,

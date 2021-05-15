@@ -5,7 +5,7 @@ import AttachMoneyIcon from "../../assets/fa_inr.svg";
 
 export default function Card({ cardItem }) {
 
-
+console.log(cardItem)
 
   return (
     <div className="card pb-2">
