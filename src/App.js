@@ -27,9 +27,9 @@ function App() {
       <Router>
     
         <ScrollToTop/>
+        <Navbar />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Navbar />
           <Route path="/about-us" exact component={About} />
           <Route path="/destinations" component={Destination} />
           <Route path="/toursbycategory/:id" component={TourByCategory} />

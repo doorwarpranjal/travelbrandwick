@@ -1,12 +1,17 @@
 import "./Navbar.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "./logo1.png";
 import "./Navbar.css";
 
-export default function Navbar({ isNavbarOnHomepage }) {
+export default function Navbar() {
   const [isAuth, setIsAuth] = useState(false);
   const localData = JSON.parse(localStorage.getItem("recoil-persist"));
+const location =useLocation()
+console.log(location)
+
+const [isNavbarOnHomepage,setNavbarOnHomePage]=useState(false)
+
 
   const logoutHandler = () => {
     localStorage.removeItem("recoil-persist");
@@ -18,6 +23,12 @@ export default function Navbar({ isNavbarOnHomepage }) {
       setIsAuth(true);
     } else {
       setIsAuth(false);
+    }
+    if(location.pathname==='/'){
+      setNavbarOnHomePage(true)
+    }
+    else{
+      setNavbarOnHomePage(false)
     }
   }, [localData]);
 

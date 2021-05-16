@@ -70,13 +70,9 @@ export default function Home() {
 
   return (
 <div>
-  <Navbar isNavbarOnHomepage={true}/>
+ 
     <section id="hero">
       <div id="home" className="home-banner-area home-style-two">
-
-
-
-
 <div className="container-fluid p-1 homesection-banner">
   <div className="row align-items-center justify-content-center">
   <div className="col-lg-8 m-auto text-center" >
