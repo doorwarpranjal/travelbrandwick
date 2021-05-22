@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import PeopleIcon from '@material-ui/icons/People';
 export default function Card({cardItem}) {
-    console.log(cardItem)
+
     let date= new Date(cardItem.dateOn)
     let dateString=date.toDateString()
   return (

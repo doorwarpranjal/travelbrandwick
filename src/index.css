@@ -190,10 +190,11 @@ color: #ffffff;
 font-size: 35px;
 text-transform: capitalize;
 }
+
 .standard{
   font-weight: 700;
   color: #332c55;
-  font-size: 23px;
+  font-size: 16px;
   text-transform: capitalize;
   
   }
@@ -228,7 +229,7 @@ text-transform: capitalize;
   .f-size{
   font-weight: 700;
 text-align: left !important;
-    font-size: 20px;
+    font-size: 16px;
     color: #505050;
   }
 #heroTour  .inner-div span{
@@ -269,7 +270,9 @@ text-align: left !important;
     }
     .date-span{
     
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     left: 5px;
     top: 3px;
     width: 60px;

@@ -11,10 +11,13 @@ export default function Destination() {
   const [pageValue,setPageValue]=useState(0)
   const [pageNumber,setPageNumber]=useState(1)
   const [searchTerm,setsearchTerm]=useState("")
+
   useEffect(() => {
     getTours();
-    // getTopTours();
-  }, []);
+  }, [1]);
+
+
+
   const getTours = async () => {
     let res = await getAllTours();
     if (res.status === 200) {
@@ -63,31 +66,21 @@ export default function Destination() {
         id="top-destination"
         className="top-destination-section pt-100 pb-70 bg-light"
       >
-        <div className="container">
+        <div className="container-fluid p-4">
            <div className="section-title">
-          <h2>Tours</h2>
+          <h2>All Trips & Tours</h2>
           <div className="container">
-          <div className="search-form">
-            <form id="searchForm">
-              <div className="row align-items-center m-auto">
-              <div className="col-1 col-md-3 ">
+
+<div className="row">
+  <div className="col-lg-8 mx-auto">
+  <TextField id="outlined-basic" style={{width:'100%'}} label="Type name of Destination" variant="outlined" onChange={(e)=>setsearchTerm(e.target.value)} />
+ 
+  </div>
 </div>
-                <div className="col-lg-10 m-auto">
-<TextField id="outlined-basic" style={{width:'100%'}} label="Search" variant="outlined" onChange={(e)=>setsearchTerm(e.target.value)} />
-            
-              </div>
          
-             
-              </div>
-            </form>
-          </div>
         </div> 
     
-            {/* <p>
-              Travel has helped us to understand the meaning of life and it has
-              helped us become better people. Each time we travel, we see the
-              world with new eyes.
-            </p> */}
+         
           </div> 
           <div className="row">
             {
@@ -125,7 +118,7 @@ export default function Destination() {
             .map((item, index) => {
               
                 return (
-                  <div className="col-lg-4 col-md-6 mt-4" key={index}>
+                  <div className="col-lg-3 col-md-6 col-sm-12 mt-4" key={index}>
                   <Card cardItem={item} />
                     </div>   );
               

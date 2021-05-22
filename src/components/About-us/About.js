@@ -32,10 +32,10 @@ export default function NotFound() {
       <section id='about' className='about-section about-style-three ptb-100'>
         <div className='container'>
           <div className='row align-items-center'>
-            <div className='col-lg-10 m-auto'>
+            <div className='col-lg-12 m-auto'>
               <div className='about-content'>
                 <div className='row'>
-                  <div className='col-10 offset-1'>
+                  <div className='col-12 '>
                     <h2>About the MountMonks</h2>
                     <p>
                       Top Tour Operators and Travel Agency. We offering in total
@@ -85,14 +85,7 @@ export default function NotFound() {
                     </div>
                   </div>
                 </div>
-                <div className='about-btn'>
-                  <a href='contact.html' className='btn-primary'>
-                    Contact Us
-                  </a>
-                  <a href='about-us.html' className='btn-primary'>
-                    Read More
-                  </a>
-                </div>
+               
               </div>
             </div>
           </div>
@@ -110,10 +103,13 @@ export default function NotFound() {
           <img src='assets/img/shape4.png' alt='Background Shape' />
         </div>
       </section>
+
+
+      
       <section id='about' className='about-section pt-100 pb-70 bg-light'>
         <div className='container'>
           <div className='row align-items-center'>
-            <div className='col-lg-6'>
+            <div className='col-lg-5'>
               <div className='video-content mb-30'>
                 <div className='video-image'>
                   <img src='assets/img/about1.jpg' alt='video' />
@@ -126,7 +122,9 @@ export default function NotFound() {
                 </a>
               </div>
             </div>
-            <div className='col-lg-6'>
+
+
+            <div className='col-lg-6 offset-lg-1'>
               <div className='about-content mb-30'>
                 <h2>Why Choose Us ?</h2>
                 <p className="my-2">
@@ -226,20 +224,7 @@ export default function NotFound() {
                     </h3>
                     <span>Company Founder</span>
                   </div>
-                  <div className='social-link'>
-                    <a href='#' target='_blank'>
-                      <i className='bx bxl-facebook' />
-                    </a>
-                    <a href='#' target='_blank'>
-                      <i className='bx bxl-twitter' />
-                    </a>
-                    <a href='#' target='_blank'>
-                      <i className='bx bxl-linkedin' />
-                    </a>
-                    <a href='#' target='_blank'>
-                      <i className='bx bxl-instagram' />
-                    </a>
-                  </div>
+                 
                 </div>
               </div>
             </div>

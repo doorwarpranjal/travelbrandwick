@@ -2,14 +2,14 @@ import { Star } from "@material-ui/icons";
 import Rating from "@material-ui/lab/Rating";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getTourById,postComment as  addTestimonial,postOrder} from "../../API";
+import { getTourById, postComment as addTestimonial, postOrder } from "../../API";
 import DatePicker from "react-datepicker";
 import Toast from "../Toast/Toast";
 import showToast from "../Toast/showToast";
 import "react-datepicker/dist/react-datepicker.css";
 export default function Tour() {
   const [tripDate, settripDate] = useState("");
-  const [showReplies,setShowReplies]=useState(false)
+  const [showReplies, setShowReplies] = useState(false)
   const [tripTill, settripTill] = useState("");
   const [isAuth, setIsAuth] = useState(false);
   const [email, setEmail] = useState("");
@@ -18,52 +18,51 @@ export default function Tour() {
   const [toastColor, setToastColor] = useState("green");
   const [toastText, setToastText] = useState("");
   const [tripDetails, setTripDetails] = useState({
-    images: [],generalInfo:[],
+    images: [], generalInfo: [],
     includes: [],
     testimonial: [],
   });
- // const [isAuth,setIsAuth]=useState(false) 
+  // const [isAuth,setIsAuth]=useState(false) 
   const [value, setValue] = useState(2);
-  const [postComment,setPostComment]=useState("")
-  const validate=()=>{
+  const [postComment, setPostComment] = useState("")
+  const validate = () => {
     //let isValid=true;
-    if(tripTill===''){
-     setToastColor("red");
-     setToastText("Till Date Required");
-     showToast();
-     return false
- 
+    if (tripTill === '') {
+      setToastColor("red");
+      setToastText("Till Date Required");
+      showToast();
+      return false
+
     }
-    else if(tripDate===''){
-     setToastColor("red");
-     setToastText("From Required");
-     showToast();
-     return false
- 
+    else if (tripDate === '') {
+      setToastColor("red");
+      setToastText("From Required");
+      showToast();
+      return false
+
     }
-    else if(email===''){
-     setToastColor("red");
-     setToastText("email is Required");
-     showToast();
-     return false
- 
+    else if (email === '') {
+      setToastColor("red");
+      setToastText("email is Required");
+      showToast();
+      return false
+
     }
-    else if(mobile==='')
- {
-   setToastColor("red");
-     setToastText("Mobile is Required");
-     showToast();
-     return false
- } 
- else{
-   return true
- }
- }
+    else if (mobile === '') {
+      setToastColor("red");
+      setToastText("Mobile is Required");
+      showToast();
+      return false
+    }
+    else {
+      return true
+    }
+  }
   const openPayModal = async (e) => {
     e.preventDefault();
     let amount = people * tripDetails.price;
-  //  console.log(validate())
-    if (validate()===true) {
+    //  console.log(validate())
+    if (validate() === true) {
       amount = amount * 100;
       amount = Math.ceil(amount);
       var options = {
@@ -108,47 +107,60 @@ export default function Tour() {
       rzp1.open();
     }
   };
-let parsms=useParams()
+  let parsms = useParams()
 
-useEffect(()=>{
-getTourByTourId(parsms.id)
-let token=JSON.parse(localStorage.getItem('recoil-persist'))
-if(token){
-  setIsAuth(true)
-}
-},[])
-const postMyComment=async (e)=>{
-  e.preventDefault()
-let res=await addTestimonial(parsms.id,{reviewContent:postComment,rating:value})
-if (res.status === 200) {
-  console.log(res.data);
- // setTripDetails(res.data)
-} else {
-console.log(res.response)
-}
-}
-const getTourByTourId=
-  async (id) => {
-    console.log(id)
-    let res = await getTourById(id);
+  useEffect(() => {
+    getTourByTourId(parsms.id)
+    let token = JSON.parse(localStorage.getItem('recoil-persist'))
+    if (token) {
+      setIsAuth(true)
+    }
+  }, [])
+
+
+
+  const postMyComment = async (e) => {
+    e.preventDefault()
+
+
+    if(isAuth){let res = await addTestimonial(parsms.id, { reviewContent: postComment, rating: value })
     if (res.status === 200) {
+      console.log(res.data);
+      // setTripDetails(res.data)
+    } else {
+      console.log(res.response)
+    }}else{
+      alert('Login First to post comment !')
+    }
+
+    
+  }
+
+
+
+  const getTourByTourId =
+    async (id) => {
+      console.log(id)
+      let res = await getTourById(id);
+      if (res.status === 200) {
         console.log(res.data);
         setTripDetails(res.data)
-    } else {
-      console.log("empty");
-    }
-  };
+      } else {
+        console.log("empty");
+      }
+    };
 
   const [people, setPeople] = useState(1);
   return (
     <section id="heroTour">
-       <Toast color={toastColor} text={toastText} />
+      <Toast color={toastColor} text={toastText} />
       <div
         className="tour-bg mb-6 "
         style={{
           backgroundImage:
             `url(${tripDetails.thumbnailImage})`,
-          backgroundPosition:'center'     }}
+          backgroundPosition: 'center'
+        }}
       >
         <div className="inner-div">
           <Star size={30} className='theme-color f-18' />
@@ -159,7 +171,7 @@ const getTourByTourId=
           </span>
         </div>
       </div>
-      <div className="container">
+      <div className="container-fluid px-5 ">
         <div className="row">
           <div className="col-md-8 col-12 mt-5 ">
             <h2 className="mb-4 font-weight-bold">Overview</h2>
@@ -195,15 +207,15 @@ const getTourByTourId=
                     <th className=" standard f-size">Applied</th>
                   </tr>
                   <tr>
-                    <th className="standard">Include:</th>
+                    <th className="standard">Inclusions:</th>
                     <th className="ml-3">
                       <ul>
-                        {tripDetails.includes && tripDetails.includes.map((item,index)=>{
-                          return(
+                        {tripDetails.includes && tripDetails.includes.map((item, index) => {
+                          return (
                             <li>{item}</li>
                           )
                         })}
-                        
+
                       </ul>
                     </th>
                   </tr>
@@ -212,28 +224,24 @@ const getTourByTourId=
             </div>
             <div className="mt-5">
               <h2 className="mb-4 font-weight-bold">Tour Plan</h2>
-              {/* <span className="description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              </span> */}
-              {tripDetails.generalInfo.map((item,index)=>{
-                return(
+           
+              {tripDetails.generalInfo.map((item, index) => {
+                return (
                   <div className="row mt-6">
-                  <div className=" col-2 mt-3">
-                    <span className="date-span rounded-circle">{index+1}</span>
-                  </div>
-                  <div className="col-10">
-                    <span className="theme-color f-18">{item.time}</span>
-                    <h6 className="standard">
-                      Day {index+1}: Arrive South Africa Forest
+                    <div className="col-3 mt-3">
+                      <span className="date-span rounded-circle">{index + 1}</span>
+                    </div>
+                    <div className="col-10">
+                      <span className="theme-color f-18">{item.time}</span>
+                      <h6 className="standard">
+                        Day {index + 1}: Arrive South Africa Forest
                     </h6>
-  
-                    <span className="description">
-                   {item.activities}
-                    </span>
+
+                      <span className="description">
+                        {item.activities}
+                      </span>
+                    </div>
                   </div>
-                </div>
                 )
               })}
             </div>
@@ -271,8 +279,8 @@ const getTourByTourId=
                   }}
                   id="email"
                   required=""
-                  data-error="Please enter your email"
-                  placeholder="Email"
+                  data-error="Please enter your email correctly"
+                  placeholder="Email (optional)"
                 />
                 <div className="help-block with-errors"></div>
               </div>
@@ -281,7 +289,7 @@ const getTourByTourId=
                   dateFormat="dd/MM/yyyy"
                   className="form-control"
                   selected={tripDate}
-                  placeholderText="Start Date"
+                  placeholderText="Trip Start Date"
                   onChange={(date) => settripDate(date)}
                 />{" "}
               </div>
@@ -291,28 +299,25 @@ const getTourByTourId=
                     dateFormat="dd/MM/yyyy"
                     className="form-control"
                     selected={tripTill}
-                    placeholderText="End Date"
+                    placeholderText="Trip End Date"
                     onChange={(date) => settripTill(date)}
                   />{" "}
                 </div>
               </div>
 
               <div className="form-group  mb-3">
+                <label>Number of Person</label>
                 <input
                   type="number"
                   onChange={(e) => setPeople(e.target.value)}
                   className="form-control"
                   defaultValue={1}
-                  data-error="Please enter your email"
+                  data-error="Please Choose Number of people correctly"
                   placeholder="No. of People"
                 />
                 <div className="help-block with-errors"></div>
               </div>
-              <div className="form-group">
-                <h5>
-                  {tripDetails.price + " Rs"} * {people} = {tripDetails.price * people}
-                </h5>
-              </div>
+            
               <div className="form-group">
                 <textarea
                   name="message"
@@ -325,16 +330,32 @@ const getTourByTourId=
                   rows="6"
                   required=""
                   data-error="Please enter your message"
-                  placeholder="Message"
+                  placeholder="Any Other Message"
                 ></textarea>
                 <div className="help-block with-errors"></div>
               </div>
+
+
+              <div className="form-group">
+
+<h6>Payment Summary :</h6>
+<br/>
+
+                <p>
+                 Tour Price : Rs {tripDetails.price  } 
+                </p>
+                <p>Total Persons : {people} persons</p>
+<p>Total Price : Rs {tripDetails.price * people}</p>
+
+              </div>
+
+
               <div className="text-center">
                 <button
                   type="submit"
                   className="btn cta-btn"
                   style={{ width: "100%" }}
-                   onClick={openPayModal}
+                  onClick={openPayModal}
                 >
                   Proceed for Payment
                 </button>
@@ -342,47 +363,49 @@ const getTourByTourId=
             </div>
           </div>
         </div>
+
+
         <div className="mt-5">
           <div className="container">
             <h2 className="mb-4 font-weight-bold">Gallery</h2>
             <div class="owl-carousel">
-              {tripDetails.images.map((item,index)=>{
-                return(
+              {tripDetails.images.map((item, index) => {
+                return (
                   <div className="item" key={index}><img src={item} className='gallery-image' /></div>
                 )
               })}
-  
-              
-             </div>{" "}
+
+
+            </div>
           </div>
         </div>
-      
+
         <div className="mt-5">
           <div className="row ">
-            <div className=" col-8  comment-reply">
-<form id="commentForm" className="comment-form shadow-sm p-3  bg-white rounded m-auto">
-{tripDetails.testimonial.map((item,index)=>{
-  return (
-    <ol className="comment-list" key={index}>
-<li className="comment">
-<div className="comment-body">
-<div className="comment-author">
-<img src={"/assets/img/blog/author1.jpg"|| item.reviewBy.profileImg} alt="demo" />
-</div>
-<div className="comment-content">
-<div className="comment-metadata">
-<h4 className="name">{item.reviewBy.name}</h4>
-</div>
-<p>
-{item.reviewContent}</p>
-<ul className="list">
-{/* <li><i className='bx bx-heart'></i>Likes</li> */}
-{/* <li onClick={()=>setShowReplies(!showReplies)}><i className='bx bx-reply' ></i>Reply</li> */}
+            <div className="col-lg-6 col-md-8  comment-reply">
+              <form id="commentForm" className="comment-form shadow-sm p-3  bg-white rounded m-auto">
+                {tripDetails.testimonial.map((item, index) => {
+                  return (
+                    <ol className="comment-list" key={index}>
+                      <li className="comment">
+                        <div className="comment-body">
+                          <div className="comment-author">
+                            <img src={"/assets/img/blog/author1.jpg" || item.reviewBy.profileImg} alt="demo" />
+                          </div>
+                          <div className="comment-content">
+                            <div className="comment-metadata">
+                              <h4 className="name">{item.reviewBy.name}</h4>
+                            </div>
+                            <p>
+                              {item.reviewContent}</p>
+                            <ul className="list">
+                              {/* <li><i className='bx bx-heart'></i>Likes</li> */}
+                              {/* <li onClick={()=>setShowReplies(!showReplies)}><i className='bx bx-reply' ></i>Reply</li> */}
 
-</ul>
-</div>
-</div>
-{/* <ol className="children">
+                            </ul>
+                          </div>
+                        </div>
+                        {/* <ol className="children">
   {showReplies?
   
   <li className="comment">
@@ -402,44 +425,43 @@ Send
 </li>
 :null}
 </ol> */}
-</li>
-</ol>
+                      </li>
+                    </ol>
 
-  )
-})}
-<h2 className="sub-title mb-4 font-weight-bold">Post comment</h2>
-<div className="row">
-<div className="col-sm-12 col-xs-12">
-<Rating
-          name="simple-controlled"
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-          max={10}
-        />
-<div className="input-group">
-<div className="input-icon textarea"><i className='bx bx-envelope'></i></div>
-<textarea name="message"
-  onChange={(e)=>setPostComment(e.target.value)} 
-className="form-control" placeholder="Write Comment" required="required" rows="6"></textarea>
-</div>
-</div>
-</div>
-<button type="submit" className="btn-primary" 
- onClick={postMyComment}
->
-Post comment
-</button>
-</form>:<> <div>
-<div className='lock'> <h3 className="sub-title " style={{color:'white'}}>Post comment</h3><i class="fas fa-lock"  style={{color:'white'}}> </i>
-<h2> <Link to='/sign-in' style={{color:'white'}}> Login</Link></h2>
-</div>
-</div> </>
-</div>
-   </div>
+                  )
+                })}
+                <h2 className="sub-title mb-4 font-weight-bold">Share Review</h2>
+                <div className="row">
+                  <div className="col-sm-12 col-lg-8 col-xs-12">
+                    <Rating
+                      name="simple-controlled"
+                      value={value}
+                      onChange={(event, newValue) => {
+                        setValue(newValue);
+                      }}
+                      max={10}
+                    />
+                    <div className="input-group">
+                      <div className="input-icon textarea"><i className='bx bx-envelope'></i></div>
+                      <textarea name="message"
+                        onChange={(e) => setPostComment(e.target.value)}
+                        className="form-control" placeholder="Write Comment" required="required" rows="6"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                {isAuth ? ( <button type="submit" className="btn-primary"
+                  onClick={postMyComment}>
+                  Post Review </button>) : ( <Link to="/sign-in"><button  className="btn-primary"
+                  onClick={postMyComment}>
+                  LOGIN </button></Link>)}
+               
+              </form>
+         <br/>
+            </div>
+          </div>
         </div>
-    
+
       </div>{" "}
     </section>
   );

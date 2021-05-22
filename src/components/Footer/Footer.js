@@ -103,9 +103,9 @@ export default function Footer() {
             <div className="container">
               <div className="copy-right-content">
                 <p>
-                  Copyright @2021 Designed By
+                  Copyright @2021 the MountMonks Designed By &nbsp;
                   <a href="https:www.thebrandwick.com" target="_blank">
-                    {"  "} the MountMonks
+                     The Brandwick
                   </a>
                 </p>
               </div>

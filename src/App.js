@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {useState,useEffect} from 'react'
 import Home from "./components/HomeScreen/Home";
 import About from "./components/About-us/About";
 import Navbar from "./components/Navbar/Navbar";
@@ -22,14 +23,35 @@ import ScrollToTop from './components/scrollToTop'
 import Cart from './components/MyCart/Cart'
 function App() {
 
+
+  const [isNavbarOnHomepage,setNavbarOnHomePage]=useState(false)
+ 
+
+  //check if navbar is on homepage or not
+  useEffect(() => {
+    if(window.location.pathname=='/'){
+      return setNavbarOnHomePage(true)
+    }else{
+      return setNavbarOnHomePage(false)
+    }
+    return () => {
+    
+    };
+  }, []);
+
+
   return (
     <div className="App">
       <Router>
     
         <ScrollToTop/>
-        <Navbar />
+   
+
+        <Navbar isNavbarOnHomepage={isNavbarOnHomepage} />
+
         <Switch>
           <Route path="/" exact component={Home} />
+        
           <Route path="/about-us" exact component={About} />
           <Route path="/destinations" component={Destination} />
           <Route path="/toursbycategory/:id" component={TourByCategory} />

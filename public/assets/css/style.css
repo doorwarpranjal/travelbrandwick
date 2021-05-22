@@ -2659,41 +2659,13 @@ textarea.form-control {
 .team-section .item-single .content .social-link {
   display: none;
 }
-.team-section .item-single:hover .content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  top: 20px;
-  left: 15px;
-  width: calc(100% - 30px);
-  height: calc(100% - 40px);
-  border-radius: 5px;
-  background: rgba(65, 65, 165, 0.8);
-  -webkit-animation: zoomIn 0.3s linear;
-  animation: zoomIn 0.3s linear;
-}
-.team-section .item-single:hover .content .title {
-  margin-bottom: 20px;
-}
-.team-section .item-single:hover .content .title h3 a {
-  color: #fff;
-}
-.team-section .item-single:hover .content .title span {
-  color: #d6d6d6;
-}
-.team-section .item-single:hover .content .social-link {
-  display: block;
-}
+
+
+
+
+
+
+
 .tours-section {
   overflow: hidden;
 }
@@ -2742,7 +2714,7 @@ textarea.form-control {
   vertical-align: -1px;
 }
 .tours-section .item-single .content .review span {
-  margin-left: 8px;
+  margin-left: 0px;
 }
 .tours-section .item-single .content h3 {
   margin-top: 15px;
