@@ -382,8 +382,15 @@ export default function Tour() {
             <h2 className="mb-4 font-weight-bold">Gallery</h2>
             <div class="owl-carousel">
               {tripDetails.images.map((item, index) => {
+                console.log(index)
                 return (
-                  <div className="item" key={index}><img src={item} className='gallery-image' /></div>
+                  <div className="item" key={index}>
+                    <h1>
+                      hello
+                      </h1>
+                    <img src={item} className='gallery-image' />
+                  
+                  </div>
                 )
               })}
 
@@ -457,7 +464,9 @@ Send
                       <div className="input-icon textarea"><i className='bx bx-envelope'></i></div>
                       <textarea name="message"
                         onChange={(e) => setPostComment(e.target.value)}
-                        className="form-control" placeholder="Write Comment" required="required" rows="6"></textarea>
+                        className="form-control"
+                        disabled={!isAuth}
+                        placeholder="Write Comment" required="required" rows="6"></textarea>
                     </div>
                   </div>
                 </div>
