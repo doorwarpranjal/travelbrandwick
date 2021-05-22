@@ -75,7 +75,16 @@ export default function Home() {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    arrows: true
+    arrows: true,
+    responsive: [{
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 1,
+        arrows: true,
+      }
+    }]
   };
 
   return (
@@ -86,7 +95,7 @@ export default function Home() {
         <div id="home" className="home-banner-area home-style-two">
           <div className="container-fluid p-1 homesection-banner">
             <div className="row align-items-center justify-content-center">
-              <div className="col-lg-8 m-auto text-center" >
+              <div className="col-lg-8 col-sm-12 m-auto text-center" >
 
                 <h1 className="homepage-cta-heading">Best destinations for the one who love travelling !</h1>
 
@@ -156,7 +165,7 @@ export default function Home() {
                 {topRatedTours.map((item, index) => {
                   if (index < 16) {
                     return (
-                      <div className="col-lg-12 mt-4" key={index}>
+                      <div className="col-lg-12 col-sm-12 mt-4" key={index}>
                         <RCard cardItem={item} />
                       </div>
                     );

@@ -7,7 +7,14 @@ import DatePicker from "react-datepicker";
 import Toast from "../Toast/Toast";
 import showToast from "../Toast/showToast";
 import "react-datepicker/dist/react-datepicker.css";
+import './tour.css'
+
+
+
 export default function Tour() {
+
+
+
   const [tripDate, settripDate] = useState("");
   const [showReplies, setShowReplies] = useState(false)
   const [tripTill, settripTill] = useState("");
@@ -171,27 +178,32 @@ export default function Tour() {
           </span>
         </div>
       </div>
-      <div className="container-fluid px-5 ">
+      <div className="container-fluid main-container-left-side">
         <div className="row">
           <div className="col-md-8 col-12 mt-5 ">
             <h2 className="mb-4 font-weight-bold">Overview</h2>
             <span className="description">
               {tripDetails.description}
             </span>
-            <div className="container mt-3">
-              <div className="table text-center row p-4 rounded-lg">
+
+
+            <div className=" mt-3">
+              <div className="table text-center row  rounded-lg">
                 <div className="col-4  border-right">
-                  <i class="far fa-clock mr-2"></i> {tripDetails.tourDuration}
+                  <i class="far fa-clock"></i> {tripDetails.tourDuration}
                 </div>
                 <div className="col-4 border-right">
-                  <i class="fas fa-percentage mr-2"></i> Discount
+                  <i class="fas fa-percentage "></i> Discount
                 </div>
                 <div className="col-4 ">
-                  <i class="far fa-user mr-2"></i> Age 15+
+                  <i class="far fa-user "></i> Age 15+
                 </div>
               </div>
             </div>
-            <div className="mr-4">
+
+
+            
+            <div className="">
               <table class="table table-bordered ">
                 <tbody>
                   <tr>
@@ -231,7 +243,7 @@ export default function Tour() {
                     <div className="col-3 mt-3">
                       <span className="date-span rounded-circle">{index + 1}</span>
                     </div>
-                    <div className="col-10">
+                    <div className="col-9">
                       <span className="theme-color f-18">{item.time}</span>
                       <h6 className="standard">
                         Day {index + 1}: Arrive South Africa Forest

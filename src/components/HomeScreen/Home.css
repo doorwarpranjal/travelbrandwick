@@ -126,8 +126,17 @@ color: white !important;
 
 @media only screen and (max-width: 600px) {
 
+
+    .homesection-banner{
+        height: 70vh;
+    }
+
+    .home-banner-area.home-style-two{
+        padding-bottom: 0;
+    }
+
     .homepage-cta-paragraph{
-        width: 90%;
+        width: 100%;
         margin: auto 0;
     }
     
@@ -137,8 +146,9 @@ color: white !important;
     }
 
     .homepage-cta-heading{
-        font-size: 20px;
+        font-size: 16px;
         font-weight: bold;
+        margin-top: 0;
     }
 
     .homepage-main-text-container{
@@ -157,14 +167,19 @@ color: white !important;
 
 
 .homepage-searchbox-input{
-    width: 90%;
-    margin-left: -5%;
+    width: 100%;
 }
 
 .cta-button-search{
-    width: 124px;
-    transform: translateX(126px);
+    width: 30%;
+    transform: translateX(110%);
 }
+
+.homesection-banner .row{
+    transform: translateX(0);
+}
+
+
 
 
 }
