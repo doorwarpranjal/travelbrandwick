@@ -384,10 +384,7 @@ export default function Tour() {
               {tripDetails.images.map((item, index) => {
                 console.log(index)
                 return (
-                  <div className="item" key={index}>
-                    <h1>
-                      hello
-                      </h1>
+                  <div className="item" key={index}>link
                     <img src={item} className='gallery-image' />
                   
                   </div>

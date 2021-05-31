@@ -37,7 +37,7 @@ const submitHandler=async(e)=>{
       email:email,mobile:phone,name:name
     }
     let res=await Signup(data)
-    console.log(res.response)
+    console.log(res)
     if(res.status===200){
       setLoading(false)
       showToast()
