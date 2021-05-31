@@ -14,16 +14,14 @@ export default function Card({ cardItem }) {
 
       <div className="card-text pb-1">
         <div className="row m-auto pt-3">
-          <div className="col-6">
+          <div className="col-12">
             <h6 className="content ">
               <Link to={`/destination/${cardItem._id}`}>
                 {cardItem.data.tourPlace}
               </Link>
             </h6>
           </div>
-          <div className="col-6 text-right">
-            <span className="color-orange">{cardItem.data.tourDuration}</span>
-          </div>
+          
 
           <div className="col-12 p-2 px-3 justify-content-between d-flex">
             <span className="weight-6">
@@ -41,13 +39,11 @@ export default function Card({ cardItem }) {
               </span>
             </span>
           </div>
-
-          <div className="col-12 mb-2">
-            <span className="weight-6 text-justify card-description-text">
-              {cardItem.description}
-           </span>
+          <div className="col-12 text-right">
+            <span className="color-orange">{cardItem.data.tourDuration}</span>
           </div>
-
+     
+<br/>
           <div className="col-12 col-md-8 m-auto p-2 mt-2">
             <Link to={`/destination/${cardItem._id}`}>
               <button className="cta-btn ">View Details</button>
