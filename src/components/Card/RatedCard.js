@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import StarIcon from "@material-ui/icons/Star";
 import AttachMoneyIcon from "../../assets/fa_inr.svg";
+import { Money } from "@material-ui/icons";
 
 export default function Card({ cardItem }) {
 
@@ -13,14 +14,14 @@ export default function Card({ cardItem }) {
 
       <div className="card-text pb-1">
         <div className="row m-auto pt-3">
-          <div className="col-8">
+          <div className="col-6">
             <h6 className="content ">
               <Link to={`/destination/${cardItem._id}`}>
                 {cardItem.data.tourPlace}
               </Link>
             </h6>
           </div>
-          <div className="col-4 text-right">
+          <div className="col-6 text-right">
             <span className="color-orange">{cardItem.data.tourDuration}</span>
           </div>
 
@@ -30,7 +31,7 @@ export default function Card({ cardItem }) {
               {cardItem.data.location}
             </span>
             <span className="weight-6 ">
-              <img src={AttachMoneyIcon} className="icon-margin-top" />{" "}
+             <Money/>
               {cardItem.data.price}
             </span>
             <span className="review weight-6  ml-20">

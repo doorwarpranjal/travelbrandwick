@@ -31,14 +31,14 @@ export default function Card({cardItem}) {
       </div>
       <div className="card-text pb-1">
         <div className="row m-auto pt-3">
-          <div className="col-8">
+          <div className="col-6">
             <h6 className="content ">
                      <Link to={`/destination/${cardItem.tripId._id}`}>
                             {cardItem.tripId.tourPlace}
                             </Link>
                 </h6>
           </div>
-          <div className="col-4">
+          <div className="col-6">
             <span className="color-orange">{cardItem.tripId.tourDuration}</span>
           </div>
           

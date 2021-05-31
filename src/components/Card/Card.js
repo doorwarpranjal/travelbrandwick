@@ -12,7 +12,7 @@ export default function Card({ cardItem }) {
       </div>
       <div className="card-text p-2 pb-1">
         <div className="row m-auto pt-3">
-          <div className="col-8">
+          <div className="col-6">
             <h6 className="content ">
               <Link to={`/destination/${cardItem._id}`}>
                 {" "}
@@ -20,7 +20,7 @@ export default function Card({ cardItem }) {
               </Link>
             </h6>
           </div>
-          <div className="col-4 text-right">
+          <div className="col-6 text-right">
             <span className="color-orange">{cardItem.tourDuration}</span>
           </div>
           <div className="col-12 d-flex justify-content-between py-3">

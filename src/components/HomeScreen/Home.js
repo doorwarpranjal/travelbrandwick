@@ -275,17 +275,19 @@ export default function Home() {
                 world with new eyes.
             </p>
             </div>
+<div className='container'>
 
             <div className="row filtr-container">
               {allTours.map((item, index) => {
                 if (index < 6) {
                   return (
-                    <div className="col-lg-3 col-md-6 mt-4" key={index}>
+                    <div className="col-lg-4 col-md-6 mt-4" key={index}>
                       <Card cardItem={item} />
                     </div>
                   );
                 }
               })}{" "}
+              </div>
             </div>
           </div>
         </section>

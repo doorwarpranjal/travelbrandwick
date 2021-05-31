@@ -2,21 +2,42 @@ import { Star } from "@material-ui/icons";
 import Rating from "@material-ui/lab/Rating";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getTourById, postComment as addTestimonial, postOrder } from "../../API";
+import {
+  getTourById,
+  postComment as addTestimonial,
+  postOrder,
+} from "../../API";
 import DatePicker from "react-datepicker";
 import Toast from "../Toast/Toast";
 import showToast from "../Toast/showToast";
 import "react-datepicker/dist/react-datepicker.css";
-import './tour.css'
+import "./tour.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
-
-
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  navs: true,
+  arrows: true,
+  responsive: [
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
 export default function Tour() {
-
-
-
   const [tripDate, settripDate] = useState("");
-  const [showReplies, setShowReplies] = useState(false)
+  const [showReplies, setShowReplies] = useState(false);
   const [tripTill, settripTill] = useState("");
   const [isAuth, setIsAuth] = useState(false);
   const [email, setEmail] = useState("");
@@ -25,46 +46,40 @@ export default function Tour() {
   const [toastColor, setToastColor] = useState("green");
   const [toastText, setToastText] = useState("");
   const [tripDetails, setTripDetails] = useState({
-    images: [], generalInfo: [],
+    images: [],
+    generalInfo: [],
     includes: [],
     testimonial: [],
   });
-  // const [isAuth,setIsAuth]=useState(false) 
+  // const [isAuth,setIsAuth]=useState(false)
   const [value, setValue] = useState(2);
-  const [postComment, setPostComment] = useState("")
+  const [postComment, setPostComment] = useState("");
   const validate = () => {
     //let isValid=true;
-    if (tripTill === '') {
+    if (tripTill === "") {
       setToastColor("red");
       setToastText("Till Date Required");
       showToast();
-      return false
-
-    }
-    else if (tripDate === '') {
+      return false;
+    } else if (tripDate === "") {
       setToastColor("red");
       setToastText("From Required");
       showToast();
-      return false
-
-    }
-    else if (email === '') {
+      return false;
+    } else if (email === "") {
       setToastColor("red");
       setToastText("email is Required");
       showToast();
-      return false
-
-    }
-    else if (mobile === '') {
+      return false;
+    } else if (mobile === "") {
       setToastColor("red");
       setToastText("Mobile is Required");
       showToast();
-      return false
+      return false;
+    } else {
+      return true;
     }
-    else {
-      return true
-    }
-  }
+  };
   const openPayModal = async (e) => {
     e.preventDefault();
     let amount = people * tripDetails.price;
@@ -114,48 +129,46 @@ export default function Tour() {
       rzp1.open();
     }
   };
-  let parsms = useParams()
+  let parsms = useParams();
 
   useEffect(() => {
-    getTourByTourId(parsms.id)
-    let token = JSON.parse(localStorage.getItem('recoil-persist'))
+    getTourByTourId(parsms.id);
+    let token = JSON.parse(localStorage.getItem("recoil-persist"));
     if (token) {
-      setIsAuth(true)
+      setIsAuth(true);
     }
-  }, [])
-
-
+  }, []);
 
   const postMyComment = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-
-    if(isAuth){let res = await addTestimonial(parsms.id, { reviewContent: postComment, rating: value })
-    if (res.status === 200) {
-      console.log(res.data);
-      // setTripDetails(res.data)
-    } else {
-      console.log(res.response)
-    }}else{
-      alert('Login First to post comment !')
-    }
-
-    
-  }
-
-
-
-  const getTourByTourId =
-    async (id) => {
-      console.log(id)
-      let res = await getTourById(id);
+    if (isAuth) {
+      let res = await addTestimonial(parsms.id, {
+        reviewContent: postComment,
+        rating: value,
+      });
       if (res.status === 200) {
-        console.log(res.data);
-        setTripDetails(res.data)
+        // console.log(res.data);
+        // setTripDetails(res.data)
       } else {
-        console.log("empty");
+        console.log(res.response);
       }
-    };
+    } else {
+      alert("Login First to post comment !");
+    }
+  };
+
+  const getTourByTourId = async (id) => {
+    //  console.log(id)
+    let res = await getTourById(id);
+    if (res.status === 200) {
+      // console.log(res.data);
+      setTripDetails(res.data);
+    } else {
+      console.log("empty");
+      alert("Tour bot found");
+    }
+  };
 
   const [people, setPeople] = useState(1);
   return (
@@ -164,14 +177,13 @@ export default function Tour() {
       <div
         className="tour-bg mb-6 "
         style={{
-          backgroundImage:
-            `url(${tripDetails.thumbnailImage})`,
-          backgroundPosition: 'center'
+          backgroundImage: `url(${tripDetails.thumbnailImage})`,
+          backgroundPosition: "center",
         }}
       >
         <div className="inner-div">
-          <Star size={30} className='theme-color f-18' />
-          <span className='theme-color '> 8.5 Superb</span>
+          <Star size={30} className="theme-color f-18" />
+          <span className="theme-color "> 8.5 Superb</span>
           <h2>{tripDetails.tourPlace}</h2>
           <span>
             <span className="price"> Rs. {tripDetails.price} </span>/ Person
@@ -182,10 +194,7 @@ export default function Tour() {
         <div className="row">
           <div className="col-md-8 col-12 mt-5 ">
             <h2 className="mb-4 font-weight-bold">Overview</h2>
-            <span className="description">
-              {tripDetails.description}
-            </span>
-
+            <span className="description">{tripDetails.description}</span>
 
             <div className=" mt-3">
               <div className="table text-center row  rounded-lg">
@@ -201,18 +210,20 @@ export default function Tour() {
               </div>
             </div>
 
-
-            
             <div className="">
               <table class="table table-bordered ">
                 <tbody>
                   <tr>
                     <th className="standard">Destination:</th>
-                    <th className=" standard f-size">{tripDetails.tourPlace}</th>
+                    <th className=" standard f-size">
+                      {tripDetails.tourPlace}
+                    </th>
                   </tr>
                   <tr>
                     <th className="standard">Price:</th>
-                    <th className=" standard f-size">Rs. {tripDetails.price} </th>
+                    <th className=" standard f-size">
+                      Rs. {tripDetails.price}{" "}
+                    </th>
                   </tr>
                   <tr>
                     <th className="standard">Discount</th>
@@ -222,12 +233,10 @@ export default function Tour() {
                     <th className="standard">Inclusions:</th>
                     <th className="ml-3">
                       <ul>
-                        {tripDetails.includes && tripDetails.includes.map((item, index) => {
-                          return (
-                            <li>{item}</li>
-                          )
-                        })}
-
+                        {tripDetails.includes &&
+                          tripDetails.includes.map((item, index) => {
+                            return <li>{item}</li>;
+                          })}
                       </ul>
                     </th>
                   </tr>
@@ -236,25 +245,25 @@ export default function Tour() {
             </div>
             <div className="mt-5">
               <h2 className="mb-4 font-weight-bold">Tour Plan</h2>
-           
+
               {tripDetails.generalInfo.map((item, index) => {
                 return (
                   <div className="row mt-6">
                     <div className="col-3 mt-3">
-                      <span className="date-span rounded-circle">{index + 1}</span>
+                      <span className="date-span rounded-circle">
+                        {index + 1}
+                      </span>
                     </div>
                     <div className="col-9">
                       <span className="theme-color f-18">{item.time}</span>
                       <h6 className="standard">
                         Day {index + 1}: {item.title}
-                    </h6>
+                      </h6>
 
-                      <span className="description">
-                        {item.activities}
-                      </span>
+                      <span className="description">{item.activities}</span>
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -329,7 +338,7 @@ export default function Tour() {
                 />
                 <div className="help-block with-errors"></div>
               </div>
-            
+
               <div className="form-group">
                 <textarea
                   name="message"
@@ -347,20 +356,14 @@ export default function Tour() {
                 <div className="help-block with-errors"></div>
               </div>
 
-
               <div className="form-group">
+                <h6>Payment Summary :</h6>
+                <br />
 
-<h6>Payment Summary :</h6>
-<br/>
-
-                <p>
-                 Tour Price : Rs {tripDetails.price  } 
-                </p>
+                <p>Tour Price : Rs {tripDetails.price}</p>
                 <p>Total Persons : {people} persons</p>
-<p>Total Price : Rs {tripDetails.price * people}</p>
-
+                <p>Total Price : Rs {tripDetails.price * people}</p>
               </div>
-
 
               <div className="text-center">
                 <button
@@ -376,48 +379,52 @@ export default function Tour() {
           </div>
         </div>
 
-
         <div className="mt-5">
           <div className="container">
             <h2 className="mb-4 font-weight-bold">Gallery</h2>
-            <div class="owl-carousel">
+            <Slider {...settings}>
+              
               {tripDetails.images.map((item, index) => {
-                console.log(index)
+                //console.log(index)
                 return (
-                  <div className="item" key={index}>link
-                    <img src={item} className='gallery-image' />
-                  
+                  <div  key={index}>
+                    <img src={item} className="gallery-image" />
                   </div>
-                )
+                );
               })}
-
-
-            </div>
+            </Slider>
           </div>
         </div>
 
         <div className="mt-5">
           <div className="row ">
             <div className="col-lg-6 col-md-8  comment-reply">
-              <form id="commentForm" className="comment-form shadow-sm p-3  bg-white rounded m-auto">
+              <form
+                id="commentForm"
+                className="comment-form shadow-sm p-3  bg-white rounded m-auto"
+              >
                 {tripDetails.testimonial.map((item, index) => {
                   return (
                     <ol className="comment-list" key={index}>
                       <li className="comment">
                         <div className="comment-body">
                           <div className="comment-author">
-                            <img src={"/assets/img/blog/author1.jpg" || item.reviewBy.profileImg} alt="demo" />
+                            <img
+                              src={
+                                "/assets/img/blog/author1.jpg" ||
+                                item.reviewBy.profileImg
+                              }
+                              alt="demo"
+                            />
                           </div>
                           <div className="comment-content">
                             <div className="comment-metadata">
                               <h4 className="name">{item.reviewBy.name}</h4>
                             </div>
-                            <p>
-                              {item.reviewContent}</p>
+                            <p>{item.reviewContent}</p>
                             <ul className="list">
                               {/* <li><i className='bx bx-heart'></i>Likes</li> */}
                               {/* <li onClick={()=>setShowReplies(!showReplies)}><i className='bx bx-reply' ></i>Reply</li> */}
-
                             </ul>
                           </div>
                         </div>
@@ -443,10 +450,11 @@ Send
 </ol> */}
                       </li>
                     </ol>
-
-                  )
+                  );
                 })}
-                <h2 className="sub-title mb-4 font-weight-bold">Share Review</h2>
+                <h2 className="sub-title mb-4 font-weight-bold">
+                  Share Review
+                </h2>
                 <div className="row">
                   <div className="col-sm-12 col-lg-8 col-xs-12">
                     <Rating
@@ -458,28 +466,42 @@ Send
                       max={10}
                     />
                     <div className="input-group">
-                      <div className="input-icon textarea"><i className='bx bx-envelope'></i></div>
-                      <textarea name="message"
+                      <div className="input-icon textarea">
+                        <i className="bx bx-envelope"></i>
+                      </div>
+                      <textarea
+                        name="message"
                         onChange={(e) => setPostComment(e.target.value)}
                         className="form-control"
                         disabled={!isAuth}
-                        placeholder="Write Comment" required="required" rows="6"></textarea>
+                        placeholder="Write Comment"
+                        required="required"
+                        rows="6"
+                      ></textarea>
                     </div>
                   </div>
                 </div>
 
-                {isAuth ? ( <button type="submit" className="btn-primary"
-                  onClick={postMyComment}>
-                  Post Review </button>) : ( <Link to="/sign-in"><button  className="btn-primary"
-                  onClick={postMyComment}>
-                  LOGIN </button></Link>)}
-               
+                {isAuth ? (
+                  <button
+                    type="submit"
+                    className="btn-primary"
+                    onClick={postMyComment}
+                  >
+                    Post Review{" "}
+                  </button>
+                ) : (
+                  <Link to="/sign-in">
+                    <button className="btn-primary" onClick={postMyComment}>
+                      LOGIN{" "}
+                    </button>
+                  </Link>
+                )}
               </form>
-         <br/>
+              <br />
             </div>
           </div>
         </div>
-
       </div>{" "}
     </section>
   );
