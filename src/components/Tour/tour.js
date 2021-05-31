@@ -246,7 +246,7 @@ export default function Tour() {
                     <div className="col-9">
                       <span className="theme-color f-18">{item.time}</span>
                       <h6 className="standard">
-                        Day {index + 1}: Arrive South Africa Forest
+                        Day {index + 1}: {item.title}
                     </h6>
 
                       <span className="description">
