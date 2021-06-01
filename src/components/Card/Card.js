@@ -32,11 +32,7 @@ export default function Card({ cardItem }) {
             </span>
           </div>
 
-          <div className="col-12 mb-2">
-            <span className="weight-6 text-justify card-description-text">
-              {cardItem.description}
-            </span>
-          </div>
+         
   
           <div className="col-12 col-md-8 m-auto p-1">
             <Link to={`/destination/${cardItem._id}`}>

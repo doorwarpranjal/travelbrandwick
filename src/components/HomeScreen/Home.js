@@ -5,10 +5,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 import RCard from "../Card/RatedCard";
 import Card from "../Card/Card";
-import { TextField } from "@material-ui/core";
+import { MenuItem, Select, TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import Testimonial from "../Testimonials/Testimonial";
 import Slider from "react-slick";
+import { Form } from "react-bootstrap";
 
 
 
@@ -36,12 +37,24 @@ export default function Home() {
       res.data.forEach((element) => {
         if (element.tourPlace) {
           array.push(element.tourPlace);
+         
         }
       });
+      res.data.forEach((element) => {
+        if (element.location) {
+          array.push(element.location);
+        }
+      });
+      let a;
+      res.data.forEach((element) => {
+        if (element.keywords.length>0) {
+          array=[...array,...element.keywords]
+        }
+        console.log(a)
+      });
       setkeyValues(array);
-      //console.log(array)
 
-      console.log(allTours);
+     // console.log(allTours);
     } else {
       console.log("empty");
     }
@@ -100,8 +113,32 @@ export default function Home() {
                 <h1 className="homepage-cta-heading">Best destinations for the one who love travelling !</h1>
 
                 <div className="d-flex align-items-center justify-content-center homepage-searchbar-div">
-                  <input className="homepage-searchbox-input" placeholder="Type destination here...." />
-                  <button className="cta-button-search">Search</button>
+              
+                 <Autocomplete
+                      style={{ width: "100%" }}
+                      id="fixed-tags-demo"
+                      options={keyValues}
+                       onChange={(e,value)=>{
+console.log(value)
+                       }}
+                      //  getOptionLabel={(option) => option.name}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          className=" choosing-option-autocomplete"
+                          variant="standard"
+                          label="Search"
+                          placeholder="Select Tour by name and Keywords"
+                        />
+                      )}
+                    />{" "} 
+    <button className="cta-button-search">Search</button>
+        
+     
+  
+               
+                  {/* <input className="homepage-searchbox-input" placeholder="Type destination here...." />
+                   */}
                 </div>
 
               </div>

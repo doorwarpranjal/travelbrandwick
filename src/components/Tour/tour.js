@@ -202,7 +202,7 @@ export default function Tour() {
                   <i class="far fa-clock"></i> {tripDetails.tourDuration}
                 </div>
                 <div className="col-4 border-right">
-                  <i class="fas fa-percentage "></i> Discount
+                
                 </div>
                 <div className="col-4 ">
                   <i class="far fa-user "></i> Age 15+
@@ -255,10 +255,10 @@ export default function Tour() {
                       </span>
                     </div>
                     <div className="col-9">
-                      <span className="theme-color f-18">{item.time}</span>
                       <h6 className="standard">
                         Day {index + 1}: {item.title}
                       </h6>
+                      <span className="theme-color f-18">{item.time}</span>
 
                       <span className="description">{item.activities}</span>
                     </div>
