@@ -99,7 +99,24 @@ let history=useHistory()
       }
     }]
   };
-
+  const settingscat = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: true,
+    responsive: [{
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 1,
+        arrows: true,
+      }
+    }]
+  };
   return (
     <div>
       <section id="hero">
@@ -351,7 +368,7 @@ let history=useHistory()
 
         {/* ======================== Start Choose tours by category section  ======================== */}
 
-        {/* <section id="tours" className="recent-tours-section pt-100 pb-70">
+         {/* <section id="tours" className="recent-tours-section pt-100 pb-70">
         <div className="container">
           <div className="section-title">
             <h2>Choose By Category</h2>
@@ -361,7 +378,8 @@ let history=useHistory()
               world with new eyes.
             </p>
           </div>
-          <div className="owl-carousel">
+          <Slider className="row ml-auto mr-auto card-row" {...settingscat}>
+
             {categories.map((item, index) => {
               return (
                 <div className="item-single mb-30">
@@ -394,10 +412,10 @@ let history=useHistory()
                 </div>
               );
             })}{" "}
-          </div>
+          </Slider>
         </div>
       </section>
-      */}
+       */}
         {/* ======================== End of choose tours by category section ======================== */}
 
 

@@ -1,6 +1,6 @@
-//import './Navbar.css'
-import { Link } from "@material-ui/core";
+
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from "../Navbar/logo1.png";
 import "../Navbar/Navbar.css";
 
@@ -31,12 +31,12 @@ export default function Footer() {
                   </p>
                 </div>
               </div>
-             <div className="col-lg-4  col-sm-6 col-12">
+             <div className="col-lg-4  col-sm-6 col-12" style={{cursor:'grab'}}>
                 <div className="footer-widget">
                   <h5>Quick Links</h5>
                   <ul className="footer-links">
-                    <li>
-                      <Link to="/about-us" className="nav-link">
+                    <li style={{cursor:'pointer'}}>
+                      <Link  to="/about-us" className="nav-link">
                         About
                       </Link>
                     </li>

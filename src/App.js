@@ -34,9 +34,6 @@ function App() {
     }else{
       return setNavbarOnHomePage(false)
     }
-    return () => {
-    
-    };
   }, []);
 
 
@@ -45,10 +42,7 @@ function App() {
       <Router>
     
         <ScrollToTop/>
-   
-
         <Navbar isNavbarOnHomepage={isNavbarOnHomepage} />
-
         <Switch>
           <Route path="/" exact component={Home} />
         
@@ -72,8 +66,8 @@ function App() {
 
           <Route path="*" component={NotFound} />
         </Switch>
-      </Router>
       <Footer />
+      </Router>
     </div>
   );
 }
