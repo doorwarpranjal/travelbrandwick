@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { getAllTours } from "../../API";
 import {Autocomplete, Pagination} from '@material-ui/lab'
 import Card from "../Card/Card";
@@ -11,8 +11,12 @@ export default function Destination() {
   const [pageValue,setPageValue]=useState(0)
   const [pageNumber,setPageNumber]=useState(1)
   const [searchTerm,setsearchTerm]=useState("")
-
+let location=useLocation()
+console.log(location)
   useEffect(() => {
+    if(location.state){
+      setsearchTerm(location.state)
+    }
     getTours();
   }, [1]);
 
@@ -71,10 +75,23 @@ export default function Destination() {
           <h2>All Trips & Tours</h2>
           <div className="container">
 
+
 <div className="row">
   <div className="col-lg-8 mx-auto">
-  <TextField id="outlined-basic" style={{width:'100%'}} label="Type name of Destination" variant="outlined" onChange={(e)=>setsearchTerm(e.target.value)} />
- 
+    
+  <TextField id="outlined-basic"
+  className="homepage-searchbox-input"
+   style={{width:'100%'}} label="Search"
+   variant='outlined'
+    onChange={(e)=>setsearchTerm(e.target.value)} />
+  </div>
+  <br/>
+  <div className='m-auto col-12 text-center mt-10'>
+
+  {searchTerm ?<><br/>
+<br/>
+<br/><h4>Showing Result of {searchTerm}</h4></>:null}
+  {!allTours.length>0 ?<h4>No Result Found</h4>:null}
   </div>
 </div>
          
@@ -116,13 +133,13 @@ export default function Destination() {
                 
               })
             .map((item, index) => {
-              
                 return (
                   <div className="col-lg-3 col-md-6 col-sm-12 mt-4" key={index}>
                   <Card cardItem={item} />
                     </div>   );
               
             })}{" "}
+           
           </div>
         </div>
       </section>

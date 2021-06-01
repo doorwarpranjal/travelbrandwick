@@ -198,13 +198,11 @@ export default function Tour() {
 
             <div className=" mt-3">
               <div className="table text-center row  rounded-lg">
-                <div className="col-4  border-right">
+                <div className="col-6  border-right">
                   <i class="far fa-clock"></i> {tripDetails.tourDuration}
                 </div>
-                <div className="col-4 border-right">
-                
-                </div>
-                <div className="col-4 ">
+           
+                <div className="col-6 ">
                   <i class="far fa-user "></i> Age 15+
                 </div>
               </div>
@@ -258,7 +256,9 @@ export default function Tour() {
                       <h6 className="standard">
                         Day {index + 1}: {item.title}
                       </h6>
+                   
                       <span className="theme-color f-18">{item.time}</span>
+                      <br/>
 
                       <span className="description">{item.activities}</span>
                     </div>

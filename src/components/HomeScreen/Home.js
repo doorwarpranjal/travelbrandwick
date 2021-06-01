@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./Home.css";
 import { getAllTours, getCatgories, getTopRatedTours } from "../../API";
 import { useEffect } from "react";
@@ -14,7 +14,7 @@ import { Form } from "react-bootstrap";
 
 
 export default function Home() {
-
+let history=useHistory()
   const [topRatedTours, setTopRatedTours] = useState([]);
   const [allTours, setAllTours] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -80,7 +80,7 @@ export default function Home() {
       console.log("not result ");
     }
   };
-
+  const [searchTerm,setsearchTerm]=useState("")
   const settings = {
     dots: true,
     infinite: true,
@@ -102,8 +102,6 @@ export default function Home() {
 
   return (
     <div>
-
-
       <section id="hero">
         <div id="home" className="home-banner-area home-style-two">
           <div className="container-fluid p-1 homesection-banner">
@@ -113,30 +111,26 @@ export default function Home() {
                 <h1 className="homepage-cta-heading">Best destinations for the one who love travelling !</h1>
 
                 <div className="d-flex align-items-center justify-content-center homepage-searchbar-div">
-              
-                 <Autocomplete
-                      style={{ width: "100%" }}
-                      id="fixed-tags-demo"
-                      options={keyValues}
-                       onChange={(e,value)=>{
-console.log(value)
-                       }}
-                      //  getOptionLabel={(option) => option.name}
-                      renderInput={(params) => (
-                        <TextField
-                          {...params}
-                          className=" choosing-option-autocomplete"
-                          variant="standard"
-                          label="Search"
-                          placeholder="Select Tour by name and Keywords"
-                        />
-                      )}
-                    />{" "} 
-    <button className="cta-button-search">Search</button>
+             
+    <input type="text" list="cars" className="homepage-searchbox-input" onChange={(e)=>setsearchTerm(e.target.value)} />
+<datalist id="cars">
+{
+           
+            keyValues.map((item, index) => {
+                return (
+               <option>{item}</option>
+                )
+            })}{" "}
+</datalist>
+ 
+    <button className="cta-button-search" onClick={()=>{
+      history.push({
+        pathname:'/destinations',
+        search:searchTerm,
+        state:searchTerm
+      })
+    }}>Search</button>
         
-     
-  
-               
                   {/* <input className="homepage-searchbox-input" placeholder="Type destination here...." />
                    */}
                 </div>
