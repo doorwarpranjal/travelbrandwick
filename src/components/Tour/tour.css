@@ -7,7 +7,10 @@
     
   }
   
-  
+  .span-modal-body{
+    font-size: 15px;
+    padding: 20px !important;
+  }
   
   #heroTour .tour-bg{
     position: relative;
@@ -50,6 +53,25 @@
       border-radius: 4px;
       z-index: 1;
       box-shadow: 0px 15px 25px 0px rgb(255 124 91 / 30%);
+      transition: all 500ms ease;
+      border: none;
+    }
+    .modal-btn{
+      width: 100%;
+      background: transparent;
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      font-size: 16px;
+      line-height: 25px;
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+    
+     font-weight: 600;
+      padding: 12.5px 20.5px;
+      border-radius: 4px;
+      z-index: 1;
+      color: #332c55;
       transition: all 500ms ease;
       border: none;
     }

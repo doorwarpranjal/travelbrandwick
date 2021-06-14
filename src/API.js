@@ -3,7 +3,12 @@ import axios from "axios";
 const base_url = "https://travel-web-user.herokuapp.com";
 const admin_url = "https://travel-web-admin.herokuapp.com";
 const localData = JSON.parse(localStorage.getItem("recoil-persist"));
-
+let token=""
+if(localData.Travel_user){
+  if(localData.Travel_user.userToken){
+    token=localData.Travel_user.userToken
+  }
+}
 export const Login = async (userData) => {
   const res = await axios
     .post(`${base_url}/signin`, userData)
@@ -116,7 +121,7 @@ export const getTourById = async (data) => {
 export const postComment = async (tourId, data) => {
   const res = await axios
     .post(`${base_url}/add-testimonial-to-tour/${tourId}`, data, {
-      headers: { Authorization: `${localData.Travel_user.userToken}` },
+      headers: { Authorization: `${token}` },
     })
     .then((response) => {
       return response;
@@ -169,7 +174,7 @@ export const postOrder = async (data) => {
     .post(`${base_url}/postOrder`, data, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: localData.Travel_user.userToken,
+        Authorization: token,
       },
     })
     .then((response) => {
@@ -209,7 +214,7 @@ export const getTourByCatgories = async (data) => {
 export const getMyProfile = async (data) => {
   const res = await axios
     .get(`${base_url}/getMyProfile`,{
-      headers: { Authorization: `${localData.Travel_user.userToken}` },
+      headers: { Authorization: token },
     })
     .then((response) => {
       return response;
@@ -220,3 +225,33 @@ export const getMyProfile = async (data) => {
     });
   return res;
 };
+export const getTrending =async ()=>{
+  const res = await axios
+    .get(`${admin_url}/trendingTours`,{
+      headers: { Authorization: token },
+    })
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log(err.response);
+      return err;
+    });
+  return res;
+
+}
+export const getCategoryWise =async ()=>{
+  const res = await axios
+    .get(`${admin_url}/getAllTourByCategory`,{
+      headers: { Authorization: token },
+    })
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log(err.response);
+      return err;
+    });
+  return res;
+
+}

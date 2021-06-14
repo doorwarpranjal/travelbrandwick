@@ -1,6 +1,12 @@
 import { Link, useHistory } from "react-router-dom";
 import "./Home.css";
-import { getAllTours, getCatgories, getTopRatedTours } from "../../API";
+import {
+  getAllTours,
+  getCategoryWise,
+  getCatgories,
+  getTopRatedTours,
+  getTrending,
+} from "../../API";
 import { useEffect } from "react";
 import { useState } from "react";
 import RCard from "../Card/RatedCard";
@@ -11,16 +17,14 @@ import Testimonial from "../Testimonials/Testimonial";
 import Slider from "react-slick";
 import { Form } from "react-bootstrap";
 
-
-
 export default function Home() {
-let history=useHistory()
+  let history = useHistory();
   const [topRatedTours, setTopRatedTours] = useState([]);
   const [allTours, setAllTours] = useState([]);
   const [categories, setCategories] = useState([]);
   const [keyValues, setkeyValues] = useState([]);
 
-
+  const [categoryWiseTours, setcategoryWiseTours] = useState([]);
 
   useEffect(() => {
     getTours();
@@ -37,7 +41,6 @@ let history=useHistory()
       res.data.forEach((element) => {
         if (element.tourPlace) {
           array.push(element.tourPlace);
-         
         }
       });
       res.data.forEach((element) => {
@@ -47,24 +50,25 @@ let history=useHistory()
       });
       let a;
       res.data.forEach((element) => {
-        if (element.keywords.length>0) {
-          array=[...array,...element.keywords]
+        if (element.keywords.length > 0) {
+          array = [...array, ...element.keywords];
         }
-        console.log(a)
+        console.log(a);
       });
       setkeyValues(array);
 
-     // console.log(allTours);
+      // console.log(allTours);
     } else {
       console.log("empty");
     }
   };
 
-
   const getAllCategories = async () => {
     let res = await getCatgories();
+    let res1 = await getCategoryWise();
+    setcategoryWiseTours(res1.data);
     if (res.status === 200) {
-      console.log(res.data, "categories");
+      console.log(res1, "categories");
       setCategories(res.data);
       console.log(allTours);
     } else {
@@ -72,7 +76,7 @@ let history=useHistory()
     }
   };
   const getTopTours = async () => {
-    let res = await getTopRatedTours();
+    let res = await getTrending();
     if (res.status === 200) {
       // console.log(res.data);
       setTopRatedTours(res.data);
@@ -80,7 +84,7 @@ let history=useHistory()
       console.log("not result ");
     }
   };
-  const [searchTerm,setsearchTerm]=useState("")
+  const [searchTerm, setsearchTerm] = useState("");
   const settings = {
     dots: true,
     infinite: true,
@@ -89,33 +93,67 @@ let history=useHistory()
     slidesToScroll: 1,
     autoplay: true,
     arrows: true,
-    responsive: [{
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        initialSlide: 1,
-        arrows: true,
-      }
-    }]
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   const settingscat = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
     arrows: true,
-    responsive: [{
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        initialSlide: 1,
-        arrows: true,
-      }
-    }]
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <div>
@@ -123,46 +161,46 @@ let history=useHistory()
         <div id="home" className="home-banner-area home-style-two">
           <div className="container-fluid p-1 homesection-banner">
             <div className="row align-items-center justify-content-center">
-              <div className="col-lg-8 col-sm-12 m-auto text-center" >
-
-                <h1 className="homepage-cta-heading">Best destinations for the one who love travelling !</h1>
+              <div className="col-lg-8 col-sm-12 m-auto text-center">
+                <h1 className="homepage-cta-heading">
+                  Best destinations for the one who love travelling !
+                </h1>
 
                 <div className="d-flex align-items-center justify-content-center homepage-searchbar-div">
-             
-    <input type="text" list="cars" className="homepage-searchbox-input" onChange={(e)=>setsearchTerm(e.target.value)} />
-<datalist id="cars">
-{
-           
-            keyValues.map((item, index) => {
-                return (
-               <option>{item}</option>
-                )
-            })}{" "}
-</datalist>
- 
-    <button className="cta-button-search" onClick={()=>{
-      history.push({
-        pathname:'/destinations',
-        search:searchTerm,
-        state:searchTerm
-      })
-    }}>Search</button>
-        
+                  <input
+                    type="text"
+                    list="cars"
+                    className="homepage-searchbox-input"
+                    onChange={(e) => setsearchTerm(e.target.value)}
+                  />
+                  <datalist id="cars">
+                    {keyValues.map((item, index) => {
+                      return <option>{item}</option>;
+                    })}{" "}
+                  </datalist>
+
+                  <button
+                    className="cta-button-search"
+                    onClick={() => {
+                      history.push({
+                        pathname: "/destinations",
+                        search: searchTerm,
+                        state: searchTerm,
+                      });
+                    }}
+                  >
+                    Search
+                  </button>
+
                   {/* <input className="homepage-searchbox-input" placeholder="Type destination here...." />
                    */}
                 </div>
-
               </div>
             </div>
           </div>
 
-
-
-
-
-
           {/* trip search form goes here  */}
-          <div className="container mt-20" style={{ display: 'none' }}>
+          <div className="container mt-20" style={{ display: "none" }}>
             <div className="search-form" style={{ zIndex: 1 }}>
               <form id="searchForm">
                 <div className="row align-items-center m-auto">
@@ -192,34 +230,30 @@ let history=useHistory()
         </div>
         {/* trip search form goes here  */}
 
-
-
-
         <section className="features-section pt-80 pb-70">
-          <section id="top-destination" className="top-destination-section pb-70">
+          <section
+            id="top-destination"
+            className="top-destination-section pb-70"
+          >
             <div className="container-fluid">
               <div className="section-title text-center">
                 <h2>Trending Tours</h2>
                 <p>
                   Travel has helped us to understand the meaning of life and it
-                  has helped us become better people. 
-              </p>
+                  has helped us become better people.
+                </p>
               </div>
 
-
-
               <Slider className="row ml-auto mr-auto card-row" {...settings}>
-
                 {topRatedTours.map((item, index) => {
                   if (index < 16) {
                     return (
                       <div className="col-lg-12 col-sm-12 mt-4" key={index}>
-                        <RCard cardItem={item} />
+                        <Card cardItem={item} />
                       </div>
                     );
                   }
                 })}
-
               </Slider>
             </div>
           </section>
@@ -236,9 +270,9 @@ let history=useHistory()
 
                     <p className="mb-3">
                       Travel has helped us to understand the meaning of life and
-                      it has helped us become better people. Each time we travel,
-                      we see the world with new eyes.
-                  </p>
+                      it has helped us become better people. Each time we
+                      travel, we see the world with new eyes.
+                    </p>
                     <div className="row">
                       <div className="col-lg-6 col-md-6">
                         <div className="content-list">
@@ -280,19 +314,19 @@ let history=useHistory()
                     <div className="about-btn">
                       <Link to="/contact" className="btn-primary">
                         Contact Us
-                    </Link>
+                      </Link>
                       <Link to="/about-us" className="btn-primary">
                         Read More
-                    </Link>
+                      </Link>
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-6" style={{ maxHeight: '80vh' }}>
+                <div className="col-lg-6" style={{ maxHeight: "80vh" }}>
                   <div className="video-content mb-30">
-                    <div className="video-image" >
+                    <div className="video-image">
                       <img
                         loading="lazy"
-                        style={{ maxHeight: '80vh', objectFit: 'cover' }}
+                        style={{ maxHeight: "80vh", objectFit: "cover" }}
                         src="https://s3-ap-southeast-1.amazonaws.com/kesarimedialibrary/wp-content/uploads/2019/04/15093432/Ladakh-Bike-Trip-1.jpg"
                         alt="Ladakh Bike Trip Photo"
                       />
@@ -318,35 +352,28 @@ let history=useHistory()
             <div className="section-title">
               <h2>Popular Destinations</h2>
               <p>
-                Travel has helped us to understand the meaning of life and it has
-                helped us become better people. Each time we travel, we see the
-                world with new eyes.
-            </p>
+                Travel has helped us to understand the meaning of life and it
+                has helped us become better people. Each time we travel, we see
+                the world with new eyes.
+              </p>
             </div>
-<div className='container'>
-
-            <div className="row filtr-container">
-              {allTours.map((item, index) => {
-                if (index < 6) {
-                  return (
-                    <div className="col-lg-4 col-md-6 mt-4" key={index}>
-                      <Card cardItem={item} />
-                    </div>
-                  );
-                }
-              })}{" "}
+            <div className="container">
+              <div className="row filtr-container">
+                {allTours.map((item, index) => {
+                  if (index < 6) {
+                    return (
+                      <div className="col-lg-4 col-md-6 mt-4" key={index}>
+                        <Card cardItem={item} />
+                      </div>
+                    );
+                  }
+                })}{" "}
               </div>
             </div>
           </div>
         </section>
 
-
-
         <Testimonial />
-
-
-
-
 
         <div id="video" className="video-section">
           <div className="container">
@@ -365,90 +392,91 @@ let history=useHistory()
           </div>
         </div>
 
-
         {/* ======================== Start Choose tours by category section  ======================== */}
 
-         {/* <section id="tours" className="recent-tours-section pt-100 pb-70">
-        <div className="container">
-          <div className="section-title">
-            <h2>Choose By Category</h2>
-            <p>
-              Travel has helped us to understand the meaning of life and it has
-              helped us become better people. Each time we travel, we see the
-              world with new eyes.
-            </p>
-          </div>
-          <Slider className="row ml-auto mr-auto card-row" {...settingscat}>
-
-            {categories.map((item, index) => {
-              return (
-                <div className="item-single mb-30">
-                  <div className="image">
-                    <img
-                      src={item.thumbImage}
-                      className="carousel-image"
-                      alt="demo"
-                    />
-                  </div>
-                  <div className="content text-center">
-                    <div className="content ">
-                      <div className="title text-center">
-                        <h3>
-                          <Link to={"/toursbycategory/" + item._id}>
-                            {item.categoryName}
-                          </Link>
-                        </h3>
+        <section id="tours" className="recent-tours-section pt-100 pb-70">
+          <div className="container">
+            <div className="section-title">
+              <h2>Choose By Category</h2>
+              <p>
+                Travel has helped us to understand the meaning of life and it
+                has helped us become better people. Each time we travel, we see
+                the world with new eyes.
+              </p>
+            </div>
+            <Slider className="row ml-auto mr-auto card-row" {...settingscat}>
+              {categories.map((item, index) => {
+                return (
+                  <div className="item-single mb-30">
+                    <div className="image m-3">
+                      <img
+                        src={item.thumbImage}
+                        className="carousel-image"
+                        alt="demo"
+                      />
+                    </div>
+                    <div className="content text-center">
+                      <div className="content ">
+                        <div className="title text-center">
+                          <h3>
+                            <Link to={"/toursbycategory/" + item._id}>
+                              {item.categoryName}
+                            </Link>
+                          </h3>
+                        </div>
                       </div>
                     </div>
+                    <div className="flip-content text-center">
+                      <h3>
+                        <Link to={"/toursbycategory/" + item._id}>
+                          {item.categoryName}
+                        </Link>
+                      </h3>
+                      <hr />
+                    </div>
                   </div>
-                  <div className="flip-content text-center">
-                    <h3>
-                      <Link to={"/toursbycategory/" + item._id}>
-                        {item.categoryName}
-                      </Link>
-                    </h3>
-                    <hr />
-                  </div>
-                </div>
-              );
-            })}{" "}
-          </Slider>
-        </div>
-      </section>
-       */}
+                );
+              })}{" "}
+            </Slider>
+          </div>
+        </section>
+
         {/* ======================== End of choose tours by category section ======================== */}
 
-
-
-
-
         <div className="container">
-          {allTours.length > 6 ? (
-            <>
-              <div className="section-title">
-                <h2>More Tours</h2>
-                <p>
-                  Travel has helped us to understand the meaning of life and it
-                  has helped us become better people. Each time we travel, we see
-                  the world with new eyes.
-              </p>
-              </div>
-              <div className="row filtr-container mb-30">
-                {allTours.map((item, index) => {
-                  if (index > 6 && index < 12) {
-                    return (
-                      <div className="col-lg-4 col-md-6 mt-4" key={index}>
-                        <Card cardItem={item} />
-                      </div>
-                    );
-                  }
-                })}{" "}
-              </div>{" "}
-            </>
-          ) : null}
+          <div className="section-title">
+            <h2>Seasonal Category</h2>
+          </div>
+          {categoryWiseTours.map((item) => {
+            return (
+              <>
+                <div className="section-title">
+                  <h5>{item.categoryName}</h5>
+                </div>
+                <div className="row filtr-container mb-30">
+                  {item.CategoryWise.length > 2
+                    ? item.CategoryWise.reverse()
+                        .slice(3)
+                        .map((element, index) => {
+                          return (
+                            <div className="col-lg-4 col-md-6 mt-4" key={index}>
+                              <Card cardItem={element} />
+                            </div>
+                          );
+                        })
+                    : item.CategoryWise.reverse().map((element, index) => {
+                        return (
+                          <div className="col-lg-4 col-md-6 mt-4" key={index}>
+                            <Card cardItem={element} />
+                          </div>
+                        );
+                      })}
+                </div>{" "}
+              </>
+            );
+          })}
         </div>
       </section>
-
     </div>
   );
 }
