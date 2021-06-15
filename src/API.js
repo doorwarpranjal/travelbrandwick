@@ -4,8 +4,8 @@ const base_url = "https://travel-web-user.herokuapp.com";
 const admin_url = "https://travel-web-admin.herokuapp.com";
 const localData = JSON.parse(localStorage.getItem("recoil-persist"));
 let token=""
-if(localData.Travel_user){
-  if(localData.Travel_user.userToken){
+if(localData){
+  if(localData.Travel_user){
     token=localData.Travel_user.userToken
   }
 }
