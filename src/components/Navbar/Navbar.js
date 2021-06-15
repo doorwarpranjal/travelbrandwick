@@ -14,6 +14,7 @@ export default function Navbar({isNavbarOnHomepage}) {
 
 useEffect(()=>{
 if(myUser.userToken){
+  console.log(myUser)
   setIsAuth(true)
 }
 else{
@@ -41,13 +42,16 @@ else{
                     alt="logo"
                   />
                 </Link>
-              </div>
+              </div> {isAuth ? 
+                    
               <div className="cart responsive">
+                
                 <Link to="/cart" className="cart-btn">
                   <i className="bx bx-cart"></i>
                   <span className="badge">0</span>
                 </Link>
               </div>
+              :null}
             </div>
           </div>
         </div>

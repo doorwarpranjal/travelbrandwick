@@ -170,6 +170,8 @@ export default function Tour() {
       if (res.status === 200) {
         // console.log(res.data);
         // setTripDetails(res.data)
+        alert('Posted')
+        getTourByTourId(parsms.id);
       } else {
         console.log(res.response);
       }
@@ -349,7 +351,7 @@ export default function Tour() {
             <div className="mt-5">
               <h2 className="mb-4 font-weight-bold">Tour Plan</h2>
 
-              {tripDetails.generalInfo.map((item, index) => {
+              {tripDetails.generalInfo && tripDetails.generalInfo.map((item, index) => {
                 return (
                   <div className="row mt-4 pb-4 ">
                     <div className="col-3 ">
@@ -421,7 +423,7 @@ export default function Tour() {
           <option value="">
             Choose Date
           </option>
-          {tripDetails.dates.map(item=>{
+          {tripDetails.dates && tripDetails.dates.map(item=>{
             return(
 
               <option value={item}>{item}</option>
@@ -488,7 +490,7 @@ export default function Tour() {
           <div className="container">
             <h2 className="mb-4 font-weight-bold">Gallery</h2>
             <Slider {...settings}>
-              {tripDetails.images.map((item, index) => {
+              { tripDetails.images && tripDetails.images.map((item, index) => {
                 //console.log(index)
                 return (
                   <div key={index}>
@@ -507,7 +509,53 @@ export default function Tour() {
                 id="commentForm"
                 className="comment-form shadow-sm p-3  bg-white rounded m-auto"
               >
-                {tripDetails.testimonial.map((item, index) => {
+                 <h2 className="sub-title mb-4 font-weight-bold">
+                  Share Review
+                </h2>
+                <div className="row">
+                  <div className="col-sm-12 col-lg-8 col-xs-12">
+                    <Rating
+                      name="simple-controlled"
+                      value={value}
+                      onChange={(event, newValue) => {
+                        setValue(newValue);
+                      }}
+                      max={10}
+                    />
+                    <div className="input-group">
+                      <div className="input-icon textarea">
+                        <i className="bx bx-envelope"></i>
+                      </div>
+                      <textarea
+                        name="message"
+                        onChange={(e) => setPostComment(e.target.value)}
+                        className="form-control"
+                        disabled={!isAuth}
+                        placeholder="Write Comment"
+                        required="required"
+                        rows="6"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                {isAuth ? (
+                  <button
+                    type="submit"
+                    className="btn-primary"
+                    onClick={postMyComment}
+                  >
+                    Post Review{" "}
+                  </button>
+                ) : (
+                  <Link to="/sign-in">
+                    <button className="btn-primary" >
+                      LOGIN{" "}
+                    </button>
+                  </Link>
+                )}
+                <br/>
+                <div className='mt-4'>
+                { tripDetails.testimonial && tripDetails.testimonial.map((item, index) => {
                   return (
                     <ol className="comment-list" key={index}>
                       <li className="comment">
@@ -556,51 +604,8 @@ Send
                     </ol>
                   );
                 })}
-                <h2 className="sub-title mb-4 font-weight-bold">
-                  Share Review
-                </h2>
-                <div className="row">
-                  <div className="col-sm-12 col-lg-8 col-xs-12">
-                    <Rating
-                      name="simple-controlled"
-                      value={value}
-                      onChange={(event, newValue) => {
-                        setValue(newValue);
-                      }}
-                      max={10}
-                    />
-                    <div className="input-group">
-                      <div className="input-icon textarea">
-                        <i className="bx bx-envelope"></i>
-                      </div>
-                      <textarea
-                        name="message"
-                        onChange={(e) => setPostComment(e.target.value)}
-                        className="form-control"
-                        disabled={!isAuth}
-                        placeholder="Write Comment"
-                        required="required"
-                        rows="6"
-                      ></textarea>
-                    </div>
-                  </div>
-                </div>
-
-                {isAuth ? (
-                  <button
-                    type="submit"
-                    className="btn-primary"
-                    onClick={postMyComment}
-                  >
-                    Post Review{" "}
-                  </button>
-                ) : (
-                  <Link to="/sign-in">
-                    <button className="btn-primary" onClick={postMyComment}>
-                      LOGIN{" "}
-                    </button>
-                  </Link>
-                )}
+               
+              </div>
               </form>
               <br />
             </div>
