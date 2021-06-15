@@ -13,7 +13,7 @@ export default function Navbar({isNavbarOnHomepage}) {
   const [ myUser , setmyUser ] = useRecoilState(userState)
 
 useEffect(()=>{
-if(myUser){
+if(myUser.userToken){
   setIsAuth(true)
 }
 else{
