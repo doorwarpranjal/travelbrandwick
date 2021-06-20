@@ -1,7 +1,10 @@
 import { Star } from "@material-ui/icons";
 import Rating from "@material-ui/lab/Rating";
+import { Modal, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { userState } from "../../Atom";
+import { useRecoilState } from "recoil";
 import {
   getTourById,
   postComment as addTestimonial,
@@ -15,6 +18,7 @@ import "./tour.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { MenuItem, Select } from "@material-ui/core";
 
 const settings = {
   dots: true,
@@ -45,6 +49,26 @@ export default function Tour() {
   const [note, setnote] = useState("");
   const [toastColor, setToastColor] = useState("green");
   const [toastText, setToastText] = useState("");
+  const [myUser, setmyUser] = useRecoilState(userState);
+  const [modalHeading, setmodalHeading] = useState("");
+  const [ListType, setListType] = useState("");
+  const [modalBody, setmodalBody] = useState("");
+  useEffect(() => {
+    if (myUser) {
+      setIsAuth(true);
+    } else {
+      setIsAuth(false);
+    }
+  }, [myUser]);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [showList, setShowList] = useState(false);
+
+  const handleCloseList = () => setShowList(false);
+  const handleShowList = () => setShowList(true);
   const [tripDetails, setTripDetails] = useState({
     images: [],
     generalInfo: [],
@@ -99,7 +123,7 @@ export default function Tour() {
           let data = {
             tripId: tripDetails._id,
             dateOn: tripDate,
-            dateTill: tripTill,
+    
             note: note,
             email: email,
             mobile: mobile,
@@ -133,10 +157,6 @@ export default function Tour() {
 
   useEffect(() => {
     getTourByTourId(parsms.id);
-    let token = JSON.parse(localStorage.getItem("recoil-persist"));
-    if (token) {
-      setIsAuth(true);
-    }
   }, []);
 
   const postMyComment = async (e) => {
@@ -150,6 +170,8 @@ export default function Tour() {
       if (res.status === 200) {
         // console.log(res.data);
         // setTripDetails(res.data)
+        alert('Posted')
+        getTourByTourId(parsms.id);
       } else {
         console.log(res.response);
       }
@@ -173,6 +195,49 @@ export default function Tour() {
   const [people, setPeople] = useState(1);
   return (
     <section id="heroTour">
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title className='text-center'>
+            {modalHeading}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body><div className='container'>
+          <span className='span-modal-body'>
+            {modalBody}
+            </span>
+        </div></Modal.Body>
+      </Modal>{" "}
+      <Modal show={showList} onHide={handleCloseList}>
+        <Modal.Header closeButton>
+          <Modal.Title>{ListType}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {ListType === "Exclusion" ? (
+            <div className='container'>
+
+            <ul>
+              {tripDetails.Exclusion &&
+                tripDetails.Exclusion.map((item, index) => {
+                  return <h6>
+                  <li>{item}</li>
+                  </h6>
+                })}
+            </ul>
+                </div>
+          ) : (
+            <div className='container'>
+
+            <ul>
+              {tripDetails.includes &&
+                tripDetails.includes.map((item, index) => {
+                  return <h6>
+                    <li>{item}</li>
+                    </h6>
+                })}
+            </ul>
+                </div>
+          )}
+        </Modal.Body>
+      </Modal>{" "}
       <Toast color={toastColor} text={toastText} />
       <div
         className="tour-bg mb-6 "
@@ -190,7 +255,7 @@ export default function Tour() {
           </span>
         </div>
       </div>
-      <div className="container-fluid main-container-left-side">
+      <div className="container main-container-left-side">
         <div className="row">
           <div className="col-md-8 col-12 mt-5 ">
             <h2 className="mb-4 font-weight-bold">Overview</h2>
@@ -198,56 +263,98 @@ export default function Tour() {
 
             <div className=" mt-3">
               <div className="table text-center row  rounded-lg">
-                <div className="col-6  border-right">
+                <div className="col-4  border-right">
                   <i class="far fa-clock"></i> {tripDetails.tourDuration}
                 </div>
-           
-                <div className="col-6 ">
+                <div className="col-4 ">Rs. {tripDetails.price}</div>
+                <div className="col-4 border-left">
                   <i class="far fa-user "></i> Age 15+
                 </div>
               </div>
             </div>
 
-            <div className="">
-              <table class="table table-bordered ">
-                <tbody>
-                  <tr>
-                    <th className="standard">Destination:</th>
-                    <th className=" standard f-size">
-                      {tripDetails.tourPlace}
-                    </th>
-                  </tr>
-                  <tr>
-                    <th className="standard">Price:</th>
-                    <th className=" standard f-size">
-                      Rs. {tripDetails.price}{" "}
-                    </th>
-                  </tr>
-                  <tr>
-                    <th className="standard">Discount</th>
-                    <th className=" standard f-size">Applied</th>
-                  </tr>
-                  <tr>
-                    <th className="standard">Inclusions:</th>
-                    <th className="ml-3">
-                      <ul>
-                        {tripDetails.includes &&
-                          tripDetails.includes.map((item, index) => {
-                            return <li>{item}</li>;
-                          })}
-                      </ul>
-                    </th>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="row mt-4">
+              <div className="col-12 col-md-4 d-flex p-2">
+                <button
+                  onClick={() => {
+                    setmodalHeading(" Accomodation");
+                    setmodalBody(tripDetails.Accommodation);
+                    handleShow();
+                  }}
+                  className="modal-btn"
+                >
+                  Accomodation {"   "}
+                  <span className="float-right">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                </button>
+              </div>
+              <div className="col-12 col-md-4 d-flex p-2">
+                <button
+                  onClick={() => {
+                    setmodalHeading("Things To Carry");
+                    setmodalBody(tripDetails.thingsToCarry);
+                    handleShow();
+                  }}
+                  className="modal-btn"
+                >
+                  Things To Carry {"   "}
+                  <span className="float-right">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                </button>
+              </div>
+              <div className="col-12 col-md-4 d-flex p-2">
+                <button
+                  onClick={() => {
+                    setListType("Inclusion");
+                    handleShowList();
+                  }}
+                  className="modal-btn"
+                >
+                  Inclusion
+                  <span className="float-right">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                </button>
+              </div>
+              <div className="col-12 col-md-4 d-flex p-2">
+                <button
+                  onClick={() => {
+                    setListType("Exclusion");
+                    handleShowList();
+                  }}
+                  className="modal-btn"
+                >
+                  Exclusion
+                  <span className="float-right">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                </button>
+              </div>
+              <div className="col-12 col-md-8 d-flex p-2">
+                <button
+                  onClick={() => {
+                    setmodalHeading("Terms And Conditions");
+                    setmodalBody(tripDetails.termsandConditions);
+                    handleShow();
+                  }}
+                  className="modal-btn"
+                >
+                  Terms And Conditions {"   "}
+                  <span className="float-right">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                </button>
+              </div>
             </div>
             <div className="mt-5">
               <h2 className="mb-4 font-weight-bold">Tour Plan</h2>
 
-              {tripDetails.generalInfo.map((item, index) => {
+              {tripDetails.generalInfo && tripDetails.generalInfo.map((item, index) => {
                 return (
-                  <div className="row mt-6">
-                    <div className="col-3 mt-3">
+                  <div className="row mt-4 pb-4 ">
+                    <div className="col-3 ">
                       <span className="date-span rounded-circle">
                         {index + 1}
                       </span>
@@ -256,9 +363,9 @@ export default function Tour() {
                       <h6 className="standard">
                         Day {index + 1}: {item.title}
                       </h6>
-                   
+
                       <span className="theme-color f-18">{item.time}</span>
-                      <br/>
+                      <br />
 
                       <span className="description">{item.activities}</span>
                     </div>
@@ -306,26 +413,26 @@ export default function Tour() {
                 <div className="help-block with-errors"></div>
               </div>
               <div className="form-group  mb-4">
-                <DatePicker
-                  dateFormat="dd/MM/yyyy"
-                  className="form-control"
-                  selected={tripDate}
-                  placeholderText="Trip Start Date"
-                  onChange={(date) => settripDate(date)}
-                />{" "}
-              </div>
-              <div className=" ">
-                <div className="form-group  mb-4">
-                  <DatePicker
-                    dateFormat="dd/MM/yyyy"
-                    className="form-control"
-                    selected={tripTill}
-                    placeholderText="Trip End Date"
-                    onChange={(date) => settripTill(date)}
-                  />{" "}
-                </div>
-              </div>
+              <select
+          labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          className="form-control"
+          value={""}
+          onChange={(e)=>settripDate(e.target.value)}
+        >
+          <option value="">
+            Choose Date
+          </option>
+          {tripDetails.dates && tripDetails.dates.map(item=>{
+            return(
 
+              <option value={item}>{item}</option>
+              )})}
+     
+        </select>
+      
+              </div>
+            
               <div className="form-group  mb-3">
                 <label>Number of Person</label>
                 <input
@@ -383,11 +490,10 @@ export default function Tour() {
           <div className="container">
             <h2 className="mb-4 font-weight-bold">Gallery</h2>
             <Slider {...settings}>
-              
-              {tripDetails.images.map((item, index) => {
+              { tripDetails.images && tripDetails.images.map((item, index) => {
                 //console.log(index)
                 return (
-                  <div  key={index}>
+                  <div key={index}>
                     <img src={item} className="gallery-image" />
                   </div>
                 );
@@ -403,7 +509,53 @@ export default function Tour() {
                 id="commentForm"
                 className="comment-form shadow-sm p-3  bg-white rounded m-auto"
               >
-                {tripDetails.testimonial.map((item, index) => {
+                 <h2 className="sub-title mb-4 font-weight-bold">
+                  Share Review
+                </h2>
+                <div className="row">
+                  <div className="col-sm-12 col-lg-8 col-xs-12">
+                    <Rating
+                      name="simple-controlled"
+                      value={value}
+                      onChange={(event, newValue) => {
+                        setValue(newValue);
+                      }}
+                      max={10}
+                    />
+                    <div className="input-group">
+                      <div className="input-icon textarea">
+                        <i className="bx bx-envelope"></i>
+                      </div>
+                      <textarea
+                        name="message"
+                        onChange={(e) => setPostComment(e.target.value)}
+                        className="form-control"
+                        disabled={!isAuth}
+                        placeholder="Write Comment"
+                        required="required"
+                        rows="6"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                {isAuth ? (
+                  <button
+                    type="submit"
+                    className="btn-primary"
+                    onClick={postMyComment}
+                  >
+                    Post Review{" "}
+                  </button>
+                ) : (
+                  <Link to="/sign-in">
+                    <button className="btn-primary" >
+                      LOGIN{" "}
+                    </button>
+                  </Link>
+                )}
+                <br/>
+                <div className='mt-4'>
+                { tripDetails.testimonial && tripDetails.testimonial.map((item, index) => {
                   return (
                     <ol className="comment-list" key={index}>
                       <li className="comment">
@@ -452,51 +604,8 @@ Send
                     </ol>
                   );
                 })}
-                <h2 className="sub-title mb-4 font-weight-bold">
-                  Share Review
-                </h2>
-                <div className="row">
-                  <div className="col-sm-12 col-lg-8 col-xs-12">
-                    <Rating
-                      name="simple-controlled"
-                      value={value}
-                      onChange={(event, newValue) => {
-                        setValue(newValue);
-                      }}
-                      max={10}
-                    />
-                    <div className="input-group">
-                      <div className="input-icon textarea">
-                        <i className="bx bx-envelope"></i>
-                      </div>
-                      <textarea
-                        name="message"
-                        onChange={(e) => setPostComment(e.target.value)}
-                        className="form-control"
-                        disabled={!isAuth}
-                        placeholder="Write Comment"
-                        required="required"
-                        rows="6"
-                      ></textarea>
-                    </div>
-                  </div>
-                </div>
-
-                {isAuth ? (
-                  <button
-                    type="submit"
-                    className="btn-primary"
-                    onClick={postMyComment}
-                  >
-                    Post Review{" "}
-                  </button>
-                ) : (
-                  <Link to="/sign-in">
-                    <button className="btn-primary" onClick={postMyComment}>
-                      LOGIN{" "}
-                    </button>
-                  </Link>
-                )}
+               
+              </div>
               </form>
               <br />
             </div>

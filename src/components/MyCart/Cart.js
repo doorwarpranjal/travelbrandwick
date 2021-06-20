@@ -1,47 +1,44 @@
 import { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { getAllTours, getMyProfile } from "../../API";
-import {Autocomplete, Pagination} from '@material-ui/lab'
+import { Autocomplete, Pagination } from "@material-ui/lab";
 import Card from "../Card/OrderCard";
 import { TextField } from "@material-ui/core";
 
 export default function Destination() {
   //  const [isAuth, setIsAuth] = useState(true);
-  const localData = JSON.parse(localStorage.getItem('recoil-persist'))
+  const localData = JSON.parse(localStorage.getItem("recoil-persist"));
   const [keyValues, setkeyValues] = useState([]);
   const [allTours, setAllTours] = useState([]);
-  const [pageValue,setPageValue]=useState(0)
-  const [pageNumber,setPageNumber]=useState(1)
+  const [pageValue, setPageValue] = useState(0);
+  const [pageNumber, setPageNumber] = useState(1);
   useEffect(() => {
-  //  getTours();
-    console.log(localData)
-    getProfile()
+    //  getTours();
+    console.log(localData);
+    getProfile();
     // getTopTours();
   }, []);
   const getProfile = async () => {
     let res = await getMyProfile();
     if (res.status === 200) {
-       console.log(res.data);
-     setAllTours(res.data.myOrders)
+      console.log(res.data);
+      setAllTours(res.data.myOrders);
     } else {
       console.log("empty");
     }
   };
-  
-  
+
   return (
     <section id="heroDestination">
-      
-
       <section
         id="top-destination"
         className="top-destination-section pt-100 pb-70 bg-light"
       >
         <div className="container">
-           <div className="section-title">
-          <h2>History</h2>
-          <div className="container">
-          {/* <div className="search-form">
+          <div className="section-title">
+            <h2>History</h2>
+            <div className="container">
+              {/* <div className="search-form">
             <form id="searchForm">
               <div className="row align-items-center m-auto">
               <div className="col-1 col-md-3 ">
@@ -72,31 +69,30 @@ export default function Destination() {
               </div>
             </form>
           </div> */}
-        </div> 
-    
+            </div>
+
             {/* <p>
               Travel has helped us to understand the meaning of life and it has
               helped us become better people. Each time we travel, we see the
               world with new eyes.
             </p> */}
-          </div> 
+          </div>
           <div className="row">
-              {allTours.length<=0?<h3> Looks Like Your My Order is empty</h3>:
-            allTours.map((item, index) => {
-            
-                  console.log(item)
-                  //console.log(item)
-                    return (
-                        <div className="col-lg-4 col-md-6 mt-4" key={index}>
-                  <Card cardItem={item.orderId} />
-                    </div>   );
-              
-            })}{" "}
-        
+            {allTours.length === 0 ? (
+              <h3> Looks Like Your My Order is empty</h3>
+            ) : (
+              allTours &&
+              allTours.map((item, index) => {
+                return (
+                  <div className="col-lg-4 col-md-6 mt-4" key={index}>
+                    <Card cardItem={item.orderId} />
+                  </div>
+                );
+              })
+            )}{" "}
           </div>
         </div>
       </section>
-
     </section>
   );
 }

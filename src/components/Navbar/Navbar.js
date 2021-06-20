@@ -3,19 +3,27 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "./logo1.png";
 import "./Navbar.css";
-
+import {userState} from '../../Atom'
+import { useRecoilState } from "recoil";
 export default function Navbar({isNavbarOnHomepage}) {
   const [isAuth, setIsAuth] = useState(false);
   const localData = JSON.parse(localStorage.getItem("recoil-persist"));
 
 
+  const [ myUser , setmyUser ] = useRecoilState(userState)
 
-
-
+useEffect(()=>{
+if(myUser.userToken){
+  console.log(myUser)
+  setIsAuth(true)
+}
+else{
+  setIsAuth(false)
+}
+},[myUser])
 
   const logoutHandler = () => {
-    localStorage.removeItem("recoil-persist");
-    window.location.reload();
+    setmyUser(null)
   };
   //console.log(localData.Travel_user)
 
@@ -34,13 +42,16 @@ export default function Navbar({isNavbarOnHomepage}) {
                     alt="logo"
                   />
                 </Link>
-              </div>
+              </div> {isAuth ? 
+                    
               <div className="cart responsive">
+                
                 <Link to="/cart" className="cart-btn">
                   <i className="bx bx-cart"></i>
                   <span className="badge">0</span>
                 </Link>
               </div>
+              :null}
             </div>
           </div>
         </div>
